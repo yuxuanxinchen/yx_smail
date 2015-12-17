@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchSong</servlet-name>
+    <servlet-class>com.tian.cotrller.SearchSong</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginDo</servlet-name>
+    <servlet-class>com.tian.cotrller.LoginDo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>insertDo</servlet-name>
+    <servlet-class>com.tian.cotrller.insertDo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WinLoad</servlet-name>
+    <servlet-class>com.tian.cotrller.WinLoad</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ProvingDo</servlet-name>
+    <servlet-class>com.tian.cotrller.ProvingDo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>com.tian.cotrller.AdminLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>indexDo</servlet-name>
+    <servlet-class>com.tian.cotrller.indexDo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>table1Do</servlet-name>
+    <servlet-class>com.tian.cotrller.table1Do</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>SearchSong</servlet-name>
+    <url-pattern>/SearchSong</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginDo</servlet-name>
+    <url-pattern>/LoginDo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>insertDo</servlet-name>
+    <url-pattern>/insertDo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WinLoad</servlet-name>
+    <url-pattern>/WinLoad</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProvingDo</servlet-name>
+    <url-pattern>/ProvingDo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>indexDo</servlet-name>
+    <url-pattern>/indexDo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>table1Do</servlet-name>
+    <url-pattern>/table1Do</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>WinLoad</welcome-file>
+  </welcome-file-list>
+</web-app>
