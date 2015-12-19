@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yx.core.BaseController;
+
 import static com.yx.utils.SysConstant.*;
-import com.yx.entity.User;
-import com.yx.entity.YParamx;
+
+import com.yx.entity.AdminUser;
+import com.yx.entity.YParams;
 import com.yx.service.user.IUserService;
 import com.yx.utils.TmStringUtils;
 /**
@@ -45,18 +47,22 @@ public class LoginController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/logined",method = RequestMethod.POST)
-	public String logined(YParamx yParamx) throws Exception {
-		if (yParamx != null) {
-			if (TmStringUtils.isNotEmpty(yParamx.getAccount())
-					&& TmStringUtils.isNotEmpty(yParamx.getPassword())) {
-				yParamx.setAccount(yParamx.getAccount());
-				yParamx.setPassword(TmStringUtils.md5Base64(yParamx
+	public String logined(YParams yParams) throws Exception {
+		if (yParams != null) {
+			if (TmStringUtils.isNotEmpty(yParams.getUsername())
+					&& TmStringUtils.isNotEmpty(yParams.getPassword())) {
+				yParams.setAccount(yParams.getUsername());
+				yParams.setPassword(TmStringUtils.md5Base64(yParams
 						.getPassword()));
-				User user = userService.getLogin(yParamx);
-				if (user != null) {
-					session.setAttribute(SESSION_USER, user);
-					session.setAttribute(SESSION_USER_USERNAME,
-							user.getUsername());
+			 AdminUser adminUser = userService.getLogin(yParams);
+				if (adminUser != null) {
+					if(adminUser.getForbiden()==0){
+						return "forbiden";
+					}else{
+						session.setAttribute(SESSION_USER, adminUser);
+						session.setAttribute(SESSION_USER_USERNAME,
+								adminUser.getUsername());
+					}
 					return "SUCCESS";
 				} else {
 					return "fail";

@@ -3,11 +3,10 @@ import static com.yx.utils.SysConstant.SESSION_USER;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import com.yx.entity.AdminUser;
 
-import com.yx.entity.User;
 /**
  * 
  * Simple to Introduction  
@@ -26,7 +25,7 @@ public class LoginIntercetor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		User user =(User)request.getSession().getAttribute(SESSION_USER);
+		AdminUser user =(AdminUser)request.getSession().getAttribute(SESSION_USER);
 		if(user!=null){
 			return true;
 		}else{

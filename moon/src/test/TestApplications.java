@@ -10,8 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yx.dao.user.IUserMapper;
-import com.yx.entity.User;
-import com.yx.entity.YParamx;
 import com.yx.service.user.IUserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,12 +37,12 @@ public class TestApplications{
 //			System.out.println(dataSource);
 //			IUserMapper uMapper =  context.getBean(IUserMapper.class);
 			
-			YParamx yParamx = new YParamx();
-			yParamx.setId(1);
-			yParamx.setAccount("keke");
-			yParamx.setPassword("4QrcOUm6Wau+VuBX8g+IPg==");
-			User user = userService.getLogin(yParamx);
-			System.out.println(user.getUsername());
+////			YParamx yParamx = new YParamx();
+//			yParamx.setId(1);
+//			yParamx.setAccount("keke");
+//			yParamx.setPassword("4QrcOUm6Wau+VuBX8g+IPg==");
+//			User user = userService.getLogin(yParamx);
+//			System.out.println(user.getUsername());
 			
 		}
 		

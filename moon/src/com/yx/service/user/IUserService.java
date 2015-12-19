@@ -1,7 +1,7 @@
 package com.yx.service.user;
 
-import com.yx.entity.User;
-import com.yx.entity.YParamx;
+import com.yx.entity.AdminUser;
+import com.yx.entity.YParams;
 
 /**
  * 
@@ -29,6 +29,6 @@ public interface IUserService {
 	 * @Date:[2014-下午7:39:49]  
 	 * @throws  
 	 */
-	public User getLogin(YParamx yparams) throws Exception;
+	public AdminUser getLogin(YParams yparams) throws Exception;
 	
 }

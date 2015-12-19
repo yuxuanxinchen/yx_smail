@@ -1,7 +1,7 @@
 package com.yx.dao.user;
 
-import com.yx.entity.User;
-import com.yx.entity.YParamx;
+import com.yx.entity.AdminUser;
+import com.yx.entity.YParams;
 
 /**
  * 
@@ -28,6 +28,6 @@ public interface IUserMapper {
 	 * @Date:[2014-下午7:39:08]  
 	 * @throws  
 	 */
-	public User getLogin(YParamx yparams) throws Exception;
+	public AdminUser getLogin(YParams yparams) throws Exception;
 	
 }

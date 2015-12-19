@@ -129,13 +129,21 @@
 	          user_login();
 	         }
 	      });
+	      
+	      $("#account").keyup(function(){
+	          tzMap.put("yx_account_",$(this).val(),1);
+	      });
+	      var username = tzMap.get("yx_account_",1);
+	      $("#account").val(username);
+	      
 	   });
 	  
 	      function user_login(obj){
-	        var account = $("#account").val();
+	       
+	        var username = $("#account").val();
 	        var password = $("#password").val();
 	        var params = {
-	           "account":account,
+	           "username":username,
 	           "password":password
 	        }
 	       $.ajax({
@@ -144,14 +152,17 @@
 	         data:params,
 	         success:function(data){
 	           if(data=="error" || data == "null"){
-	              alert("请填写帐号或者密码");
+	             loading("请填写帐号和密码")
 	              $("#account").select();
 	              $("#password").val("");
 	           }else if(data=="fail"){
 	               $("#password").val();
 	               $("#account").select();
-	               alert("请输入正确的帐号和密码");
-	           }else{
+	               loading("邮箱或者密码错误")
+	              
+	           }else if(data=="forbiden") {
+					loading("该用户禁止登录")
+	            }else{
 	                window.location.href="${basePath}admin/index"
 	            }
 	         }

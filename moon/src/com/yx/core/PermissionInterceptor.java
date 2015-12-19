@@ -31,7 +31,7 @@ public class PermissionInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("进来了吗..........");
-		User user =(User)request.getSession().getAttribute("user");
+		AdminUser user =(AdminUser)request.getSession().getAttribute("user");
 		if(user!=null && user.getUsername().equals("keke")){
 			return true;
 		}else{
