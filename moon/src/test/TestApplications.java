@@ -1,6 +1,8 @@
 package test;
 
 
+import java.awt.geom.CubicCurve2D;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -13,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
 import com.yx.dao.user.IUserMapper;
+import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
 import com.yx.entity.YParams;
 import com.yx.service.content.IContentService;
@@ -35,6 +38,23 @@ public class TestApplications{
 		//ApplicationContext context = new  FileSystemXmlApplicationContext("G://WORK_PROJECT//moon//config//spring//applicationContext.xml"); 
 		//G:\WORK_PROJECT\moon\config\spring\applicationContext.xml
 		
+	@Test
+	public void batchUser(){
+		List<AdminUser> adminUsers = new ArrayList<AdminUser>();
+		AdminUser am = new AdminUser();
+		am.setAddress("甘肃省兰州市");
+		am.setId(7);
+		
+		AdminUser am1 = new AdminUser();
+		am1.setId(8);
+		am1.setAddress("吉林省长春市");
+		adminUsers.add(am);
+		adminUsers.add(am1);
+		int count = userService.batchUpdate(adminUsers);
+		System.out.println(count);
+	}
+	
+	
 	@Test
 	public void ContentServiceImplTest(){
 		YParams yParams = new YParams();

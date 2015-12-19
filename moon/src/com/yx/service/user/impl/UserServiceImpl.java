@@ -1,5 +1,7 @@
 package com.yx.service.user.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,16 @@ public class UserServiceImpl implements IUserService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public int saveBatch(List<AdminUser> adminUsers) {
+		return userMapper.saveBatch(adminUsers);
+	}
+
+	@Override
+	public int batchUpdate(List<AdminUser> adminUsers) {
+		return userMapper.batchUpdate(adminUsers);
 	}
 
 }

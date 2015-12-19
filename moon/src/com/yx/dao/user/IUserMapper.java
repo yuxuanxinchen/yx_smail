@@ -1,5 +1,7 @@
 package com.yx.dao.user;
 
+import java.util.List;
+
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
 
@@ -29,5 +31,29 @@ public interface IUserMapper {
 	 * @throws  
 	 */
 	public AdminUser getLogin(YParams yparams) throws Exception;
+	
+	/**
+	 * @Title: saveBatch 
+	 * @Description: 批量保存
+	 * @param adminUsers
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午6:16:10]  
+	 * @throws  
+	 */
+	public int saveBatch(List<AdminUser> adminUsers);
+	
+	/**
+	 * @Title: batchUpdata 
+	 * @Description: 批量更新
+	 * @param adminUsers
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午6:16:19]  
+	 * @throws  
+	 */
+	public int batchUpdate(List<AdminUser> adminUsers);
 	
 }

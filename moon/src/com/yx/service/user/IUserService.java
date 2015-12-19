@@ -1,5 +1,7 @@
 package com.yx.service.user;
 
+import java.util.List;
+
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
 
@@ -30,5 +32,29 @@ public interface IUserService {
 	 * @throws  
 	 */
 	public AdminUser getLogin(YParams yparams) throws Exception;
+	
+	/**
+	 * @Title: saveBatch 
+	 * @Description: 批量保存
+	 * @param adminUsers
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午6:00:49]  
+	 * @throws  
+	 */
+	public int saveBatch(List<AdminUser> adminUsers) ;
+	
+	/**
+	 * @Title: batchUpdata 
+	 * @Description: 批量更新
+	 * @param adminUsers
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午6:01:28]  
+	 * @throws  
+	 */
+	public int batchUpdate(List<AdminUser> adminUsers);
 	
 }

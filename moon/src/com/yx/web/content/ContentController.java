@@ -30,11 +30,19 @@ public class ContentController {
 	 * @throws  
 	 */
 	@RequestMapping("/list")
-	public ModelAndView list(YParams yParams){
+	public String list(YParams yParams){
+		return "content/list";
+	}
+	
+	
+	@RequestMapping("/template")
+	public ModelAndView template(YParams yParams){
 		List<Content> contents = contentService.findContents(yParams);
+		int count = contentService.countContents(yParams);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("datas", contents);
-		modelAndView.setViewName("content/list");
+		modelAndView.addObject("itemcount", count);
+		modelAndView.setViewName("template/list");
 		return modelAndView;
 	}
 	

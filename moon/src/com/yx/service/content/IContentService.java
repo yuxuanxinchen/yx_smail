@@ -32,4 +32,16 @@ public interface IContentService {
 	 * @throws  
 	 */
 	public List<Content> findContents(YParams yParams);
+	
+	/**
+	 * @Title: countContents 
+	 * @Description:查询总数
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午7:22:44]  
+	 * @throws  
+	 */
+	public int countContents(YParams yParams);
+	
 }

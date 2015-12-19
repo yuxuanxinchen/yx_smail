@@ -1,3 +1,7 @@
 /com/
-/test/
+/db/
+/log4j.properties
+/mybatis-config.xml
+/spring/
 /template/
+/test/

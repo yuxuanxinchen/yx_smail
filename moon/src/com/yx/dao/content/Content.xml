@@ -50,4 +50,19 @@
 		order by ${order}
 		     LIMIT #{pageNo} ,#{pageSize}
 	</select>
+	
+	
+	<select id="countContents" resultType="int"
+		parameterType="com.yx.entity.YParams">
+		SELECT count(1) FROM yx_content
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+		     <if test="@com.yx.utils.TmStringUtils@isNotEmpty(channelId)">
+		         channel_id = #{channelId}
+		     </if>
+		        <if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+		           title LIKE '%${keyword}%'
+		     </if>
+		</trim>
+	</select>
+	
 </mapper>

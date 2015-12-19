@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yx.dao.user.IUserMapper" >
+
+     
 	<select id="getLogin" resultType="com.yx.entity.AdminUser" parameterType="com.yx.entity.YParams">
 		SELECT
 			id,
@@ -12,4 +14,30 @@
 			yx_admin_user
 		WHERE email = #{username} AND password = #{password}
 	</select>
+	
+	
+	
+	<insert id="saveBatch" useGeneratedKeys="true" parameterType="java.util.List">
+	  <selectKey resultType="int" keyProperty="id" order="AFTER">
+	      SELECT LAST_INSERT_ID()
+	  </selectKey>
+	       INSERT INTO yx_admin_user (username,password) VALUES
+	    <foreach collection="list" index="index" item="user" separator=",">
+	         (#{user.username},#{user.password})
+	    </foreach>
+	</insert>
+	
+	
+	<update id="batchUpdate"  parameterType="java.util.List">
+       <foreach collection="list" item="item" index="index"  separator=";">  
+            update yx_admin_user
+			<set>  
+                is_delete = 0
+            </set>   
+            WHERE id = #{item.id}
+      </foreach>
+    </update>
+	
+	
+	
 </mapper>

@@ -10,6 +10,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<%@include file="/WEB-INF/common/common.jsp" %>
+	<script type="text/javascript" src="${basePath}resources/sg/tz_page.js"></script>
  </head>
  <body>
 	<div class="wrap">
@@ -59,7 +60,7 @@
 					 <li class="titems"><a href="${basePath}logout"><i class="fa fa-share-alt"></i>退出</a></li>	
 				</ul>
 				<div class="fr sbtn none">
-					<input type="text" class="fl" placeholder="搜索的关键字..."/><a href="#" class="fl"><i class="fa fa-search "></i></a>
+					<input type="text" class="fl"  placeholder="搜索的关键字..."/><a href="javascript:void(0)"  class="fl"><i class="fa fa-search "></i></a>
 				</div>
 			</div>
 			<div class="channel"> Home > Table</div>
@@ -71,7 +72,7 @@
 						<caption>
 							2015年度一周统计报表数据
 							<div class="fr sbtn">
-								<input type="text" class="fl" placeholder="搜索的关键字..."/><a href="#" class="fl"><i class="fa fa-search "></i></a>
+								<input type="text" class="fl" id="keywords" placeholder="搜索的关键字..."/><a href="javascript:void(0)" onclick="tzAdmin.search(this);" class="fl"><i class="fa fa-search "></i></a>
 							</div>
 						</caption>
 						<!--头部
@@ -96,42 +97,31 @@
 							</tr>
 						</thead>
 						<!--身体部-->
-						<tbody>
-						    <c:forEach var="content" varStatus="contentindex" items="${datas }">
-						    	<tr>
-								<th>${content.id }</th>
-								<th>${content.title } <span class="up"></span> <span class="down"></span></th>	
-								<th>${content.channelId }</th>	
-								<th>${content.userId }</th>	
-								<th class="time_tip" tip="${yx:formatDate(content.createTime,'yyyy-MM-dd HH:mm:ss') }">
-									${yx:timeFormat(content.createTime) }
-								</th>	
-								<th>${content.isTop }</th>	
-								<th>${content.push }</th>	
-								<th>${content.isDelete }</th>	
-								<th>${content.isComment }</th>	
-								<th>${content.status }</th>	
-								<th>操作</th>
-							</tr>
-						    </c:forEach>
+						<tbody id="tbody" data-model="content">
+						     <tr>
+						         <td id="loading" colspan="50"></td>
+						     </tr>
 						</tbody>
 					</table>
+					  	 <div class="cpage"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(function(){
-			$(".nav").find("li.items").find("a").click(function(){
-				var len = $(this).next().length;
-				if(len>0){
-					$(this).next().stop(true,true).slideToggle()
-					.end().parents("li")
-					.addClass("active")
-					.siblings().removeClass("active")
-					.find("ul").slideUp("slow");
-				}
-			});
+	
+	
+			
+			$(".nav").find("li.items").find("a").click(
+					function() {
+						var len = $(this).next().length;
+						if (len > 0) {
+							$(this).next().stop(true, true).slideToggle().end()
+									.parents("li").addClass("active")
+									.siblings().removeClass("active")
+									.find("ul").slideUp("slow");
+						}
+					});
 		});
 	</script>
  </body>
