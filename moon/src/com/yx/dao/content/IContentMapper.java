@@ -32,5 +32,40 @@ public interface IContentMapper {
 	 */
 	public List<Content> findContents(YParams yParams);
 	
-
+     /**
+      * @Title: save 
+      * @Description: 保存
+      * @param content
+      * @return  
+      * @return int 
+      * @Author:[yuxuan]
+      * @Date:[2014-下午5:23:45]  
+      * @throws  
+      */
+	public int save(Content content);
+	
+	/**
+	 * @Title: updata 
+	 * @Description:更新
+	 * @param content
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午5:23:53]  
+	 * @throws  
+	 */
+	public int updata(Content content);
+	
+	/**
+	 * @Title: delete 
+	 * @Description: 删除
+	 * @param Params
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午5:24:05]  
+	 * @throws  
+	 */
+	public int delete(YParams Params);
+	
 }

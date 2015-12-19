@@ -105,14 +105,14 @@
 			<div class="control-group">
 				<div class="controls">
 					<div class="main_input_box">
-						<span class="add-on bg_lg"><i class="fa fa-user"></i></span><input type="text" id="account" autocomplete="off" autofocus="autofocus" maxlength="60" placeholder="请输入账号...">
+						<span class="add-on bg_lg"><i class="fa fa-user"></i></span><input type="text" id="account" autocomplete="off" autofocus="autofocus" maxlength="60" placeholder="请输入账号..." style="color:#666">
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
 				<div class="controls">
 					<div class="main_input_box">
-						<span class="add-on bg_ly"><i class="fa fa-lock"></i></span><input type="password" id="password" autocomplete="off" placeholder="请输入密码...">
+						<span class="add-on bg_ly"><i class="fa fa-lock"></i></span><input type="password" id="password" autocomplete="off" placeholder="请输入密码..." style="color:#666">
 					</div>
 				</div>
 			</div>
