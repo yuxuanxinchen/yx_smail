@@ -45,6 +45,25 @@ public class TmStringUtils {
 		}
 	}
 	
+	/**
+	 * 格式化日期类 com.tz.util 方法名：formatDate 创建人：xuchengfei 手机号码:15074816437
+	 * 时间：2015年9月10日-下午11:01:08
+	 * 
+	 * @param date
+	 * @param pattern
+	 * @return 返回类型：String
+	 * @exception
+	 * @since 1.0.0
+	 */
+	public static String formatDate(Date date, String pattern) {
+		if (date != null) {
+			String dateString = new SimpleDateFormat(pattern).format(date);
+			return dateString;
+		} else {
+			return "";
+		}
+	}
+	
 	public static String listToString(List<String> params, String sepator) {
 		if (params.size() > 0) {
 			StringBuffer buffer = new StringBuffer();
