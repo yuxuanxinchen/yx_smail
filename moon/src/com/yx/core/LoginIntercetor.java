@@ -8,6 +8,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yx.entity.AdminUser;
+import com.yx.service.adminstat.IAdminStatService;
 
 /**
  * 
@@ -24,6 +25,7 @@ import com.yx.entity.AdminUser;
  */
 public class LoginIntercetor implements HandlerInterceptor{
 
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {

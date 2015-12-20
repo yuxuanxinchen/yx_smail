@@ -83,6 +83,7 @@
 
 		var tzAdmin = {
 			timer : null,
+			ltimer:null,
 			initPage : function(itemCount) {
 				$(".cpage").tzPage(itemCount, {
 					num_edge_entries : 1, //边缘页数
@@ -103,7 +104,9 @@
 				var keyword = $("#keywords").val();
 				var $this = this;
 				var model = $("#tbody").data("model");
-				$.ajax({
+				clearInterval(this.ltimer);
+				this.ltimer = setTimeout(function(){
+				  $.ajax({
 					type : "post",
 					beforeSend : function() {
 						loading2($("#tbody"), 4);
@@ -123,6 +126,8 @@
 							callback(itemCount);
 					}
 				});
+				},300);
+				
 			},
 			search : function(key) {
 				var keyword = $("#keywords").val();
@@ -164,7 +169,7 @@
 							;
 						}
 					});
-				}, 200);
+				}, 300);
 			},
 			remove : function(obj) {
 				$.tzConfirm({

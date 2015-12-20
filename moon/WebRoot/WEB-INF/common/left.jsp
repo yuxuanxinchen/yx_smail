@@ -5,13 +5,21 @@
 	</div>
 	<div class="nav">
 		<ul>
-		
 	       	<yx:if test='${yx:indexOf(pageContext.request.requestURI,"content/list")!=-1}'>
 			    <yx:then>
 			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>内容管理</a></li>
 			    </yx:then>
 			    <yx:else>
 			         <li class="items"> <a href="${basePath}admin/content/list"><i class="fa fa-home"></i>内容管理</a></li>
+			    </yx:else>
+			</yx:if>
+			
+			<yx:if test='${yx:indexOf(pageContext.request.requestURI,"adminstat/list")!=-1}'>
+			    <yx:then>
+			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>日志管理</a></li>
+			    </yx:then>
+			    <yx:else>
+			         <li class="items"> <a href="${basePath}admin/adminstat/list"><i class="fa fa-home"></i>日志管理</a></li>
 			    </yx:else>
 			</yx:if>
              

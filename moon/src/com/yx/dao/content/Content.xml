@@ -53,11 +53,11 @@
 			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
 				and title LIKE '%${keyword}%'
 			</if>
-
 		</trim>
 		order by ${order}
 		LIMIT #{pageNo} ,#{pageSize}
 	</select>
+
 
 
 	<select id="countContents" resultType="int" parameterType="com.yx.entity.YParams">
