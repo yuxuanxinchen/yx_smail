@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+		<style type="text/css">
+			*{margin:0 ;padding:0;}
+			body{font-size: 14px;font-family: "微软雅黑";color:#666}
+			.clac{width:830px;height:500px;margin:100px auto;background: #EAEAEA;-webkit-user-select: none;}
+			.clac .s_show .s_text{width:810px;height:42px;border:none;text-align: right;padding-right:20px;font-size: 30px;color:#cecece;outline: none;}
+			.clac h2{-moz-user-select:none;-webkit-user-select:none;font-size: 16px;color:#000;font-weight: 500;padding:12px 0px 12px 20px;cursor: move;}
+			.clac .c_key ul li{-webkit-user-select:none;border:1px solid whitesmoke;cursor:pointer;font-size:30px;list-style-type: none;width:137px;height:65px;float: left;margin:13px;text-align: center;line-height: 65px;}
+			.clac .c_key ul{border:1px solid #fff;overflow:auto;margin:10px auto;}
+		    .clac .c_key ul li:hover{background:#fff;color:#000;}
+		    .clac .c_key ul .c_tool{background:#738fd8;color: #fff;}
+			.clac .c_key ul .c_result{background: greenyellow;color:green}
+			.clac .t_desc{line-height:36px;}
+		</style>
+	</head>
+	<body>
+		
+		<div class="clac">
+			<h2>计算器</h2>
+			<div class="s_show">
+			   <input type="text" class="s_text" onfocus="this.blur()" id="result" value="1"/>				
+			</div>
+			<div class="c_key">
+				<ul>
+					<li onclick="command(7);">7</li>
+				<li onclick="command(8);">8</li>
+				<li onclick="command(9);">9</li>
+				<li class="c_tool">←</li>
+				<li class="c_tool" onclick="clearzero('j');">C</li>
+				<li onclick="command(4);">4</li>
+				<li onclick="command(5);">5</li>
+				<li onclick="command(6);">6</li>
+				<li class="c_tool" onclick="tools('*','g');">×</li>
+				<li class="c_tool" onclick="tools('/','g');">÷</li>
+				<li onclick="command(1);">1</li>
+				<li onclick="command(2);">2</li>
+				<li onclick="command(3);">3</li>
+				<li class="c_tool" onclick="tools('+','g');">+</li>
+				<li class="c_tool" onclick="tools('-','g');" style="font-size:40px">-</li>
+				<li onclick="command(0);">0</li>
+				<li onclick="command(0);">00</li>
+				<li>.</li>
+				<li class="c_tool" onclick="tools('%','g');">%</li>
+				<li class="c_result" onclick="equal('j')" style="font-size: 40px;">=</li>
+			</ul>
+				</ul>
+				
+			</div>
+			<div class="t_desc"></div>
+		</div>
+		
+		
+		<div id="audioBox"></div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script type="text/javascript">
+			
+			var resultDom = document.getElementById("result");
+			
+			//操作符锁
+			var operate = true;
+			
+			//点击算计器键盘执行的操作
+			function command(num){
+				var str = resultDom.value;
+				//如果是0，就用”“填充
+				str= (str=="0"?"":str);
+				//拼接点击数字
+				str += num;
+				//赋值给文本框
+				resultDom.value = str;
+				
+				operate = true;
+				
+				//点击键盘的声音
+				pay(num);
+			}
+			
+			
+			/**
+			 * 播放声音
+			 * @param {Object} num
+			 */
+			function pay(num){
+					
+				var play = document.getElementById("audioBox")
+				play.innerHTML="<embed src='wav/"+num+".wav' width='0' height='0'></embed>";
+					
+				
+			
+			}
+			
+			/**
+			 * 操作符号
+			 * @param {Object} p
+			 * @param {Object} n
+			 */
+			function tools(p,m){
+				if(operate){
+				var num = resultDom.value;
+				num = (num=="0"?"":num);
+				//拼接操作符
+				resultDom.value = num+p;
+				operate = false;
+					
+				}
+				
+				pay(m);
+			}
+			
+			
+			/**
+			 * 计算
+			 * @param {Object} m
+			 */
+			function equal(m){
+				var result = resultDom.value;
+//				dinx(result);
+				var r = eval(result);
+				resultDom.value= r;
+				pay(m);
+	
+			}
+			
+			/**
+			 * 清空
+			 */
+			function clearzero(m){
+				resultDom.value=0;
+				pay(m);
+			}
+			
+//			
+//			function dinx(obj){
+//				var st = obj.substring(0,1);
+//			    if(st=="*" || st=="/" || st=="+" st=="-"){
+//			    alert(3)
+//			    }
+//			    alert(3);
+//			    
+//			}
+			
+			
+		</script>
+	</body>
+</html>

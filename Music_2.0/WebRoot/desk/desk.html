@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>桌面级便签</title>
+		<link rel="stylesheet" href="css/animate.css" />
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{background: url(img/bg.jpg) no-repeat top center;font-family: "微软雅黑";font-size: 14px;color:#666;}
+			.desk{width:200px;background:#fff;box-shadow: 3px 4px 5px #141414;display: none;position: absolute;z-index: 99999;}
+			.desk ul li{border-bottom:1px solid #E4E4E4;list-style:none;line-height:34px;font-size:14px;padding-left:20px;}
+			.desk ul li:hover{background:#647E7C;color:#fff;}
+			
+			.text{font-size:30px;color:#fff;}
+			.tz_box{position:relative;}
+			.tz_box .b_list{width:294px;height:310px;position:absolute;left:300px;top:200px;z-index:1;}
+			.tz_box .b_list .b_content{width:256px;height:220px;position:absolute;top:60px;left:16px;outline:none;font-size:20px;line-height:30px;}
+			.tz_box .b_list .b_timer{position:absolute;bottom:15px;right:10px;font-size:14px;}
+
+
+		</style>
+	</head>
+	<body>
+		
+		<div class="desk">
+			<ul>
+				<li>新建文件夹</li>
+				<li onclick="menu(2)">添加便签</li>
+				<li onclick="menu(3)">清空便签</li>
+				<li>刷新</li>
+				<li>上传资料</li>
+				<li>更换背景</li>
+				<li>注销</li>
+			</ul>
+		</div>
+		
+		
+		<p class="text"></p>
+
+	<div class="tz_box"></div>
+	</body>
+</html>

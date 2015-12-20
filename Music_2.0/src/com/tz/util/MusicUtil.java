@@ -69,11 +69,5 @@ public class MusicUtil {
 		
 	}
 	
-	// java入口
-	public static void main(String[] args){
-		
-		System.out.println("亲爱的同学们，大家晚上好！ 我爱你们 ^_^");
-		
-	}
 	
 }

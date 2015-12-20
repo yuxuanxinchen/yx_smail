@@ -9,10 +9,10 @@
 
 		<style type="text/css">
 			*{margin:0;padding:0;}
-			body{background:#4c5666;font-size:12px;font-family:"微软雅黑";color:#666;}
+			body{background:url("images/bgs.jpg") no-repeat;font-size:12px;font-family:"微软雅黑";color:#666;}
 			
 			/*music start*/
-			#music{width:610px;height:500px;margin:100px auto;position:relative;overflow:hidden;}
+			#music{width:610px;height:500px;margin:0px auto;position:relative;overflow:hidden;}
 			
 			/*m_lrc start*/
 			#music .m_lrc{width:300px;height:470px;float:left;background:#787878;border-radius:5px;position:relative;z-index:2;}

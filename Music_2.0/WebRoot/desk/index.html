@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>桌面级便签</title>
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/sg.css" />
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{background: url(img/bg.jpg) no-repeat top center;font-family: "微软雅黑";font-size: 14px;color:#666;}
+			.desk{width:200px;background:#fff;box-shadow: 3px 4px 5px #141414;display: none;position: absolute;z-index: 99999;}
+			.desk ul li{border-bottom:1px solid #E4E4E4;list-style:none;line-height:34px;font-size:14px;padding-left:20px;}
+			.desk ul li:hover{background:#647E7C;color:#fff;}
+			
+			.text{font-size:30px;color:#fff;}
+			.tz_box{position:relative;}
+			.tz_box .b_list{width:294px;height:310px;position:absolute;left:300px;top:200px;z-index:1;}
+			.tz_box .b_list .b_content{width:256px;height:220px;position:absolute;top:60px;left:16px;outline:none;font-size:20px;line-height:30px;}
+			.tz_box .b_list .b_timer{position:absolute;bottom:15px;right:10px;font-size:14px;}
+
+
+		</style>
+	</head>
+	<body>
+		
+		<div class="desk">
+			<ul>
+				<li>新建文件夹</li>
+				<li onclick="menu(2)">添加便签</li>
+				<li onclick="menu(3)">清空便签</li>
+				<li>刷新</li>
+				<li onclick="menu(5)">MINI音乐播放器</li>
+				<li onclick="menu(7)">超炫音乐播放器</li>
+				<li onclick="menu(4)">计算器</li>
+				<li onclick="menu(6)">MINI弹窗</li>
+				<li>上传资料</li>
+				<li>更换背景</li>
+				<li>注销</li>
+			</ul>
+		</div>
+		
+		
+		<p class="text"></p>
+
+	<div class="tz_box"></div>
+	
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="js/sg.js" ></script>
+	<script type="text/javascript" src="js/sgutil.js" ></script>
+	<script type="text/javascript">
+		$(function(){	
+		// 读取本地缓存信息
+		var markContent = localStorage.getItem("markContent");
+		if(markContent){
+			$(".tz_box").html(markContent);
+			auto_timer();
+		}
+		})
+		
+		
+		//屏蔽浏览器的右键
+		document.oncontextmenu = function(){return false;}
+		
+		//按下鼠标
+		$(document).mousedown(function(e){
+			var key = e.which;
+			if(key==3){
+				var x = e.clientX;
+				var y = e.clientY;
+				$(".text").html("X:  "+x+"    Y:  "+y);
+				$(".desk").show().css({left:x,top:y});
+			}
+		});
+		
+		//隐藏右键
+		$(document).click(function(e){
+			$(".desk").hide();
+		})
+		
+		//创建1到3的随机数
+		var random = Math.floor(Math.random()*3)+1;
+		
+		
+		
+		//右键位置
+		function menu(flag){
+			if(flag==2){
+				//获取当前鼠标右键的位置
+				var left = $(".desk").offset().left;
+				var top = $(".desk").offset().top;
+				
+				var random = Math.floor(Math.random() * 3) + 1;
+				var i = 0;
+				
+				$(".tz_box").append("<div class='b_list  animated rollIn' style='left:"+left+"px;top:"+top+"px;'>"+
+			"			<img src='img/"+random+".png' alt='便签' width='294' height='310'/>"+
+			"			<div class='b_content' contenteditable='true'></div>"+
+			"			<p class='b_timer'><span>3</span>秒后自动保存</p>"+
+			"		</div>");
+			i++;
+			$(".b_timer").attr("flag","true")
+			auto_timer();
+			}
+			
+			//清空
+			if(flag==3){
+				$(".b_list").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+				localStorage.removeItem("markContent");
+			}
+			
+			if(flag==5){
+				yx_music();
+			}
+			
+			if(flag==4){
+				yx_calc();
+			}
+			
+			if(flag == 6){
+				yx_mini();
+			}
+			if(flag == 7){
+			  yx_MS_Music();
+			}
+		}
+		
+		/**
+		 * MINI弹窗
+		 */
+		function yx_mini(){
+			
+			
+		}
+		
+		/**
+		 * 潭州音乐播放器
+		 */
+		function yx_music(){
+			$.tmDialog.iframe({open:"top",content:"music/music.html",title:"潭州人的音乐播放器",width:"360",height:"470"});
+		}
+		
+		/**
+		 * 潭州计算器
+		 */
+		function yx_calc(){
+			$.tmDialog.iframe({open:"bottom",content:"cac/cac.html",title:"潭州人的计算器",width:"900",height:"650"});
+		}
+		
+		function yx_mini(){
+			$.tmDialog.iframe({open:"left",content:"http://mini.qq.com",title:"我们好像在哪儿见过",width:"800",height:"600"});
+		}
+		
+		/**
+		 * 超炫音乐播放器
+		 */
+		function yx_MS_Music(){
+// 		     window.location.href="../music.jsp"
+		     $.tmDialog.iframe({open:"right",content:"../music.jsp",title:"超炫音乐播放器",width:"650",height:"650"});
+		}
+		
+		
+	   /**
+	    * 定时保存
+	    */
+	var timer = null;
+	function auto_timer(){
+		
+				var myDate = new Date();
+		var yearfull  = myDate.getFullYear();   
+		var Meth = myDate.getMonth()+1;       
+		var day = myDate.getDate();       
+		var hour = myDate.getHours();       
+		var minute = myDate.getMinutes();     
+		var seconds = myDate.getSeconds();     
+				
+		clearInterval(timer);
+		var count = 3;
+		timer = setInterval(function(){
+			if(count <= 0){
+				count = 3;
+				// 保存内容
+				localStorage.setItem("markContent",$(".tz_box").html());
+				var flag = $(".b_timer").attr("flag");
+				if(flag=="true"){
+					$(".b_timer").text(yearfull+"-"+Meth+"-"+day+"   "+hour+":"+minute+":"+seconds);
+				}else{
+					
+				}
+					$(".b_timer").attr("flag","false");
+			}
+			$(".b_timer").find("span").text(count);
+			
+			count--;
+		},1000);
+	}
+		
+		
+	</script>
+	</body>
+</html>
