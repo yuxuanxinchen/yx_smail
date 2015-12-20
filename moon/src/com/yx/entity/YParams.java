@@ -14,7 +14,6 @@ package com.yx.entity;
  * @Version:      [v1.0]
  */
 public class YParams {
-
 	private Integer id;
 	private String username;
 	private String account;
