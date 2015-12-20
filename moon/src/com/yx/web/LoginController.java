@@ -62,6 +62,9 @@ public class LoginController extends BaseController {
 						session.setAttribute(SESSION_USER, adminUser);
 						session.setAttribute(SESSION_USER_USERNAME,
 								adminUser.getUsername());
+						//日志监控
+						request.getServletContext().setAttribute(USER_LOG, adminUser);
+						request.getServletContext().setAttribute(REQUEST_LOG, request);
 					}
 					return "SUCCESS";
 				} else {

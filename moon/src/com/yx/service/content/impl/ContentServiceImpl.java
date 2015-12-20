@@ -33,4 +33,9 @@ public class ContentServiceImpl implements IContentService{
 		return contentMapper.update(content);
 	}
 
+	@Override
+	public int delete(YParams yParams) {
+		return contentMapper.delete(yParams);
+	}
+
 }

@@ -80,4 +80,5 @@ public interface IContentMapper {
 	public int countContents(YParams yParams);
 	
 	
+	
 }

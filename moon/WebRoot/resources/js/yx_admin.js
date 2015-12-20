@@ -1,6 +1,3 @@
-$(function(){
-	$(".tmui-tips").tmTip();
-});
 
 
-			
+	

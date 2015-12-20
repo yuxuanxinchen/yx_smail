@@ -56,5 +56,17 @@ public interface IContentService {
 	 */
 	public int update(Content content);
 	
+	/**
+	 * @Title: delete 
+	 * @Description:删除 
+	 * @param yParams
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午3:17:08]  
+	 * @throws  
+	 */
+	public int delete(YParams yParams);
+	
 	
 }

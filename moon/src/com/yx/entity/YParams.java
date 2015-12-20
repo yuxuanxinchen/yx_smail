@@ -19,6 +19,7 @@ public class YParams {
 	private String account;
 	private Integer channelId;
 	private String keyword;
+	private Integer isDelete;
 	private String password;
 	private Integer pageNo = 0;
 	private Integer pageSize = 10;
@@ -28,6 +29,17 @@ public class YParams {
 	public Integer getId() {
 		return id;
 	}
+	
+
+	public Integer getIsDelete() {
+		return isDelete;
+	}
+
+
+	public void setIsDelete(Integer isDelete) {
+		this.isDelete = isDelete;
+	}
+
 
 	public void setId(Integer id) {
 		this.id = id;

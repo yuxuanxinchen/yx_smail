@@ -39,6 +39,7 @@ public class ContentController {
 	
 	@RequestMapping("/template")
 	public ModelAndView template(YParams yParams){
+		yParams.setIsDelete(0);
 		List<Content> contents = contentService.findContents(yParams);
 		int count = contentService.countContents(yParams);
 		ModelAndView modelAndView = new ModelAndView();
@@ -64,6 +65,25 @@ public class ContentController {
 		contentService.update(content);
 		return "SUCCESS";
 	}
+	
+	/**
+	 * @Title: update 
+	 * @Description: 删除状态
+	 * @param content
+	 * @return  
+	 * @return String 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午1:46:24]  
+	 * @throws  
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/delete",method=RequestMethod.POST)
+	public String delete(YParams yParams){
+		contentService.delete(yParams);
+		return "SUCCESS";
+	}
+	
+	
 	
 	
 }

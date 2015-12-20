@@ -10,16 +10,19 @@
 		title,
 		content,
 		create_time as createTime,
-		update_time as updateTime,
+		update_time as
+		updateTime,
 		user_id as userId,
 		tag,
 		is_top as isTop,
-		is_delete as isDelete,
+		is_delete as
+		isDelete,
 		status,
 		channel_id as channelId,
 		img,
 		push,
-		is_comment as isComment,
+		is_comment as
+		isComment,
 		hits,
 		loves,
 		collections,
@@ -29,7 +32,8 @@
 		sub_title,
 		type,
 		category_id as categoryId,
-		is_code as isCode,
+		is_code as
+		isCode,
 		js_code as jsCOde,
 		html_code as htmlCode,
 		css_code as cssCode,
@@ -40,42 +44,54 @@
 		num
 		FROM yx_content
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
-		     <if test="@com.yx.utils.TmStringUtils@isNotEmpty(channelId)">
-		         channel_id = #{channelId}
-		     </if>
-		        <if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
-		           title LIKE '%${keyword}%'
-		     </if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(channelId)">
+				and channel_id = #{channelId}
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(isDelete)">
+				and is_delete = #{isDelete}
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+				and title LIKE '%${keyword}%'
+			</if>
+
 		</trim>
 		order by ${order}
-		     LIMIT #{pageNo} ,#{pageSize}
+		LIMIT #{pageNo} ,#{pageSize}
 	</select>
-	
-	
-	<select id="countContents" resultType="int"
-		parameterType="com.yx.entity.YParams">
+
+
+	<select id="countContents" resultType="int" parameterType="com.yx.entity.YParams">
 		SELECT count(1) FROM yx_content
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
-		     <if test="@com.yx.utils.TmStringUtils@isNotEmpty(channelId)">
-		         channel_id = #{channelId}
-		     </if>
-		        <if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
-		           title LIKE '%${keyword}%'
-		     </if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(channelId)">
+				and channel_id = #{channelId}
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+				and title LIKE '%${keyword}%'
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(isDelete)">
+				and is_delete = #{isDelete}
+			</if>
 		</trim>
 	</select>
-	
-	
+
+
 	<update id="update" parameterType="com.yx.entity.Content">
-	    update yx_content
-	    <set>
-	        <if test="status!=null">status=#{status},</if>
-	        <if test="isComment!=null">is_comment=#{isComment},</if>
-	    	<if test="isDelete!=null">is_delete=#{isDelete},</if>
-	    	<if test="isTop!=null">is_top=#{isTop},</if>
-	    	<if test="push!=null">push=#{push}</if>
-	    </set>
-	       where id = #{id}
+		update yx_content
+		<set>
+			<if test="status!=null">status=#{status},</if>
+			<if test="isComment!=null">is_comment=#{isComment},</if>
+			<if test="isDelete!=null">is_delete=#{isDelete},</if>
+			<if test="isTop!=null">is_top=#{isTop},</if>
+			<if test="push!=null">push=#{push}</if>
+		</set>
+		where id = #{id}
 	</update>
-	
+
+
+	<delete id="delete" parameterType="com.yx.entity.YParams">
+		<!-- delete from yx_content where id = #{id} -->
+		update yx_content set is_delete = 1 where id = #{id}
+	</delete>
+
 </mapper>

@@ -152,18 +152,18 @@
 	         data:params,
 	         success:function(data){
 	           if(data=="error" || data == "null"){
-	             loading("请填写帐号和密码")
+	             loading("请填写帐号和密码",3)
 	              $("#account").select();
 	              $("#password").val("");
 	           }else if(data=="fail"){
 	               $("#password").val();
 	               $("#account").select();
-	               loading("邮箱或者密码错误")
+	               loading("邮箱或者密码错误",3)
 	              
 	           }else if(data=="forbiden") {
-					loading("该用户禁止登录")
+					loading("该用户禁止登录",3)
 	            }else{
-	                window.location.href="${basePath}admin/index"
+	                window.location.href="${basePath}admin/content/list"
 	            }
 	         }
 	       });
