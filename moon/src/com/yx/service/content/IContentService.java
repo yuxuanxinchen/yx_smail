@@ -44,4 +44,17 @@ public interface IContentService {
 	 */
 	public int countContents(YParams yParams);
 	
+	/**
+	 * @Title: update 
+	 * @Description: 更新 
+	 * @param content
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午1:39:23]  
+	 * @throws  
+	 */
+	public int update(Content content);
+	
+	
 }

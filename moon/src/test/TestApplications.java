@@ -5,6 +5,7 @@ import java.awt.geom.CubicCurve2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Update;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,17 @@ public class TestApplications{
 		//ApplicationContext context = new  FileSystemXmlApplicationContext("G://WORK_PROJECT//moon//config//spring//applicationContext.xml"); 
 		//G:\WORK_PROJECT\moon\config\spring\applicationContext.xml
 		
+	@Test
+	public void Update(){
+		Content content = new Content();
+		content.setId(50);
+		content.setStatus(1);
+		content.setIsDelete(1);
+		int count = contentService.update(content);
+	    System.out.println(count);
+	}
+	
+	
 	@Test
 	public void batchUser(){
 		List<AdminUser> adminUsers = new ArrayList<AdminUser>();

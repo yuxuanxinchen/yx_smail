@@ -158,5 +158,12 @@
  </function>
  
  
+  <function>
+ 	<description>indexOf函数</description>
+ 	<name>indexOf</name>
+ 	<function-class>com.yx.tag.TzFunctions</function-class>
+ 	<function-signature>int indexOf(java.lang.String,java.lang.String)</function-signature>
+ 	<example>${tz:indexOf("aa","a")}==0</example>
+ </function>
  
 </taglib>

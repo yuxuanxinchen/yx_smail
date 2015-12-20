@@ -65,4 +65,17 @@
 		</trim>
 	</select>
 	
+	
+	<update id="update" parameterType="com.yx.entity.Content">
+	    update yx_content
+	    <set>
+	        <if test="status!=null">status=#{status},</if>
+	        <if test="isComment!=null">is_comment=#{isComment},</if>
+	    	<if test="isDelete!=null">is_delete=#{isDelete},</if>
+	    	<if test="isTop!=null">is_top=#{isTop},</if>
+	    	<if test="push!=null">push=#{push}</if>
+	    </set>
+	       where id = #{id}
+	</update>
+	
 </mapper>

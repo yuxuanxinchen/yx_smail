@@ -79,6 +79,7 @@
      };
 
 var tzAdmin = {
+    timer:null,
 	initPage:function(itemCount){
 		$(".cpage").tzPage(itemCount, {
 			num_edge_entries : 1, //边缘页数
@@ -121,6 +122,36 @@ var tzAdmin = {
 		tzAdmin.loadData(0,10,function(itemCount){
 			tzAdmin.initPage(itemCount);//分页加载一次吗
 		});
+	},
+	op:function(obj){
+	   var $obj = $(obj);
+	   var $td = $obj.parent("th");
+	   var opid = $obj.data("opid");
+	   var mark = $obj.data("mark");
+	   var val = $obj.data("val");
+	   var text = "是";
+	   var color = "green";
+	   var params = {};
+	   params[mark]=val;
+	   params["id"] = opid;
+	   $obj.removeData();
+	   clearTimeout(this.timer);
+	   this.timer = setTimeout(function(){
+	     loading("请稍候数据执行中......",3)
+	   $.ajax({
+	      type:"post",
+	      url:"${basePath}admin/content/update",
+	      data:params,
+	      success:function(data){
+	         if(data=="SUCCESS"){
+	              $obj.attr({
+	                opid:opid,
+	                val:val==0?1:0
+	              }).removeClass().addClass(val==0?"red":"green").text(val==0?"是":"否");
+	         };
+	      }
+	   });
+	  },200);
 	}
 };
 

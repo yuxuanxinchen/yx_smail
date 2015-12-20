@@ -5,7 +5,16 @@
 	</div>
 	<div class="nav">
 		<ul>
-			 <li class="items active"><a href="${basePath}admin/content/list"><i class="fa fa-home"></i>内容管理</a></li>
+		
+	       	<yx:if test='${yx:indexOf(pageContext.request.requestURI,"content/list")!=-1}'>
+			    <yx:then>
+			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>内容管理</a></li>
+			    </yx:then>
+			    <yx:else>
+			         <li class="items"> <a href="${basePath}admin/content/list"><i class="fa fa-home"></i>内容管理</a></li>
+			    </yx:else>
+			</yx:if>
+             
 			 <li class="items"><a href="${basePath}admin/user/list"><i class="fa fa-signal"></i>用户管理</a></li>
 			 <li class="items"><a href="${basePath}admin/music/list"><i class="fa fa-inbox"></i>音乐管理</a></li>
 			 <li class="items"><a href="${basePath}admin/stat/list"><i class="fa fa-th"></i>统计报表</a></li>

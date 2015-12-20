@@ -13,11 +13,35 @@
 								<th class="time_tip" tip="${yx:formatDate(content.createTime,'yyyy-MM-dd HH:mm:ss') }">
 									${yx:timeFormat(content.createTime) }
 								</th>	
-								<th>${content.isTop }</th>	
-								<th>${content.push }</th>	
-								<th>${content.isDelete }</th>	
-								<th>${content.isComment }</th>	
-								<th>${content.status }</th>	
+								
+								<yx:if test='${content.isTop==0}'>
+									 <yx:then><th> <a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isTop" data-val="1" data-opid=${content.id } class="red">是</a></th></yx:then>
+									 <yx:else><th><a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isTop" data-val="0" data-opid=${content.id } class="green">否</a></th></yx:else>
+								</yx:if>
+								
+								<yx:if test='${content.push==0}'>
+									 <yx:then><th> <a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="push" data-val="1" data-opid=${content.id } class="red">是</a></th></yx:then>
+									 <yx:else><th><a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="push" data-val="0" data-opid=${content.id } class="green">否</a></th></yx:else>
+								</yx:if>
+								
+								<yx:if test='${content.isDelete==0}'>
+									 <yx:then><th> <a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isDelete" data-val="1" data-opid=${content.id } class="red">是</a></th></yx:then>
+									 <yx:else><th><a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isDelete" data-val="0" data-opid=${content.id } class="green">否</a></th></yx:else>
+								</yx:if>
+								
+								<yx:if test='${content.isComment==0}'>
+									 <yx:then><th> <a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isComment" data-val="1" data-opid=${content.id } class="red">是</a></th></yx:then>
+									 <yx:else><th><a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="isComment" data-val="0" data-opid=${content.id } class="green">否</a></th></yx:else>
+								</yx:if>
+								
+								
+								<yx:if test='${content.status==0}'>
+									 <yx:then><th> <a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="status" data-val="1" data-opid=${content.id } class="red">是</a></th></yx:then>
+									 <yx:else><th><a href="javascript:void(0)" onclick="tzAdmin.op(this)" data-mark="status" data-val="0" data-opid=${content.id } class="green">否</a></th></yx:else>
+								</yx:if>
+								
+								
+								
 								<th>操作</th>
 							</tr>
 						    </c:forEach>

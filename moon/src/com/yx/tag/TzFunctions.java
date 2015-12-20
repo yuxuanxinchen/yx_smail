@@ -3,6 +3,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 
+import org.springframework.test.context.ContextConfiguration;
+
 import com.yx.utils.TmStringUtils;
 
 
@@ -208,6 +210,22 @@ public class TzFunctions {
 		String s = t2r.cleanZero(t2r.splitNum(t2r.roundString(String.valueOf(money))));
 		return s;
 	}
+	
+	/**
+	 * @Title: indexOf 
+	 * @Description:indexOf函数
+	 * @param content
+	 * @param search
+	 * @return  
+	 * @return int 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午12:42:24]  
+	 * @throws  
+	 */
+	public static int indexOf(String content,String search){
+		return content.indexOf(search);
+	}
+	
 	
 	/**
 	 * 获取IP对应的城市信息

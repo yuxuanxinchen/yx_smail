@@ -28,4 +28,9 @@ public class ContentServiceImpl implements IContentService{
 		return contentMapper.countContents(yParams);
 	}
 
+	@Override
+	public int update(Content content) {
+		return contentMapper.update(content);
+	}
+
 }

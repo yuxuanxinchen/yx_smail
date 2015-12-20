@@ -54,7 +54,7 @@ public interface IContentMapper {
 	 * @Date:[2014-下午5:23:53]  
 	 * @throws  
 	 */
-	public int updata(Content content);
+	public int update(Content content);
 	
 	/**
 	 * @Title: delete 

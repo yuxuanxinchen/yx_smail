@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yx.dao.content.IContentMapper;
@@ -44,6 +46,23 @@ public class ContentController {
 		modelAndView.addObject("itemcount", count);
 		modelAndView.setViewName("template/list");
 		return modelAndView;
+	}
+	
+	/**
+	 * @Title: update 
+	 * @Description: 更新状态
+	 * @param content
+	 * @return  
+	 * @return String 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午1:46:24]  
+	 * @throws  
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/update",method=RequestMethod.POST)
+	public String update(Content content){
+		contentService.update(content);
+		return "SUCCESS";
 	}
 	
 	
