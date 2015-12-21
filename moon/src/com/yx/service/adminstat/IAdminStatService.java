@@ -1,6 +1,7 @@
 package com.yx.service.adminstat;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yx.entity.AdminStat;
 import com.yx.entity.YParams;
@@ -91,4 +92,30 @@ public interface IAdminStatService {
 	 * @throws  
 	 */
 	public int delete(YParams params);
+	
+	
+
+	/**
+	 * @Title: groupContents 
+	 * @Description: 内容查询
+	 * @param yParams
+	 * @return  
+	 * @return List<Map<String,Object>> 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午3:11:48]  
+	 * @throws  
+	 */
+	public List<Map<String, Object>> groupContents(YParams yParams);
+	
+	/**
+	 * @Title: groupUsers 
+	 * @Description: 用户统计
+	 * @param yParams
+	 * @return  
+	 * @return List<Map<String,Object>> 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午6:11:00]  
+	 * @throws  
+	 */
+	public List<Map<String, Object>> groupUsers(YParams yParams);
 }

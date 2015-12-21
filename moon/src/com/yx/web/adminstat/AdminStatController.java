@@ -1,15 +1,20 @@
 package com.yx.web.adminstat;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yx.entity.AdminStat;
 import com.yx.entity.YParams;
 import com.yx.service.adminstat.IAdminStatService;
+import com.yx.service.adminstat.IStatService;
 
 /**
  * 
@@ -31,13 +36,37 @@ public class AdminStatController {
 	@Autowired
 	private IAdminStatService adminstatService;
 	
-	/*列表查询*/
+	@Autowired
+	private IStatService statService;
+	
+	/**
+	 * @Title: list 
+	 * @Description: TODO 
+	 * @param params
+	 * @return  
+	 * @return ModelAndView 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午2:04:05]  
+	 * @throws  
+	 */
 	@RequestMapping("/list")
-	public String list(YParams params){
-		return "adminstat/list";
+	public ModelAndView Chartlist(YParams params){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("year",statService.getContentYear());
+		modelAndView.setViewName("adminstat/list");
+		return modelAndView;
 	}
 	
-	/*模板页面*/
+	/**
+	 * @Title: template 
+	 * @Description: 模板页面
+	 * @param params
+	 * @return  
+	 * @return ModelAndView 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午2:03:56]  
+	 * @throws  
+	 */
 	@RequestMapping("/template")
 	public ModelAndView template(YParams params){
 		ModelAndView modelAndView = new ModelAndView();
@@ -47,5 +76,77 @@ public class AdminStatController {
 		modelAndView.addObject("datas",adminstats);
 		modelAndView.addObject("itemCount",count);
 		return modelAndView;
+	}
+	
+	/**
+	 * @Title: userList 
+	 * @Description: 用户统计
+	 * @param yParams
+	 * @return
+	 * @throws JSONException  
+	 * @return String 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午1:58:19]  
+	 * @throws  
+	 */
+	@RequestMapping(value="/userList")
+	public String userList(YParams yParams) throws JSONException{
+		return "adminstat/userList";
+	}
+	
+	/**
+	 * @Title: contentList 
+	 * @Description:内容统计
+	 * @param yParams
+	 * @return
+	 * @throws JSONException  
+	 * @return String 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午1:58:27]  
+	 * @throws  
+	 */
+	@RequestMapping(value="/contentList")
+	public String contentList(YParams yParams) throws JSONException{
+		return "adminstat/contentList";
+	}
+	
+	/**
+	 * @Title: groupContents 
+	 * @Description: 根据月份查询 
+	 * @param yParams
+	 * @return  
+	 * @return List<Map<String,Object>> 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午3:18:53]  
+	 * @throws  
+	 */
+	@ResponseBody
+	@RequestMapping(value="/groupcontent",method=RequestMethod.POST)
+	public List<Map<String, Object>> groupContents(YParams yParams){
+		yParams.setMonth(yParams.getMonth());
+		yParams.setOrder(yParams.getOrder());
+		yParams.setPageNo(0);
+		yParams.setPageSize(30);
+		List<Map<String, Object>> lists = adminstatService.groupContents(yParams);
+		return lists;
+	}
+	
+	/**
+	 * @Title: groupContents 
+	 * @Description: 根据月份查询 
+	 * @param yParams
+	 * @return  
+	 * @return List<Map<String,Object>> 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午3:18:53]  
+	 * @throws  
+	 */
+	@ResponseBody
+	@RequestMapping(value="/groupUsers",method=RequestMethod.POST)
+	public List<Map<String, Object>> groupUsers(YParams yParams){
+		yParams.setOrder(" create_time desc ");
+		yParams.setDate(yParams.getDate());
+		List<Map<String, Object>> lists = adminstatService.groupUsers(yParams);
+		return lists;
 	}
 }

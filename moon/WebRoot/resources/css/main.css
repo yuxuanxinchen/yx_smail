@@ -21,7 +21,13 @@
 .wrap .nav li.items a{padding:8px 110px 8px 21px;display:inline-block;}
 /*silder bar li的样式*/
 .wrap .nav li.items:hover,.wrap .nav li.active{background:#27A9E3}
-.wrap .nav li.items:hover a,.wrap .nav li.active a{color:#fff;}
+.wrap .nav li.items:hover{background:#27A9E3}
+
+.wrap .nav li ul li.active{background:#FF7F50}
+.wrap .nav li ul li:hover{background:#FF7F50}
+
+
+.wrap .nav li.items:hover a,.wrap .nav li.active a{color:#fff;display:block;width:150px}
 .wrap .nav li.items .numicon{float:right;position:absolute;top:8px;right:20px;}
 .wrap .nav li.active:after{
 	content:"";
@@ -35,7 +41,7 @@
 	top:16px;
 	right:0px;
 }
-.wrap .nav li .fa{padding-right:10px;font-size:14px;}
+.wrap .nav li .fa{padding-right:10px;;}
 /*silder bar li的样式 里子元素的样式*/
 .wrap .nav li.items ul {background:#111;display:none;}
 .wrap .nav li.items ul li{padding-left:10px;}
@@ -49,7 +55,7 @@ input[placeholder]{color:#e5e5e5;font-size:12px;padding-left:5px;}
 .wrap	.content .sbtn{margin-right:20px;}	
 .wrap	.content .sbtn input{height:26px;margin-top:5px;border:0;background:#666}
 .wrap	.content .sbtn a{height:26px;width:46px;display:inline-block;background:#28B779;color:#fff;margin-top:5px;text-align:center;
-		font-size:16px;}
+		}
 
 .wrap .content .channel{height:36px;line-height:36px;padding-left:10px;}
 .wrap .content .cnt{background:#EEEEEE;}

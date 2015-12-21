@@ -130,6 +130,7 @@
 	         }
 	      });
 	      
+	      
 	      $("#account").keyup(function(){
 	          tzMap.put("yx_account_",$(this).val(),1);
 	      });
@@ -142,31 +143,68 @@
 	       
 	        var username = $("#account").val();
 	        var password = $("#password").val();
+	        if(isEmpty(username)){
+	          $("#account").focus();
+	        }
+	        if(isEmpty(password)){
+	          $("#password").focus();
+	        }
+	        
+	        
+	        
 	        var params = {
 	           "username":username,
 	           "password":password
 	        }
-	       $.ajax({
-	         type:"post",
-	         url:"${basePath}logined",
-	         data:params,
-	         success:function(data){
-	           if(data=="error" || data == "null"){
-	             loading("请填写帐号和密码",3)
-	              $("#account").select();
-	              $("#password").val("");
-	           }else if(data=="fail"){
-	               $("#password").val();
-	               $("#account").select();
-	               loading("邮箱或者密码错误",3)
+	        
+	        $(obj).removeAttr("onclick").text("登陆中...")
+	        
+	        yxAjax.r({
+	           url:"${basePath}logined",
+	           callback:function(data){
+		             if(data=="error" || data == "null"){
+		             loading("请填写帐号和密码",3)
+		              $("#account").select();
+		              $("#password").val("");
+		              $(obj).attr("onclick","user_login(this)").text("登陆")
+		               }else if(data=="fail"){
+		               $("#password").val();
+		               $("#account").select();
+		               $(obj).attr("onclick","user_login(this)").text("登陆")
+		               loading("邮箱或者密码错误",3)
+		              
+		               }else if(data=="forbiden") {
+						loading("该用户禁止登录",3)
+						 $(obj).attr("onclick","user_login(this)").text("登陆")
+		                }else{
+		                //原路访问
+		                var refer = document.referrer;
+		                window.location.href=isNotEmpty(refer)?refer:"${basePath}admin/content/list"
+		            }
+		         }
+	        },params);
+	        
+// 	       $.ajax({
+// 	         type:"post",
+// 	         url:"${basePath}logined",
+// 	         data:params,
+// 	         success:function(data){
+// 	           if(data=="error" || data == "null"){
+// 	             loading("请填写帐号和密码",3)
+// 	              $("#account").select();
+// 	              $("#password").val("");
+// 	           }else if(data=="fail"){
+// 	               $("#password").val();
+// 	               $("#account").select();
+// 	               loading("邮箱或者密码错误",3)
 	              
-	           }else if(data=="forbiden") {
-					loading("该用户禁止登录",3)
-	            }else{
-	                window.location.href="${basePath}admin/content/list"
-	            }
-	         }
-	       });
+// 	           }else if(data=="forbiden") {
+// 					loading("该用户禁止登录",3)
+// 	            }else{
+// 	                window.location.href="${basePath}admin/content/list"
+// 	            }
+// 	         }
+// 	       });
 	        
 	      }
 	

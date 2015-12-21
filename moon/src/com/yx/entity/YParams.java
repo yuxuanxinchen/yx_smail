@@ -20,26 +20,68 @@ public class YParams {
 	private Integer channelId;
 	private String keyword;
 	private Integer isDelete;
+	private Integer year;
+	private Integer day;
+	private Integer hour;
+	private Integer month;
+	private String date;
 	private String password;
 	private Integer pageNo = 0;
 	private Integer pageSize = 10;
 	private Integer totalCount = 0;
 	private String order ;
 
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	public Integer getId() {
 		return id;
 	}
-	
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+	public Integer getDay() {
+		return day;
+	}
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+
+	public Integer getHour() {
+		return hour;
+	}
+
+	public void setHour(Integer hour) {
+		this.hour = hour;
+	}
+
+	public Integer getMonth() {
+		return month;
+	}
+
+	public void setMonth(Integer month) {
+		this.month = month;
+	}
 
 	public Integer getIsDelete() {
 		return isDelete;
 	}
 
-
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;

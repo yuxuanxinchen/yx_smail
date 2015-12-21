@@ -14,14 +14,26 @@
 			    </yx:else>
 			</yx:if>
 			
-			<yx:if test='${yx:indexOf(pageContext.request.requestURI,"adminstat/list")!=-1}'>
-			    <yx:then>
-			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>日志管理</a></li>
-			    </yx:then>
-			    <yx:else>
-			         <li class="items"> <a href="${basePath}admin/adminstat/list"><i class="fa fa-home"></i>日志管理</a></li>
-			    </yx:else>
-			</yx:if>
+			  <yx:if test="${yx:indexOf(pageContext.request.requestURI,'adminstat')!=-1}">
+				<yx:then>
+					<li class="items active"><a href="javascript:void(0);"><i class="fa fa-home "></i>日记统计</a>
+					<ul style="display:block">
+						 <yx:if test="${yx:indexOf(pageContext.request.requestURI,'adminstat/contentList')!=-1}">
+						 	<yx:then><li class="citems active"><a href="javascript:void(0);"><i class="fa fa-area-chart"></i>内容统计</a></li></yx:then>
+						 	<yx:else><li class="citems"><a href="${basePath}admin/adminstat/contentList"><i class="fa fa-area-chart"></i>内容统计</a></li></yx:else>
+						 </yx:if>
+						  <yx:if test="${yx:indexOf(pageContext.request.requestURI,'adminstat/userList')!=-1}">
+						 	<yx:then><li class="citems active"><a href="javascript:void(0);"><i class="fa fa-bar-chart"></i>用户 统计</a></li></yx:then>
+						 	<yx:else><li class="citems"><a href="${basePath}admin/adminstat/userList"><i class="fa fa-bar-chart"></i>用户 统计</a></li></yx:else>
+						 </yx:if>
+						 <li class="citems"><a href="javascript:void(0);"><i class="fa fa-bar-chart-o"></i>日期管理</a></li>
+					</ul>
+				</li></yx:then>
+				<yx:else>
+					<li class="items"><a href="${basePath}admin/adminstat/list"><i class="fa fa-home "></i>日记统计</a></li>
+				</yx:else>
+			 </yx:if>
+			 
              
 			 <li class="items"><a href="${basePath}admin/user/list"><i class="fa fa-signal"></i>用户管理</a></li>
 			 <li class="items"><a href="${basePath}admin/music/list"><i class="fa fa-inbox"></i>音乐管理</a></li>

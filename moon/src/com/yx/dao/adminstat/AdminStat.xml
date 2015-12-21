@@ -61,4 +61,30 @@
 				#{description}
 			)
 	</insert>
+	
+	
+	
+	<!-- 查询内容统计分组 -->
+	<select id="groupContents" resultType="java.util.Map" parameterType="com.yx.entity.YParams">
+		select id,title,create_time from yx_content where
+			DATE_FORMAT(create_time,'%m')=#{month}
+			order by ${order}
+		LIMIT #{pageNo} ,#{pageSize}
+	</select>
+	
+	
+	<!-- 查询用户统计分组 -->
+	<select id="groupUsers" resultType="java.util.Map" parameterType="com.yx.entity.YParams">
+		select count(1) as num,
+			DATE_FORMAT(create_time,'%H') as h
+			from yx_admin_user where DATE_FORMAT(create_time,'%Y-%m-%d')=#{date}
+			group by h
+			order by h
+		LIMIT #{pageNo} ,#{pageSize}
+	</select>
+	
+	
+
+	
+	
 </mapper>

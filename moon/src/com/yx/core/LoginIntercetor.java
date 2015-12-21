@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yx.entity.AdminUser;
 import com.yx.service.adminstat.IAdminStatService;
+import com.yx.utils.TmStringUtils;
 
 /**
  * 
@@ -31,10 +32,15 @@ public class LoginIntercetor implements HandlerInterceptor{
 			HttpServletResponse response, Object handler) throws Exception {
 		AdminUser user =(AdminUser)request.getSession().getAttribute(SESSION_USER);
 		if(user!=null){
-			  
 			return true;
 		}else{
-			response.sendRedirect(request.getContextPath()+"/userlogin");	
+			//执行是一个ajax请求还是一个普通请求
+			String requestType = request.getHeader("X-Requested-With");  
+			if(TmStringUtils.isNotEmpty(requestType) && requestType.equalsIgnoreCase("XMLHttpRequest")){
+				response.getWriter().print("logout");
+			}else{
+				response.sendRedirect(request.getContextPath()+"/userlogin");	
+			}
 			return false;
 		}
 	}

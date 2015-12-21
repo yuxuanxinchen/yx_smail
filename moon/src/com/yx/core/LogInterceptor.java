@@ -1,6 +1,7 @@
 package com.yx.core;
 
-import java.sql.Date;
+import static com.yx.utils.SysConstant.REQUEST_LOG;
+import static com.yx.utils.SysConstant.USER_LOG;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +15,8 @@ import org.springframework.web.context.ServletContextAware;
 import com.yx.dao.adminstat.IAdminStatMapper;
 import com.yx.entity.AdminStat;
 import com.yx.entity.AdminUser;
-import com.yx.service.adminstat.IAdminStatService;
 import com.yx.utils.TmStringUtils;
 import com.yx.utils.ip.TmIpUtil;
-
-import static com.yx.utils.SysConstant.*;
 
 /**
  * 
@@ -54,13 +52,14 @@ public class LogInterceptor implements ServletContextAware{
 	 */
 	@Around("execution(* com.yx.service.*.*.*(..))")
 	public Object doBasicProfiling(ProceedingJoinPoint pprot) throws Throwable{
-		Object classObject = pprot.getTarget();
-		String className = classObject.getClass().getName();
 		String methodName = pprot.getSignature().getName();
-		long start = System.currentTimeMillis();
-		if(TmStringUtils.isNotEmpty(methodName) && methodName.equals("getLogin")){
+		if(TmStringUtils.isNotEmpty(methodName) && methodName.equals("getLogin") ||
+			TmStringUtils.isNotEmpty(methodName) && methodName.equals("Chartlist")){
 			return  pprot.proceed();
 		}
+		Object classObject = pprot.getTarget();
+		String className = classObject.getClass().getName();
+		long start = System.currentTimeMillis();
 		Object object = pprot.proceed();
 		long end = System.currentTimeMillis() ;
 		long time = (end - start);
@@ -80,8 +79,13 @@ public class LogInterceptor implements ServletContextAware{
 		if(object!=null){
 			resultType = object.getClass().getName();
 		}
-		//保存日志
-		saveAdminStat(object,methodName,time);
+		
+		try {
+			//保存日志
+			saveAdminStat(object,methodName,time);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("【Yx】【Service AOP拦截】 【类名："+className+"】【方法名:"+methodName+"】【方法返回类型:"+resultType+"】【方法执行时间:"+time+"ms】");
 		return object;
 	}

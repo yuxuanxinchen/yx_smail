@@ -1,6 +1,7 @@
 package com.yx.service.adminstat.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,16 @@ public class AdminStatServiceImpl implements IAdminStatService{
 	@Override
 	public int delete(YParams params) {
 		return adminstatMapper.delete(params);
+	}
+
+	@Override
+	public List<Map<String, Object>> groupContents(YParams yParams) {
+		return adminstatMapper.groupContents(yParams);
+	}
+
+	@Override
+	public List<Map<String, Object>> groupUsers(YParams yParams) {
+		return adminstatMapper.groupUsers(yParams);
 	}
 
 }

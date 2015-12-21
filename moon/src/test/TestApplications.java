@@ -1,11 +1,12 @@
 package test;
 
 
-import java.awt.geom.CubicCurve2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.ibatis.annotations.Update;
+import org.apache.struts2.json.JSONException;
+import org.apache.struts2.json.JSONUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
 import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
 import com.yx.entity.YParams;
+import com.yx.service.adminstat.IAdminStatService;
+import com.yx.service.adminstat.IStatService;
 import com.yx.service.content.IContentService;
 import com.yx.service.user.IUserService;
 
@@ -34,11 +36,62 @@ public class TestApplications{
 
 	@Autowired
 	private IContentService contentService;
+	
+	@Autowired
+	private IStatService statService;
+	
+	@Autowired
+	private IAdminStatService adminStatService;
+	
 		
 		//ApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring/applicationContext.xml");
 		//ApplicationContext context = new  FileSystemXmlApplicationContext("G://WORK_PROJECT//moon//config//spring//applicationContext.xml"); 
 		//G:\WORK_PROJECT\moon\config\spring\applicationContext.xml
 		
+//	public static void main(String[] args) throws JSONException {
+//		new TestApplications().ststCountYear();
+//	}
+//	
+	
+	@Test 
+	public void groupUsers(){
+		YParams yParams = new YParams();
+		yParams.setOrder(" create_time desc ");
+		yParams.setDate("2015-11-28");
+		List<Map<String, Object>> lists = adminStatService.groupUsers(yParams);
+		System.out.println(lists.toString());
+		
+	}
+	
+	
+	@Test
+	public void groupContenxts(){
+		YParams yParams = new YParams();
+		yParams.setMonth(5);
+		yParams.setOrder(" create_time desc ");
+		List<Map<String, Object>> lists = adminStatService.groupContents(yParams);
+		System.out.println(lists.toString());
+	}
+	
+	
+	@Test
+	public void ststCountYear() throws JSONException{
+		List<Integer> lists = statService.getContentYear();
+		System.out.println(lists.size());
+		
+		
+	}
+	
+	@Test
+	public void ststService() throws JSONException{
+		YParams yParams = new YParams();
+		yParams.setYear(2015);
+		List<Map<String, Object>> lists = statService.groupContent(yParams);
+		System.out.println(JSONUtil.serialize(lists));
+		
+		
+	}
+	
 	@Test
 	public void Update(){
 		Content content = new Content();
