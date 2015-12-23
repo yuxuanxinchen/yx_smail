@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>模板页面</title>
+    <title>后台管理</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -78,7 +78,7 @@
 	<script type="text/javascript">
 	
 	function loading2(target,mark){
-	$.loading({target:$(target),mark:1}); 
+	     $.loading({target:$(target),mark:1}); 
      };
 
 		var tzAdmin = {
@@ -146,9 +146,10 @@
 				var opid = $obj.data("opid");
 				var mark = $obj.data("mark");
 				var val = $obj.data("val");
-				var params = {};
+				var params = {"order":" create_time "};
 				params[mark] = val;
 				params["id"] = opid;
+				
 				$obj.removeData();
 				clearTimeout(this.timer);
 				this.timer = setTimeout(function() {

@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>模板页面</title>
+    <title>后台管理</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    

@@ -806,7 +806,7 @@ $.tzPrompt = function(options){
 $.tzIframe = function(options){
 	var opts = $.extend({},$.tzDialog.methods,$.tzDialog.defaults,options);
 	var $dialog = opts.init(opts);
-	$dialog.find(".tzdialog_message").html("<div  class='tm-dialog-loading tmWindow_loading'><img src='"+rootPath+"/images/loading.gif'><label style='font-size:12px;'>请稍后，正在加载中...</label></div>");
+	$dialog.find(".tzdialog_message").html("<div  class='tm-dialog-loading tmWindow_loading'><img src='/images/loading.gif'><label style='font-size:12px;'>请稍后，正在加载中...</label></div>");
 	var iframe=document.createElement("iframe");
 	iframe.id = opts.dialogId+"_iframe";
 	iframe.width="100%";

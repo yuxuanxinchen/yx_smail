@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.json.JSONException;
 import org.apache.struts2.json.JSONUtil;
+import org.aspectj.weaver.patterns.PerSingleton;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,21 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
 import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
+import com.yx.entity.Role;
 import com.yx.entity.YParams;
 import com.yx.service.adminstat.IAdminStatService;
 import com.yx.service.adminstat.IStatService;
+import com.yx.service.adminuser.IAdminUserService;
 import com.yx.service.content.IContentService;
+import com.yx.service.permission.IPermissionService;
+import com.yx.service.role.IRoleService;
 import com.yx.service.user.IUserService;
+import com.yx.service.user.impl.UserServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/applicationContext.xml")
@@ -42,6 +49,39 @@ public class TestApplications{
 	
 	@Autowired
 	private IAdminStatService adminStatService;
+	
+	@Autowired
+	private IAdminUserService adminUesrs;
+	
+	@Autowired
+	private IPermissionService perSingleton;
+	
+	@Autowired
+	private IRoleService roleService;
+	
+	@Test
+	public void roleCount(){
+//		System.out.println(roleService.count(new YParams()));
+		System.out.println(roleService.findRolesByUserId(1)+"------------------------------------");
+	}
+	
+	@Test
+	public void getCount(){
+		System.out.println(perSingleton.count(new YParams()));
+		
+	}
+	
+	
+	@Test
+	public void UserServiceImpl(){
+		YParams yParams = new YParams();
+		yParams.setPageNo(0);
+		yParams.setOrder(" createTime desc ");
+		yParams.setPageSize(10);
+		List<AdminUser> lists = adminUesrs.findAdminUsers(yParams);
+		System.out.println(lists.toString());
+	}
+	
 	
 		
 		//ApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring/applicationContext.xml");

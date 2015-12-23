@@ -26,7 +26,7 @@
 						 	<yx:then><li class="citems active"><a href="javascript:void(0);"><i class="fa fa-bar-chart"></i>用户 统计</a></li></yx:then>
 						 	<yx:else><li class="citems"><a href="${basePath}admin/adminstat/userList"><i class="fa fa-bar-chart"></i>用户 统计</a></li></yx:else>
 						 </yx:if>
-						 <li class="citems"><a href="javascript:void(0);"><i class="fa fa-bar-chart-o"></i>日期管理</a></li>
+						 <li class="citems"><a href="javascript:void(0);"><i class="fa fa-bar-chart-o"></i>日记统计</a></li>
 					</ul>
 				</li></yx:then>
 				<yx:else>
@@ -34,8 +34,35 @@
 				</yx:else>
 			 </yx:if>
 			 
-             
-			 <li class="items"><a href="${basePath}admin/user/list"><i class="fa fa-signal"></i>用户管理</a></li>
+             <yx:if test='${yx:indexOf(pageContext.request.requestURI,"adminuser/list")!=-1}'>
+			    <yx:then>
+			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>用户管理</a></li>
+			    </yx:then>
+			 <yx:else>
+			         <li class="items"><a href="${basePath}admin/adminuser/list"><i class="fa fa-signal"></i>用户管理</a></li>
+			    </yx:else>
+			</yx:if>
+			
+			
+			
+			<yx:if test='${yx:indexOf(pageContext.request.requestURI,"permission/list")!=-1}'>
+			    <yx:then>
+			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>权限管理</a></li>
+			    </yx:then>
+			 <yx:else>
+			         <li class="items"><a href="${basePath}admin/permission/list"><i class="fa fa-signal"></i>权限管理</a></li>
+			    </yx:else>
+			</yx:if>
+			
+			<yx:if test='${yx:indexOf(pageContext.request.requestURI,"role/list")!=-1}'>
+			    <yx:then>
+			    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>角色管理</a></li>
+			    </yx:then>
+			 <yx:else>
+			         <li class="items"><a href="${basePath}admin/role/list"><i class="fa fa-signal"></i>角色管理</a></li>
+			    </yx:else>
+			</yx:if>
+			
 			 <li class="items"><a href="${basePath}admin/music/list"><i class="fa fa-inbox"></i>音乐管理</a></li>
 			 <li class="items"><a href="${basePath}admin/stat/list"><i class="fa fa-th"></i>统计报表</a></li>
 			 <li class="items"><a href="${basePath}admin/gather/list"><i class="fa fa-send"></i>爬虫采集</a></li>

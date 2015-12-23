@@ -1,5 +1,7 @@
 package com.yx.web;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import static com.yx.utils.SysConstant.*;
 
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
+import com.yx.service.role.IRoleService;
 import com.yx.service.user.IUserService;
 import com.yx.utils.TmStringUtils;
 /**
@@ -34,6 +37,8 @@ public class LoginController extends BaseController {
 	@Autowired
 	private IUserService userService;
 
+	@Autowired
+	private IRoleService roleService;
 	/**
 	 * @Title: logined 
 	 * @Description:用户登录
@@ -59,6 +64,11 @@ public class LoginController extends BaseController {
 					if(adminUser.getForbiden()==0){
 						return "forbiden";
 					}else{
+						Map<String, Object> roles = roleService.findRolesByUserId(adminUser.getId());
+						if(null == roles){
+							//如果用户没有权限，提示用户
+							return "nopermission";
+						}
 						session.setAttribute(SESSION_USER, adminUser);
 						session.setAttribute(SESSION_USER_USERNAME,
 								adminUser.getUsername());

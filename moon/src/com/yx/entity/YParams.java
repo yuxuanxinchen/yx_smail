@@ -30,6 +30,24 @@ public class YParams {
 	private Integer pageSize = 10;
 	private Integer totalCount = 0;
 	private String order ;
+	private Integer forbiden;
+	private Integer roleId;
+
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+
+	public Integer getForbiden() {
+		return forbiden;
+	}
+
+	public void setForbiden(Integer forbiden) {
+		this.forbiden = forbiden;
+	}
 
 	public String getDate() {
 		return date;
