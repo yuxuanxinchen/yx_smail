@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.dao.adminstat.IAdminStatMapper" >
+	<select id="findAdminStats" resultType="com.yx.entity.AdminStat" parameterType="com.yx.entity.YParams">
+		select 
+			id,
+			classname,
+			method,
+			time,
+			create_time as createTime,
+			ip,
+			ipaddress as ipAddress,
+			user_id as userId,
+			username,
+			model,
+			description
+		FROM
+			keke_admin_stat 
+		<trim prefix="WHERE" prefixOverrides="AND | OR">  
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+				and method LIKE '%${keyword}%'
+			</if>
+		</trim>
+		ORDER BY ${order}
+		LIMIT #{pageNo} ,#{pageSize};				
+	</select>
+	
+	<select id="count" resultType="int" parameterType="com.yx.entity.YParams">
+		SELECT
+			count(1) 
+		FROM
+			keke_admin_stat 
+		<trim prefix="WHERE" prefixOverrides="AND | OR">  
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+				and method LIKE '%${keyword}%'
+			</if>
+		</trim>
+	</select>
+	
+	<insert id="save" parameterType="com.yx.entity.AdminStat">
+			INSERT INTO yx_admin_stat(
+				classname,
+				method,
+				time,
+				ip,
+				ipaddress,
+				user_id,
+				username,
+				model,
+				description
+			)VALUES(
+				#{classname},
+				#{method},
+				#{time},
+				#{ip},
+				#{ipAddress},
+				#{userId},
+				#{username},
+				#{model},
+				#{description}
+			)
+	</insert>
+	
+	
+	
+	<!-- 查询内容统计分组 -->
+	<select id="groupContents" resultType="java.util.Map" parameterType="com.yx.entity.YParams">
+		select id,title,create_time from yx_content where
+			DATE_FORMAT(create_time,'%m')=#{month}
+			order by ${order}
+		LIMIT #{pageNo} ,#{pageSize}
+	</select>
+	
+	
+	<!-- 查询用户统计分组 -->
+	<select id="groupUsers" resultType="java.util.Map" parameterType="com.yx.entity.YParams">
+		select count(1) as num,
+			DATE_FORMAT(create_time,'%H') as h
+			from yx_admin_user where DATE_FORMAT(create_time,'%Y-%m-%d')=#{date}
+			group by h
+			order by h
+		LIMIT #{pageNo} ,#{pageSize}
+	</select>
+	
+	
+
+	
+	
+</mapper>
