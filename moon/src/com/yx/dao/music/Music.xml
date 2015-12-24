@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.dao.music.IMusicMapper">
+
+    <select id="findMusics" resultType="com.yx.entity.Music" parameterType="com.yx.entity.YParams">
+			SELECT ym.id,ym.name,ym.author,ym.size_string,ym.is_delete,yc.title,ym.create_time,au.username,ym.status,ym.hits,ym.content_id,ym.sort,ym.status from yx_music ym left JOIN yx_admin_user au
+					ON ym.user_id=au.id 
+					LEFT JOIN
+					yx_content yc ON
+					yc.id= ym.content_id
+					<where>
+					    <if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+							 name LIKE '%${keyword}%'
+						</if>
+					</where>
+					order by ${order}
+				LIMIT #{pageNo} ,#{pageSize}
+    </select>
+    
+        <select id="musicCounts" resultType="int">
+		SELECT count(1) from yx_music ym left JOIN yx_admin_user au
+				ON ym.user_id=au.id 
+				LEFT JOIN
+				yx_content yc ON
+				yc.id= ym.content_id
+    </select>
+	  
+	  
+	 <delete id="delete">
+	     delete from yx_music where id=#{id}
+	 </delete>
+	  
+	  
+	  <update id="updata" parameterType="com.yx.entity.YParams">
+	       update yx_music
+	       <set>
+	            <if test="@com.yx.utils.TmStringUtils@isNotEmpty(isDelete)">is_delete = #{isDelete}</if>
+	       </set>
+	       where id = #{id}
+	  </update>
+	  
+</mapper>

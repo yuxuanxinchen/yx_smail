@@ -41,13 +41,13 @@ public class PermissionInterceptor implements HandlerInterceptor{
 	     if(isPermission(request)){
 	    	 return true;
 	     }else{
-//	    	 	String requestType = request.getHeader("X-Requested-With");  
-//				if(TmStringUtils.isNotEmpty(requestType) && requestType.equalsIgnoreCase("XMLHttpRequest")){
-//					response.getWriter().print("nopermission");
-//				}else{
-////					response.sendRedirect(request.getContextPath()+"/userlogin");	
-//					response.sendRedirect(request.getContextPath()+"/admin/content/list");
-//				}
+	    	 	String requestType = request.getHeader("X-Requested-With");  
+				if(TmStringUtils.isNotEmpty(requestType) && requestType.equalsIgnoreCase("XMLHttpRequest")){
+					response.getWriter().print("nopermission");
+				}else{
+//					response.sendRedirect(request.getContextPath()+"/userlogin");	
+					response.sendRedirect(request.getContextPath()+"/admin/content/list");
+				}
 	    	 //跳转到没有权限的页面
 				return false;
 	     }
@@ -79,8 +79,8 @@ public class PermissionInterceptor implements HandlerInterceptor{
 			for (HashMap<String, Object> hashMap : maps) {
 				String model = (String) hashMap.get("model");
 				String method = (String) hashMap.get("method");
-				if(TmStringUtils.isNotEmpty(method) && TmStringUtils.isNotEmpty(model)){
-					if(model.equalsIgnoreCase(resTwo) && method.equalsIgnoreCase(res)){
+				if(/*TmStringUtils.isNotEmpty(method) &&*/ TmStringUtils.isNotEmpty(model)){
+					if(model.equalsIgnoreCase(resTwo) /*&& method.equalsIgnoreCase(res)*/){
 						mark = true;
 						break;
 					}

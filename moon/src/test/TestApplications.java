@@ -22,12 +22,14 @@ import com.yx.dao.permission.IPermissionMapper;
 import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
+import com.yx.entity.Music;
 import com.yx.entity.Role;
 import com.yx.entity.YParams;
 import com.yx.service.adminstat.IAdminStatService;
 import com.yx.service.adminstat.IStatService;
 import com.yx.service.adminuser.IAdminUserService;
 import com.yx.service.content.IContentService;
+import com.yx.service.music.IMusicService;
 import com.yx.service.permission.IPermissionService;
 import com.yx.service.permission.impl.PermissionServiceImpl;
 import com.yx.service.role.IRoleService;
@@ -64,6 +66,44 @@ public class TestApplications{
 	
 	@Autowired
 	private PermissionServiceImpl permissionMapper;
+	
+	@Autowired
+	private IMusicService musicService;
+	
+	@Autowired
+	private IAdminUserService admsinUser;
+	
+	@Test
+	public void insertRole(){
+		Role role  = new Role();
+		role.setDescription("111");
+		role.setName("非我非为");
+		role.setUserId(1);
+		roleService.insert(role);
+	}
+	
+	@Test
+	public void Music(){
+		YParams yParams = new YParams();
+		yParams.setId(89);
+		yParams.setIsDelete(1);
+		musicService.updata(yParams);
+//		List<Music> lists = musicService.findMusics();
+//		System.out.println(lists.size());
+	}
+	
+	@Test
+	public void addUser(){
+		AdminUser adminUser = new AdminUser();
+		adminUser.setAddress("背景");
+		adminUser.setUsername("3423");
+		adminUser.setPassword("435");
+		adminUser.setTelephone("123123");
+		adminUser.setEmail("34234");
+		admsinUser.add(adminUser);
+		
+	}
+	
 	
 	@Test
 	public void rolePerission(){

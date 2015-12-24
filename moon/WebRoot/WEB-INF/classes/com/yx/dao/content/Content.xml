@@ -58,7 +58,7 @@
 		LIMIT #{pageNo} ,#{pageSize}
 	</select>
 
-
+     
 
 	<select id="countContents" resultType="int" parameterType="com.yx.entity.YParams">
 		SELECT count(1) FROM yx_content

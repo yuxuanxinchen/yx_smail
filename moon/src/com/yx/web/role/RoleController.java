@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yx.entity.AdminUser;
 import com.yx.entity.Role;
 import com.yx.entity.YParams;
 import com.yx.service.role.IRoleService;
+import com.yx.utils.SysConstant;
 import com.yx.utils.TmStringUtils;
 
 /**
@@ -45,11 +47,11 @@ public class RoleController {
 		return "role/list";
 	}
 	
-	@RequestMapping("/user/{rid}")
-	public ModelAndView user(@PathVariable("rid")Integer roleId,YParams params){
+	@RequestMapping("/user")
+	public ModelAndView user(YParams params){
 		ModelAndView modelAndView = new ModelAndView();
 		params.setIsDelete(0);
-		params.setRoleId(roleId);
+		params.setRoleId(params.getRoleId());
 		params.setPageSize(30);
 		List<HashMap<String, Object>> adminUsers = roleService.findFilterUsers(params);
 		int totalCount = roleService.countFilterUsers(params);
@@ -125,5 +127,27 @@ public class RoleController {
 	public List findRolePermission(Integer roleId){
 		return roleService.findRolePermission(roleId);
 	}
+	
+	@RequestMapping("add")
+	public String add(){
+		return "role/add";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/addRole",method=RequestMethod.POST)
+	public String add(Role role,HttpServletRequest request){
+		AdminUser us = (AdminUser) request.getSession().getAttribute(SysConstant.SESSION_USER);
+		role.setUserId(us.getId());
+		roleService.insert(role);
+		return "SUCCESS";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	public String delete(YParams yParams){
+		 roleService.sdelete(yParams.getId());
+		 return "SUCCESS";
+	}
+	
 	
 }

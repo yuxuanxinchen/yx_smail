@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yx.dao.adminuser.IAdminUserMapper" >
+
+   
+
 	<select id="findAdminUsers" resultType="com.yx.entity.AdminUser" parameterType="com.yx.entity.YParams">
 		select 
 			id,
@@ -55,4 +58,32 @@
 	
 	 where id = #{id}
 	</delete>
+	
+	<insert id="add" parameterType="com.yx.entity.AdminUser">
+	    insert into yx_admin_user(username,password,forbiden,is_delete,address,email,telephone) 
+		VALUES(
+        <if test="@com.yx.utils.TmStringUtils@isNotEmpty(username)">
+            #{username},
+        </if>
+         <if test="@com.yx.utils.TmStringUtils@isNotEmpty(password)">
+            #{password},
+        </if>
+           1,
+           0,
+         <if test="@com.yx.utils.TmStringUtils@isNotEmpty(address)">
+           #{address},
+        </if>
+         <if test="@com.yx.utils.TmStringUtils@isNotEmpty(email)">
+            #{email},
+        </if>
+         <if test="@com.yx.utils.TmStringUtils@isNotEmpty(telephone)">
+           #{telephone}
+        </if>
+  	 )
+	</insert>
+	
+	<delete id="sdelete">
+	   delete from yx_admin_user where id = #{id}
+	</delete>
+	
 </mapper>

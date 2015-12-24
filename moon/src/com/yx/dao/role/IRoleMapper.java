@@ -147,5 +147,26 @@ public interface IRoleMapper {
 	 */
 	public List findRolePermission(@Param("roleId")Integer roldId);
 	
+	/**
+	 * @Title: insert 
+	 * @Description:添加角色
+	 * @param role  
+	 * @return void 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月24日 下午6:00:11]  
+	 * @throws  
+	 */
+	public void insert(Role role);
+	
+	/**
+	 * @Title: sdelete 
+	 * @Description: 物理删除
+	 * @param id  
+	 * @return void 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月24日 下午6:39:44]  
+	 * @throws  
+	 */
+	public void sdelete(@Param("id")Integer id);
 	
 }

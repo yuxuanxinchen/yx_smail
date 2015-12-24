@@ -61,5 +61,23 @@ public class AdminUserController {
 		}
 	}
 	
+	@RequestMapping("add")
+	public String add(){
+		return "adminuser/add";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="addUser",method=RequestMethod.POST)
+	public String addUser(AdminUser adminUser){
+		adminuserService.add(adminUser);
+		return "SUCCESS";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="sdelete",method=RequestMethod.POST)
+	public String sdelete(YParams yParams){
+		adminuserService.sdelete(yParams.getId());
+		return "SUCCESS";
+	}
 	
 }

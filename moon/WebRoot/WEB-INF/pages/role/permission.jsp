@@ -41,9 +41,6 @@
 			}
 			;
  	$(function() {
-// 			initPermissionTree();
-
-			
 			$("#permissiontree").tmTree({
 					root : tree.root,
 					children : tree.children,

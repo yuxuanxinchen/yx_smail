@@ -2,6 +2,8 @@ package com.yx.dao.adminuser;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
 
@@ -91,5 +93,27 @@ public interface IAdminUserMapper {
 	 * @throws  
 	 */
 	public int delete(YParams params);
+	
+	/**
+	 * @Title: add 
+	 * @Description:添加用户
+	 * @param adminUser  
+	 * @return void 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月24日 下午3:24:10]  
+	 * @throws  
+	 */
+	public void add(AdminUser adminUser);
+	
+	/**
+	 * @Title: sdelete 
+	 * @Description: 永久删除
+	 * @param id  
+	 * @return void 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月24日 下午4:07:47]  
+	 * @throws  
+	 */
+	public void sdelete(@Param("id")Integer id);
 	
 }

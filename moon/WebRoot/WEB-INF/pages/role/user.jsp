@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>潭州学院keke老师模板页面</title>
+    <title>后台页面</title>
 	<meta http-equiv="pragma" role="no-cache">
 	<meta http-equiv="cache-control" role="no-cache">
 	<meta http-equiv="expires" role="0">    
@@ -50,7 +50,6 @@
 					loading("请选择一个用户进行操作...",4);
 					return;
 				}
-				
 				 $chcked.each(function(){
 					arr.push($(this).val()); 
 				 });

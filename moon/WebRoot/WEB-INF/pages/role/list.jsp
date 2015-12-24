@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>潭州学院keke老师模板页面</title>
+    <title>页面</title>
 	<meta http-equiv="pragma" role="no-cache">
 	<meta http-equiv="cache-control" role="no-cache">
 	<meta http-equiv="expires" role="0">    
@@ -28,14 +28,18 @@
 								<input type="text" id="keywords" class="fl" placeholder="搜索的关键字..."/><a href="javascript:void(0);" onclick="tzAdmin.search(this);" class="fl"><i class="fa fa-search "></i></a>
 							</div>
 						</caption>
+						<ps:permission model="role" method="addRole">
+						<a href="javascript:void(0)" onclick="openAdd(this)" id="addUser">添加</a>
+						</ps:permission>
 						<thead>
 							<tr>
-								<th>主键</th>
-								<th>名称 <span class="up"></span> <span class="down"></span></th>	
-								<th>用户</th>	
-								<th>创建时间</th>	
-								<th>删除状态</th>	
-								<th>操作</th>
+												<th>主键</th>
+								<ps:permission model="role" method="name"><th>名称 <span class="up"></span> <span class="down"></span></th></ps:permission>	
+								<ps:permission model="role" method="user"><th>用户</th>	</ps:permission>
+								<ps:permission model="role" method="createTime"><th>创建时间</th>	</ps:permission>
+								<ps:permission model="role" method="isDelete"><th>删除状态</th>	</ps:permission>
+								<ps:permission model="role" method="opator"><th>操作</th></ps:permission>
+							    <th>删除角色</th>
 							</tr>
 						</thead>
 						<!--身体部-->
@@ -52,11 +56,21 @@
 	</div>
 	<script type="text/javascript">
 	
+	  function openAdd(obj){
+	       $.tzIframe({width:400,height:250,title:"角色分配权限",drag:false,content:"${basePath}/admin/role/add",
+	      callback:function(iframe,$dialog,opts){
+	      	tzAdmin.loadData(0,10,function(itemCount){
+				tzAdmin.initPage(itemCount);//分页加载一次吗
+			});
+	      }});
+	  }
+	
+	
 	   var tzRole = {
 	      user:function(obj){
 	         var $obj = $(obj);
 	         var opid = $obj.data("opid");
-	         $.tzIframe({width:320,height:400,drag:false,title:"用户分配角色",content:"${basePath}admin/role/user/"+opid,
+	         $.tzIframe({width:320,height:400,drag:false,title:"用户分配角色",content:"${basePath}admin/role/user?roleId="+opid,
 	         callback:function(iframe,$dialog,opts){
 	             if(iframe){
 					iframe.tzUserRole.save(opid);
@@ -226,7 +240,7 @@
 								loading("请稍候数据执行中......", 3)
 								$.ajax({
 									type : "post",
-									url : "${basePath}admin/content/delete",
+									url : "${basePath}admin/role/delete",
 									data : params,
 									success : function(data) {
 										loading("成功啦......", 3)

@@ -25,11 +25,11 @@
            <mvc:mapping path="/admin/**"/>
            <bean class="com.yx.core.LoginIntercetor"></bean>
        </mvc:interceptor>
-<!--         <mvc:interceptor>  -->
-<!--             <mvc:mapping path="/admin/**"/> -->
-<!--             <mvc:exclude-mapping path="/login/**"/> -->
-<!--             <bean class="com.yx.core.PermissionInterceptor"></bean> -->
-<!-- 	       </mvc:interceptor>  -->
+        <mvc:interceptor> 
+            <mvc:mapping path="/admin/**"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <bean class="com.yx.core.PermissionInterceptor"></bean>
+	       </mvc:interceptor> 
 	    </mvc:interceptors>
       
      <!-- 视图渲染 -->

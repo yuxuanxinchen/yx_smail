@@ -24,20 +24,23 @@
 					<!--表格-->
 					<table class="tztab">
 						<caption>
-							<div class="fr sbtn">
+							<div class="fr sbtn"> 
 								<input type="text" id="keywords" class="fl" placeholder="搜索的关键字..."/><a href="javascript:void(0);" onclick="tzAdmin.search(this);" class="fl"><i class="fa fa-search "></i></a>
 							</div>
 						</caption>
+						<ps:permission method="add" model="adminuser">
+						<a href="javascript:void(0)" onclick="openAdd(this)" id="addUser">添加</a>
+						</ps:permission>
 						<thead>
 							<tr>
 								<th>主键</th>
-								<th>用户名称 <span class="up"></span> <span class="down"></span></th>	
-								<th>邮箱</th>	
-								<th>手机号码</th>	
-								<th>创建时间</th>	
-								<th>删除状态</th>	
-								<th>禁止状态</th>	
-								<th>操作</th>
+								<ps:permission model="adminuser" method="userName"><th>用户名称 <span class="up"></span> <span class="down"></span></th>	</ps:permission>
+								<ps:permission model="adminuser" method="email"><th>邮箱</th></ps:permission>	
+								<ps:permission model="adminuser" method="phonenumber"><th>手机号码</th></ps:permission>	
+								<ps:permission model="adminuser" method="createTime"><th>创建时间</th></ps:permission>	
+								<ps:permission model="adminuser" method="isDelete"><th>删除状态</th></ps:permission>	
+								<ps:permission model="adminuser" method="is"><th>禁止状态</th></ps:permission>	
+								<ps:permission model="adminuser" method="opator"><th>操作</th></ps:permission>
 							</tr>
 						</thead>
 						<!--身体部-->
@@ -53,6 +56,17 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+	
+	
+	   function openAdd(obj){
+	      $.tzIframe({width:400,height:400,title:"角色分配权限",drag:false,content:"${basePath}/admin/adminuser/add",
+	      callback:function(iframe,$dialog,opts){
+	            	tzAdmin.loadData(0,10,function(itemCount){
+						tzAdmin.initPage(itemCount);//分页加载一次吗
+	      });
+	      }});
+	   }
+	
 	
 		$(function(){
 		
@@ -189,7 +203,7 @@
 								loading("请稍候数据执行中......", 3)
 								$.ajax({
 									type : "post",
-									url : "${basePath}admin/adminuser/delete",
+									url : "${basePath}admin/adminuser/sdelete",
 									data : params,
 									success : function(data) {
 										loading("成功啦......", 3)

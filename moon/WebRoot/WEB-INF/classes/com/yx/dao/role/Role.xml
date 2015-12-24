@@ -79,5 +79,22 @@
 		<select id="findRolePermission" resultType="int">
 			select permission_id from yx_role_permission where role_id = #{roleId}
 	    </select>
-	
+	    
+	  <insert id="insert" parameterType="com.yx.entity.Role">
+	  	insert into yx_role(name,description,user_id) values(
+	  	<if test="@com.yx.utils.TmStringUtils@isNotEmpty(name)">
+	  	    #{name},
+	  	</if>
+	  	  	<if test="@com.yx.utils.TmStringUtils@isNotEmpty(description)">
+	  	    #{description},
+	  	</if>
+	  	  	<if test="@com.yx.utils.TmStringUtils@isNotEmpty(userId)">
+	  	    ${userId}
+	  	</if>
+	  	)
+	  </insert>
+	  
+	  <delete id="sdelete">
+	     delete from yx_role where id = #{id}
+	  </delete>
 </mapper>

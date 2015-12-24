@@ -101,4 +101,16 @@ public class RoleServiceImpl implements IRoleService{
 		}
 		return null;
 	}
+
+	@Override
+	public void insert(Role role) {
+		roleMapper.insert(role);
+		
+	}
+
+	@Override
+	public void sdelete(Integer id) {
+		roleMapper.sdelete(id);
+		
+	}
 }

@@ -49,4 +49,16 @@ public class AdminUserServiceImpl implements IAdminUserService{
 		return adminUserMapper.delete(params);
 	}
 
+	@Override
+	public void add(AdminUser adminUser) {
+		adminUserMapper.add(adminUser);
+		
+	}
+
+	@Override
+	public void sdelete(Integer id) {
+		adminUserMapper.sdelete(id);
+		
+	}
+
 }

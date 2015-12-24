@@ -32,6 +32,16 @@ public class YParams {
 	private String order ;
 	private Integer forbiden;
 	private Integer roleId;
+	private Integer rid;
+
+	
+	public Integer getRid() {
+		return rid;
+	}
+
+	public void setRid(Integer rid) {
+		this.rid = rid;
+	}
 
 	public Integer getRoleId() {
 		return roleId;
