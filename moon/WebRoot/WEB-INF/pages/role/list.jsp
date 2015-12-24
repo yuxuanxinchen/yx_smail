@@ -52,38 +52,6 @@
 	</div>
 	<script type="text/javascript">
 	
-// 		var tzRole = {
-// 			user:function(obj){
-// 				var $obj = $(obj);
-// 				var opid = $obj.data("opid");
-// 				$.tzIframe({width:320,height:400,title:"用户分配角色",drag:false,content:adminPath+"/role/user/"+opid,callback:function(iframe,$dialog,opts){
-// 					if(iframe){
-// 						iframe.tzUserRole.save(opid);
-// 					}
-// 				}});
-// 			},
-// 			permission:function(obj){
-// 				var $obj = $(obj);
-// 				var opid = $obj.data("opid");
-// 				$.tzIframe({width:460,height:420,title:"权限分配",drag:false,content:adminPath+"/role/permission/"+opid,callback:function(iframe,$dialog,opts){
-// 					if(iframe){
-// 						iframe.saveRolePermission(opid,$dialog,opts);
-// 					}
-// 				},loadSuccess:function(iframe){
-// 					iframe.initPermissionTree(function(){
-// 						选中已授权的权限
-// 						var arr = [2,3,1];
-// 						for(var i=0;i<arr.length;i++){
-// 							$(iframe.document).find("body").find(".tm-tree-checkbox[opid="+arr[i]+"]").addClass("tm-tree-checkbox-checked");
-// 						}
-// 					});
-// 				}});
-// 			},
-// 			del:function(){
-				
-// 			}
-// 		};
-	
 	   var tzRole = {
 	      user:function(obj){
 	         var $obj = $(obj);
@@ -102,7 +70,22 @@
 			         callback:function(iframe,$dialog,opts){
 					if(iframe){
 						iframe.saveRolePermission(opid,$dialog,opts);
-				}
+				   }
+				},loadSuccess:function(iframe){
+  					if(iframe.initPermissionTree(function(){
+  					  $.ajax({
+  					    type:"post",
+  					    async: false, 
+  					    url:"${basePath}admin/role/findRolePermission",
+						data:{"roleId":opid},
+						success:function(data){
+  					     for(var i = 0 ;i < data.length;i++){
+  					      $(iframe.document).find("body").find(".tm-tree-checkbox[opid="+data[i]+"]").addClass("tm-tree-checkbox-checked");
+  					        }
+						  }
+  					   });
+  					    //选中已授权的权限
+  					}));
 	         }})
 	      },
 	      del:function(){

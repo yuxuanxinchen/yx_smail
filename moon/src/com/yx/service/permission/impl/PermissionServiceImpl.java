@@ -106,4 +106,10 @@ public class PermissionServiceImpl implements IPermissionService{
 	public int delete(YParams params) {
 		return permissionMapper.delete(params);
 	}
+
+
+	@Override
+	public List<HashMap<String, Object>> findUserPermission(Integer userId) {
+		return permissionMapper.findUserPermission(userId);
+	}
 }

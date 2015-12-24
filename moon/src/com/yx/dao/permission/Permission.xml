@@ -38,4 +38,23 @@
 			</if>
 		</trim>
 	</select>
+	
+	
+	<select id="findUserPermission" resultType="java.util.Map">
+		SELECT
+			p.url,p.model,p.method
+			FROM yx_permission p
+			LEFT JOIN yx_role_permission rp ON rp.permission_id = p.id
+			LEFT JOIN yx_role r ON r.id = rp.role_id
+			LEFT JOIN yx_role_user ru ON ru.role_id = rp.role_id
+		WHERE
+			ru.user_id = #{userId} 
+			AND p.is_delete = 0 
+			AND r.is_delete = 0
+		GROUP BY p.url
+	</select>
+	
+	
+
+	
 </mapper>

@@ -2,6 +2,7 @@ package test;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
+import com.yx.dao.permission.IPermissionMapper;
 import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
@@ -27,6 +29,7 @@ import com.yx.service.adminstat.IStatService;
 import com.yx.service.adminuser.IAdminUserService;
 import com.yx.service.content.IContentService;
 import com.yx.service.permission.IPermissionService;
+import com.yx.service.permission.impl.PermissionServiceImpl;
 import com.yx.service.role.IRoleService;
 import com.yx.service.user.IUserService;
 import com.yx.service.user.impl.UserServiceImpl;
@@ -58,6 +61,25 @@ public class TestApplications{
 	
 	@Autowired
 	private IRoleService roleService;
+	
+	@Autowired
+	private PermissionServiceImpl permissionMapper;
+	
+	@Test
+	public void rolePerission(){
+		List<HashMap<String, Object>> lists =permissionMapper.findUserPermission(5);
+		if(lists!=null && lists.size() > 0){
+			System.out.println(lists.size());
+		}
+		
+	}
+	
+	@Test
+	public void setCoust(){
+		List<HashMap<String, Object>> lists = perSingleton.findUserPermission(5);
+		System.out.println(lists);
+	}
+	
 	
 	@Test
 	public void roleCount(){

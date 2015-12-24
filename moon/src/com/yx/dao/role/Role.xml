@@ -76,5 +76,8 @@
 		WHERE ru.user_id =#{userId}
 	</select>
 	
+		<select id="findRolePermission" resultType="int">
+			select permission_id from yx_role_permission where role_id = #{roleId}
+	    </select>
 	
 </mapper>

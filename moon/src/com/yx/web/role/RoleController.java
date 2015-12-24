@@ -119,4 +119,11 @@ public class RoleController {
 			return "fail";
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/findRolePermission",method=RequestMethod.POST)
+	public List findRolePermission(Integer roleId){
+		return roleService.findRolePermission(roleId);
+	}
+	
 }

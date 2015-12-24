@@ -1,5 +1,6 @@
 package com.yx.web.content;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.yx.dao.content.IContentMapper;
 import com.yx.entity.Content;
 import com.yx.entity.YParams;
 import com.yx.service.content.IContentService;
+import com.yx.service.permission.IPermissionService;
 
 @Controller
 @RequestMapping("/admin/content")
@@ -20,6 +22,9 @@ public class ContentController {
 
 	@Autowired
 	private IContentService contentService;
+	
+	@Autowired
+	private IPermissionService permissionServcie;
 	
 	/**
 	 * @Title: list 
@@ -33,6 +38,16 @@ public class ContentController {
 	 */
 	@RequestMapping("/list")
 	public String list(YParams yParams){
+		List<HashMap<String, Object>> maps = permissionServcie.findUserPermission(5);
+//		String url = "/admin/content/list";
+//		boolean mark = false;
+//		for (HashMap<String, Object> hashMap : maps) {
+//			 if(String.valueOf(hashMap.get("url")).equalsIgnoreCase(url)){
+//				 mark = true;
+//				 break;
+//			 }
+//		}
+//		return mark==true?"content/list":"nopermission";
 		return "content/list";
 	}
 	

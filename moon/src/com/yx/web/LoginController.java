@@ -1,5 +1,7 @@
 package com.yx.web;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import static com.yx.utils.SysConstant.*;
 
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
+import com.yx.service.permission.IPermissionService;
 import com.yx.service.role.IRoleService;
 import com.yx.service.user.IUserService;
 import com.yx.utils.TmStringUtils;
@@ -39,6 +42,9 @@ public class LoginController extends BaseController {
 
 	@Autowired
 	private IRoleService roleService;
+	
+	@Autowired
+	private IPermissionService permissionService;
 	/**
 	 * @Title: logined 
 	 * @Description:用户登录
@@ -69,9 +75,13 @@ public class LoginController extends BaseController {
 							//如果用户没有权限，提示用户
 							return "nopermission";
 						}
+						List<HashMap<String, Object>> permissions = permissionService.findUserPermission(adminUser.getId());
+						
 						session.setAttribute(SESSION_USER, adminUser);
 						session.setAttribute(SESSION_USER_USERNAME,
 								adminUser.getUsername());
+						session.setAttribute(SESSION_USER_ROLE,roles);
+						session.setAttribute(SESSION_USER_PERMISSION, permissions);
 						//日志监控
 						request.getServletContext().setAttribute(USER_LOG, adminUser);
 						request.getServletContext().setAttribute(REQUEST_LOG, request);

@@ -3,6 +3,8 @@ package com.yx.service.permission;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yx.entity.Permission;
 import com.yx.entity.YParams;
 
@@ -94,4 +96,18 @@ public interface IPermissionService {
 	 * @throws  
 	 */
 	public int delete(YParams params);
+	
+	
+	/**
+	 * @Title: findUserPermission 
+	 * @Description: 根据用户ID来获取权限
+	 * @param userId
+	 * @return  
+	 * @return List<HashMap<String,Object>> 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午2:16:18]  
+	 * @throws  
+	 */
+	public List<HashMap<String,Object>> findUserPermission(@Param("userId")Integer userId);
+	
 }

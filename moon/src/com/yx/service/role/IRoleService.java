@@ -134,4 +134,17 @@ public interface IRoleService {
      * @throws  
      */
 	public HashMap<String, Object> findRolesByUserId(Integer userId);
+	
+	/**
+	 * @Title: findRolePermission 
+	 * @Description: 获取当前角色的权限
+	 * @param userId
+	 * @return  
+	 * @return List 
+	 * @Author:[yuxuan]
+	 * @Date:[2014-下午12:26:34]  
+	 * @throws  
+	 */
+	public List findRolePermission(@Param("roleId")Integer roleId);
+	
 }

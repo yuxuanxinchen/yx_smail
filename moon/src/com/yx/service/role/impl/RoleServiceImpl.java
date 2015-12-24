@@ -92,4 +92,13 @@ public class RoleServiceImpl implements IRoleService{
 	public HashMap<String, Object> findRolesByUserId(Integer userId) {
 		return roleMapper.findRolesByUserId(userId);
 	}
+
+	@Override
+	public List findRolePermission(Integer roleId) {
+		List<Integer> lists = roleMapper.findRolePermission(roleId);
+		if(lists!=null && lists.size() > 0){
+			return roleMapper.findRolePermission(roleId);
+		}
+		return null;
+	}
 }

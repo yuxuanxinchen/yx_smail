@@ -26,6 +26,8 @@
                           //登录弹窗     huozhe   直接跳转
                     	 if(opts.logout)opts.logout();
                          window.location.href=opts.path+"userlogin"
+                     }else if(data=="nopermission"){
+                    	  loading("非常抱歉，没有权限！",4)
                      }else{
                        opts.callback(data);
                      }

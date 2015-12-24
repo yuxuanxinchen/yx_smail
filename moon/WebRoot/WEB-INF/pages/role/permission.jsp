@@ -21,9 +21,7 @@
  	<script type="text/javascript">
  	
  	var permissions = "";
- 	$(function() {
-			initPermissionTree();
-			function initPermissionTree() {
+			function initPermissionTree(callback) {
 				yxAjax.r({
 					url : "${basePath}admin/permission/root",
 					callback : function(data) {
@@ -37,10 +35,13 @@
 							permissions = data.checkArr.opid;
 							}
 						});
+				           if(callback)callback();
 					}
 				});
 			}
 			;
+ 	$(function() {
+// 			initPermissionTree();
 
 			
 			$("#permissiontree").tmTree({
@@ -77,7 +78,11 @@
 					url : "${basePath}/admin/role/saveRolePermission",
 					data:datas,
 					success : function(data) {
-						alert(data)
+					   if(data=="success"){
+						parent.loading("权限分配成功",4);
+						$dialog.next().remove();
+						$dialog.remove();
+					}
 					}
 				});
 			}

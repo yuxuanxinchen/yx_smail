@@ -19,17 +19,7 @@
 	<div class="wrap">
 		<%@ include file="/WEB-INF/common/left.jsp" %>
 		<div class="content">
-			<div class="header">
-				<ul class="fl">
-					 <li class="titems"><a href="javascript:void(0);"><i class="fa fa-user"></i>欢迎雨宣来到cms后台</a></li>
-					 <li class="titems"><a href="javascript:void(0);"><i class="fa fa-envelope"></i>消息5个!</a></li>
-					 <li class="titems"><a href="javascript:void(0);"><i class="fa fa-cog"></i>设置</a></li>
-					 <li class="titems"><a href="${basePath}logout"><i class="fa fa-share-alt"></i>退出</a></li>	
-				</ul>
-				<div class="fr sbtn none">
-					<input type="text" class="fl"  placeholder="搜索的关键字..."/><a href="javascript:void(0)"  class="fl"><i class="fa fa-search "></i></a>
-				</div>
-			</div>
+			  <%@ include file="/WEB-INF/common/header.jsp" %>
 			<div class="channel"> 首页 > 内容管理</div>
 			<div class="cnt">
 				<div class="tabwrap">
@@ -50,16 +40,20 @@
 						</colgroup>-->
 						<thead>
 							<tr>
+							
+							
+							
+							
 								<th>主键</th>
 								<th>标题 <span class="up"></span> <span class="down"></span></th>	
 								<th>栏目</th>	
 								<th>作者</th>	
 								<th>创建时间</th>	
-								<th>是否置顶</th>	
-								<th>是否精华</th>	
-								<th>删除状态</th>	
-								<th>是否评论</th>	
-								<th>发布状态</th>	
+								<ps:permission model="content" method="top"><th>是否置顶</th></ps:permission>
+								<ps:permission model="content" method="essence"><th>是否精华</th>	</ps:permission>
+								<ps:permission model="content" method="delete"><th>删除状态</th></ps:permission>	
+								<ps:permission model="content" method="comment"><th>是否评论</th>	</ps:permission>	
+								<ps:permission model="content" method="send"><th>发布状态</th></ps:permission>		
 								<th>操作</th>
 							</tr>
 						</thead>
