@@ -14,6 +14,10 @@
 	<!-- 引入树的js和css -->
 	<link rel="stylesheet" href="${basePath}resources/sg/tree/tm_tree.css"/>
 	<script type="text/javascript" src="${basePath}resources/sg/tree/tm_tree.js"></script>
+	<style type="text/css">
+	    #addUser{right:10px}
+	    #addUser:hover{border:1px solid #141414;color:green;font-weight:600;box-shadow:3px 3px 3px #141414;}
+	</style>
  </head>
  <body>
 	<div class="wrap">
@@ -23,6 +27,7 @@
 			 <%@ include file="/WEB-INF/common/header.jsp" %>
 			<div class="content"> 首页 > 权限管理</div>
 			<div class="cnt">
+			<a href="javascript:void(0)" onclick="openAdd(this)" id="addUser">添加</a>
 				<div class="tabwrap">
 					<div id="permissiontree"></div>
 				</div>
@@ -30,6 +35,16 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+
+
+	 function openAdd(obj){
+	      $.tzIframe({width:400,height:400,title:"添加权限!",drag:false,content:"${basePath}admin/permission/add",
+	      callback:function(iframe,$dialog,opts){
+// 	            	tzAdmin.loadData(0,10,function(itemCount){
+// 						tzAdmin.initPage(itemCount);//分页加载一次吗
+// 	          });
+	      }});
+	   }
 
 		$(function() {
 			initPermissionTree();

@@ -39,7 +39,7 @@
 								<ps:permission model="role" method="createTime"><th>创建时间</th>	</ps:permission>
 								<ps:permission model="role" method="isDelete"><th>删除状态</th>	</ps:permission>
 								<ps:permission model="role" method="opator"><th>操作</th></ps:permission>
-							    <th>删除角色</th>
+							    <ps:permission model="role" method="delete"><th>删除角色</th></ps:permission>
 							</tr>
 						</thead>
 						<!--身体部-->

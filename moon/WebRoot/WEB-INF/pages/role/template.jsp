@@ -31,6 +31,8 @@
 			<a href="javascript:void(0);" data-opid="${role.id}"  onclick="tzRole.permission(this)"><i class="fa fa-send"></i>&nbsp;&nbsp;授权</a>
 		</td>
 	</ps:permission>
+	<ps:permission model="role" method="delete">
 	    <td><a onclick="tzAdmin.remove(this);" data-opid="${role.id }" href="javascript:void(0)">删除</a></td>
-	</tr>
+	</ps:permission>
+	/tr>
 </c:forEach>

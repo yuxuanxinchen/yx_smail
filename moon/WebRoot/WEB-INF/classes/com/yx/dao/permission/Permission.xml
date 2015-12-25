@@ -54,7 +54,33 @@
 		GROUP BY p.url
 	</select>
 	
-	
+    <insert id="insert" parameterType="com.yx.entity.Permission">
+       insert into yx_permission(name,url,model,parent_id,method,user_id,is_delete,description)
+		VALUES(
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(name)">
+		       #{name},
+		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(url)">
+		        #{url},
+		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(model)">
+		        #{model},
+		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(method)">
+		         #{method},
+		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(userId)">
+		         #{userId},
+		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(isDelete)">
+		         #{isDelete},
+		   </if>
+		    <if test="@com.yx.utils.TmStringUtils@isNotEmpty(description)">
+		         #{description}
+		   </if>
+		)
+    </insert>
+
 
 	
 </mapper>

@@ -1,5 +1,8 @@
 package com.yx.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 
  * Simple to Introduction  
@@ -21,5 +24,10 @@ public class SysConstant {
 	public static final String REQUEST_LOG = "request_log";
 	public static final String SESSION_USER_ROLE = "session_user_role";
 	public static final String SESSION_USER_PERMISSION = "session_user_permission";
-	
+    public static final String SERVLET_CONTEXT_REQUEST = "servletContext_request";	
+    public static final String MAP_REQUEST_URI_MODE = "mode_name";
+    public static final Map<String, Object> reqs = new HashMap<String, Object>();
+    
+    
+    
 }

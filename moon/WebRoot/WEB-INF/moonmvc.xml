@@ -21,7 +21,7 @@
       <mvc:annotation-driven></mvc:annotation-driven>
       
        <mvc:interceptors>
-       <mvc:interceptor>
+        <mvc:interceptor>
            <mvc:mapping path="/admin/**"/>
            <bean class="com.yx.core.LoginIntercetor"></bean>
        </mvc:interceptor>

@@ -87,9 +87,18 @@
 				 <li class="items"><a href="${basePath}admin/music/list"><i class="fa fa-inbox"></i>音乐管理</a></li>
 			</ps:permission>
 			
-			<ps:permission model="xx" method="xx">
-				 <li class="items"><a href="${basePath}admin/stat/list"><i class="fa fa-th"></i>统计报表</a></li>
+			<!-- 统计报表 -->
+			<ps:permission model="census" method="list">
+				<yx:if test='${yx:indexOf(pageContext.request.requestURI,"census/list")!=-1}'>
+				    <yx:then>
+				    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>统计报表</a></li>
+				    </yx:then>
+				 <yx:else>
+				         <li class="items"><a href="${basePath}admin/census/list"><i class="fa fa-signal"></i>统计报表</a></li>
+				    </yx:else>
+				</yx:if>
 			</ps:permission>
+			
 			 
 			 <ps:permission model="xx" method="xx">
 				 <li class="items"><a href="${basePath}admin/gather/list"><i class="fa fa-send"></i>爬虫采集</a></li>
@@ -109,7 +118,7 @@
 			</ps:permission>
 			
 			<!--暂无  -->
-			 <ps:permission model="xx" method="xx">
+<!-- 			 <ps:permission model="xx" method="xx"> -->
 <!-- 					 <li class="items"> -->
 <!-- 						<a href="javascript:void(0);"><i class="fa fa-tint"></i>按钮组</a> -->
 <!-- 						<ul> -->

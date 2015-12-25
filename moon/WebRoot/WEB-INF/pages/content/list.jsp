@@ -54,7 +54,7 @@
 								<ps:permission model="content" method="delete"><th>删除状态</th></ps:permission>	
 								<ps:permission model="content" method="comment"><th>是否评论</th>	</ps:permission>	
 								<ps:permission model="content" method="send"><th>发布状态</th></ps:permission>		
-								<th>操作</th>
+								<ps:permission model="content" method="opator"><th>操作</th></ps:permission>
 							</tr>
 						</thead>
 						<!--身体部-->

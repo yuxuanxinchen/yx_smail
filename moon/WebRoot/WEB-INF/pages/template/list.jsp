@@ -45,7 +45,8 @@
 								</yx:if>
 								</ps:permission>
 								
-								
+								<ps:permission model="content" method="opator">
 								<td><a href="javascript:void(0)" data-opid="${content.id }" onclick="tzAdmin.remove(this);">删除</a></td>
+							   </ps:permission>
 							</tr>
 						    </c:forEach>

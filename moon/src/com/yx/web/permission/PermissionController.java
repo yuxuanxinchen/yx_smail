@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yx.entity.YParams;
@@ -44,4 +45,12 @@ public class PermissionController {
 	public HashMap<String, Object> root(YParams params){
 		return permissionService.findPermissions(params);
 	}
+	
+	
+	@RequestMapping(value="/add")
+	public String add(){
+		return "permission/add";
+	}
+	
+	
 }

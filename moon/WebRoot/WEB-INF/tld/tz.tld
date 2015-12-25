@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
   version="2.0">
     
-  <description>潭州学院中级班jsp的自定义函数标签</description>
+  <description>自定义函数标签</description>
   <display-name>tz functions</display-name>
   <tlib-version>1.0</tlib-version>
   <short-name>tz</short-name><!-- prefix="tz" -->

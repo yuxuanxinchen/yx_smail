@@ -28,6 +28,7 @@ import com.yx.entity.YParams;
 import com.yx.service.adminstat.IAdminStatService;
 import com.yx.service.adminstat.IStatService;
 import com.yx.service.adminuser.IAdminUserService;
+import com.yx.service.census.ICensusService;
 import com.yx.service.content.IContentService;
 import com.yx.service.music.IMusicService;
 import com.yx.service.permission.IPermissionService;
@@ -72,6 +73,18 @@ public class TestApplications{
 	
 	@Autowired
 	private IAdminUserService admsinUser;
+	
+	@Autowired
+	private ICensusService censusService;
+	
+	@Test
+	public void cense(){
+		YParams ypParams 
+		 =new YParams();
+		ypParams.setDate("2015-12-25");;
+		List<HashMap<String, Object>> maps = censusService.findModelBtns(ypParams);
+		System.out.println(maps.size());
+	}
 	
 	@Test
 	public void insertRole(){

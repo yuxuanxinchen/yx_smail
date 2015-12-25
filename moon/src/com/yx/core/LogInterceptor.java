@@ -3,6 +3,8 @@ package com.yx.core;
 import static com.yx.utils.SysConstant.REQUEST_LOG;
 import static com.yx.utils.SysConstant.USER_LOG;
 
+import java.util.HashMap;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +17,7 @@ import org.springframework.web.context.ServletContextAware;
 import com.yx.dao.adminstat.IAdminStatMapper;
 import com.yx.entity.AdminStat;
 import com.yx.entity.AdminUser;
+import com.yx.utils.SysConstant;
 import com.yx.utils.TmStringUtils;
 import com.yx.utils.ip.TmIpUtil;
 
@@ -75,6 +78,7 @@ public class LogInterceptor implements ServletContextAware{
 		}
 		
 		
+		
 		String resultType = null;
 		if(object!=null){
 			resultType = object.getClass().getName();
@@ -110,7 +114,10 @@ public class LogInterceptor implements ServletContextAware{
 		adminStat.setIp(TmIpUtil.getIpAddress(request));
 		adminStat.setIpAddress(TmIpUtil.ipLocation(request));
 		adminStat.setUsername(adminUser.getUsername());
-		adminStat.setModel("content");
+		HashMap<String,Object> model = (HashMap<String, Object>) SysConstant.reqs;
+		if(model!=null){
+			adminStat.setModel(model.get(SysConstant.MAP_REQUEST_URI_MODE).toString());
+		}
 		adminStat.setDescription("this is content");
 		adminStatMapper.save(adminStat);
 		

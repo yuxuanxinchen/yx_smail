@@ -112,4 +112,11 @@ public class PermissionServiceImpl implements IPermissionService{
 	public List<HashMap<String, Object>> findUserPermission(Integer userId) {
 		return permissionMapper.findUserPermission(userId);
 	}
+
+
+	@Override
+	public void insert(Permission permission) {
+		permissionMapper.insert(permission);
+		
+	}
 }

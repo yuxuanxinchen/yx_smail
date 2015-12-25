@@ -118,5 +118,14 @@ public interface IPermissionMapper {
 	 */
 	public List<HashMap<String,Object>> findUserPermission(@Param("userId")Integer userId);
 	
-	
+	/**
+	 * @Title: insert 
+	 * @Description: 插入
+	 * @param permission  
+	 * @return void 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月25日 下午11:47:22]  
+	 * @throws  
+	 */
+	public void insert(Permission permission);
 }

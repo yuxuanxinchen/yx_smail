@@ -1,6 +1,7 @@
 package com.yx.core;
 import static com.yx.utils.SysConstant.SESSION_USER;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yx.entity.AdminUser;
 import com.yx.service.adminstat.IAdminStatService;
+import com.yx.utils.SysConstant;
 import com.yx.utils.TmStringUtils;
 
 /**
@@ -32,6 +34,11 @@ public class LoginIntercetor implements HandlerInterceptor{
 			HttpServletResponse response, Object handler) throws Exception {
 		AdminUser user =(AdminUser)request.getSession().getAttribute(SESSION_USER);
 		if(user!=null){
+			String url = request.getRequestURI();
+			String arrString[] = url.split("/");
+			String res = arrString[arrString.length-1];
+			String resTwo = arrString[arrString.length-2];
+			SysConstant.reqs.put(SysConstant.MAP_REQUEST_URI_MODE,resTwo);
 			return true;
 		}else{
 			//执行是一个ajax请求还是一个普通请求
