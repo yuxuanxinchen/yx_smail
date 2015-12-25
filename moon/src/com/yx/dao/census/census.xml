@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.dao.census.ICensusMapper" >
+	
+	<select id="findModelBtns" resultType="java.util.Map" parameterType="com.yx.entity.YParams">
+		select time,model,count(1) counts,create_time from yx_admin_stat ys
+				WHERE DATE_FORMAT(create_time,'%Y-%m-%d')=#{date}
+			GROUP BY model
+			ORDER BY create_time 
+	</select>
+   
+
+	
+</mapper>
