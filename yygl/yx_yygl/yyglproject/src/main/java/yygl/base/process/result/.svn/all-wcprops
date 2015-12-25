@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result
+END
+ResultUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result/ResultUtil.java
+END
+DataGridResultInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result/DataGridResultInfo.java
+END
+ResultInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result/ResultInfo.java
+END
+ExceptionResultInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result/ExceptionResultInfo.java
+END
+SubmitResultInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/process/result/SubmitResultInfo.java
+END

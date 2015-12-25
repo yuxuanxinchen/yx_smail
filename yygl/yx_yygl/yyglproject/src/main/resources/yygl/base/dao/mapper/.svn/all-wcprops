@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper
+END
+UsergysMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/UsergysMapper.xml
+END
+BssSysAreaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/BssSysAreaMapper.xml
+END
+SysuserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/SysuserMapper.xml
+END
+SysuserMapperCustom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/SysuserMapperCustom.xml
+END
+UseryyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/UseryyMapper.xml
+END
+BasicinfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/BasicinfoMapper.xml
+END
+DicttypeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/DicttypeMapper.xml
+END
+CommonSql.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/CommonSql.xml
+END
+UsergysareaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/UsergysareaMapper.xml
+END
+DictinfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/DictinfoMapper.xml
+END
+UserjdMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/yygl/base/dao/mapper/UserjdMapper.xml
+END

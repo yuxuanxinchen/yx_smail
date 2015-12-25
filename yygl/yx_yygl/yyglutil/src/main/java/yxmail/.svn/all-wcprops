@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yx_yygl/!svn/ver/8/yyglutil/src/main/java/yxmail
+END
+SimpleMailSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yx_yygl/!svn/ver/8/yyglutil/src/main/java/yxmail/SimpleMailSender.java
+END
+getSendEmail.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yx_yygl/!svn/ver/8/yyglutil/src/main/java/yxmail/getSendEmail.java
+END
+MailSenderInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/yx_yygl/!svn/ver/8/yyglutil/src/main/java/yxmail/MailSenderInfo.java
+END
+MyAuthenticator.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/yx_yygl/!svn/ver/8/yyglutil/src/main/java/yxmail/MyAuthenticator.java
+END

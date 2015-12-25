@@ -1,0 +1,13 @@
+package yygl.base.action;
+
+public class userJSet {
+
+	public static void main(String[] args) {
+		yxmail.getSendEmail.setToAddress("shuyefengchu@163.com");
+		if(yxmail.getSendEmail.sendEileToRemote()){
+			System.out.println("--------------");
+		}
+	}
+	
+	
+}

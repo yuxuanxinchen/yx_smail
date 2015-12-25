@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/action/converters
+END
+UserArgumentResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/action/converters/UserArgumentResolver.java
+END
+StringTrimConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/action/converters/StringTrimConverter.java
+END
+DatetimeConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/action/converters/DatetimeConverter.java
+END
+DateConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/action/converters/DateConverter.java
+END

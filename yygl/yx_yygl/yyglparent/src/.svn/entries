@@ -1,0 +1,42 @@
+10
+
+dir
+6
+https://yx/svn/yx_yygl/yyglparent/src
+https://yx/svn/yx_yygl
+
+
+
+2015-11-30T09:29:36.957293Z
+6
+yx
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+af80f42e-4ba5-6d4e-b9a9-9d843311b6eb
+
+
+
+
+
+
+0
+empty
+
+main
+dir
+
+test
+dir
+

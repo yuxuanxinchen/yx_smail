@@ -1,0 +1,26 @@
+{
+   "menus" : [{"icon" : "icon-sys","menuid" : "1","menuname" : "系统管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "用户管理","url" : "/yyglproject/user/queryuser.action"
+                 }] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导出","url" : "/yyglproject/ypml/exportYpxx.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导 入","url" : "/yyglproject/ypml/importypxx.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录维护","url" : "/yyglproject/ypml/querygysypml.action"
+                 }] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "采购单管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "创建采购单","url" : "/yyglproject/cgd/addyyycgd.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录维护","url" : "/yyglproject/ypml/querygysypml.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录控制","url" : "/yyglproject/ypml/querygysypmlcontrol.action"
+                 }
+                 ] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "统计分析","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "交易明细查询","url" : "/yyglproject/tj/businesslist.action"
+                 }, {"icon" : "icon-log","menuid" : "1_1","menuname" : "按药品统计","url" : "/yyglproject/tj/groupbyypxx.action"
+                 }] 
+               }
+             ]
+}

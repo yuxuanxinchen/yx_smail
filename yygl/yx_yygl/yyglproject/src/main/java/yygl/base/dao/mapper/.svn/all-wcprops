@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper
+END
+BasicinfoMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/BasicinfoMapper.java
+END
+UseryyMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/UseryyMapper.java
+END
+SysuserMapperCustom.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/SysuserMapperCustom.java
+END
+BssSysAreaMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/BssSysAreaMapper.java
+END
+SysuserMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/SysuserMapper.java
+END
+UsergysMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/UsergysMapper.java
+END
+UserjdMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/UserjdMapper.java
+END
+DictinfoMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/DictinfoMapper.java
+END
+UsergysareaMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/UsergysareaMapper.java
+END
+DicttypeMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/java/yygl/base/dao/mapper/DicttypeMapper.java
+END

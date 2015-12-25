@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base
+END
+error.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/error.jsp
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/login.jsp
+END
+tag.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/tag.jsp
+END
+common_js.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/common_js.jsp
+END
+common_css.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/common_css.jsp
+END
+first.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/first.jsp
+END
+welcome.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/welcome.jsp
+END
+success.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/success.jsp
+END
+refuse.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/webapp/WEB-INF/jsp/base/refuse.jsp
+END

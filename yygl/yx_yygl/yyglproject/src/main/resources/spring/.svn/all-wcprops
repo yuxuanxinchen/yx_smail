@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring
+END
+applicationContext-base-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring/applicationContext-base-service.xml
+END
+springmvc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring/springmvc.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring/applicationContext.xml
+END
+applicationContext-base-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring/applicationContext-base-dao.xml
+END
+applicationContext-business-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/yx_yygl/!svn/ver/7/yyglproject/src/main/resources/spring/applicationContext-business-service.xml
+END
