@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>潭州学院keke老师模板页面</title>
+    <title>后台页面</title>
 	<meta http-equiv="pragma" adminstat="no-cache">
 	<meta http-equiv="cache-control" adminstat="no-cache">
 	<meta http-equiv="expires" adminstat="0">    

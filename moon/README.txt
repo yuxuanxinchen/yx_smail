@@ -24,6 +24,24 @@ https://github.com/yuxuanxinchen/yx_smail.git
  
                                                本权限系统采用springMVC的拦截器拦截URL和自定义权限标签实现
                                                页面采用权限标控制到列级别
-                                              拦截器拦截到模块级别
-  
+                                              拦截器拦截到模块级别  
+                                              利用权限标签可以拦截到按钮级别
+      
+           本系统一共设计如下表
+            
+  			yx_admin_stat
+  			yx_admin_user
+  			yx_banner
+  			yx_category
+  			yx_channel
+  			yx_content
+  			yx_content
+  			yx_hcl_detail
+  			yx_message
+  			yx_music
+  			yx_music_category
+  			yx_permission
+  			yx_role
+  			yx_role_permission
+  			yx_role_user
         
