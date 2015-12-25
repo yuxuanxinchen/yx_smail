@@ -15,8 +15,8 @@ https://github.com/yuxuanxinchen/yx_smail.git
       apache-maven-3.2.1-bin
 
     
-    由于当时开发环境基于远程数据库，所以在此只有代码，并没有数据库表
+    由于当时开发环境基于远程数据库，本人down下来的数据库表不是很完整
                       
-        本人在业余时间会主键完善
+        本人在业余时间正在逐渐完善
 
 				--yuxuan
