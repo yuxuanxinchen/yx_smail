@@ -1,4 +1,6 @@
 https://github.com/yuxuanxinchen/yx_smail.git
+    
+    后台登录页面网址  http://localhost:8080/moon/userlogin
 
   1、项目开发环境 
       MyEclipse 2015 

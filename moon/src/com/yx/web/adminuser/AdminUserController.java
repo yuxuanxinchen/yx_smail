@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yx.entity.AdminUser;
 import com.yx.entity.YParams;
 import com.yx.service.adminuser.IAdminUserService;
+import com.yx.utils.TmStringUtils;
 
 /**
  * 日记管理web
@@ -69,6 +70,7 @@ public class AdminUserController {
 	@ResponseBody
 	@RequestMapping(value="addUser",method=RequestMethod.POST)
 	public String addUser(AdminUser adminUser){
+		 adminUser.setPassword(TmStringUtils.md5Base64(adminUser.getPassword()));
 		adminuserService.add(adminUser);
 		return "SUCCESS";
 	}
