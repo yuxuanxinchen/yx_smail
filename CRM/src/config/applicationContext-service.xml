@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<description>CRM</description>
+		
+			
+			<import resource="applicationContext-dao.xml"/>
+			<import resource="applicationContext-daoProxy.xml"/>
+			
+			
+		<!-- 数据字典分类 -->
+ 	     <bean id="sjzdflService" class="com.yuxuan.service.impl.SjzdflServiceImpl">
+ 	         <property name="sjzdflDao" ref="sjzdflDaoProxy"></property>
+ 	     </bean>   
+	
+	      <!-- 数据字典信息 -->
+ 	     <bean id="sjzdxxService" class="com.yuxuan.service.impl.SjzdxxServiceImpl">
+ 	         <property name="sjzdxxDao" ref="sjzdxxDaoProxy"></property>
+ 	     </bean>   
+	
+		 <!-- 客户级别 -->
+ 	     <bean id="customerLevelService" class="com.yuxuan.service.impl.CustomerLevelServiceImpl">
+ 	         <property name="dataLevelDao" ref="dataLevelDaoProxy"></property>
+ 	     </bean>   
+	
+		 <!-- 客户级别 -->
+ 	     <bean id="customerInfoService" class="com.yuxuan.service.impl.CustomerInfoServiceImpl">
+ 	         <property name="dataLevelDao" ref="dataLevelDaoProxy"></property>
+ 	         <property name="sjzdflDao" ref="sjzdflDaoProxy"></property>
+ 	         <property name="sjzdxxDao" ref="sjzdxxDaoProxy"></property>
+ 	         <property name="customerInfoDao" ref="customerInfoDaoProxy"></property>
+ 	     </bean>   
+ 	     
+ 	      <!-- 联系人 -->
+ 	     <bean id="contactsService" class="com.yuxuan.service.impl.ContactsServiceImpl">
+ 	          <property name="contactsInfoDao" ref="contactsInfoDaoProxy"></property>
+ 	     </bean>   
+	
+	     <!-- 菜单 -->
+ 	     <bean id="menuInfoService" class="com.yuxuan.service.impl.MenuInfoServiceImpl">
+ 	          <property name="menuInfoDao" ref="menuInfoDaoProxy"></property>
+ 	     </bean>   
+	
+	    <!-- 角色-->
+ 	     <bean id="roleInfoService" class="com.yuxuan.service.impl.RoleInfoServiceImpl">
+ 	          <property name="roleInfoDao" ref="roleInfoDaoProxy"></property>
+ 	    	  <property name="roleRelationDao" ref="roleRelationDaoProxy"></property>
+ 	     </bean>   
+	   
+	        <!-- 关系Service-->
+ 	     <bean id="roleRelationService" class="com.yuxuan.service.impl.RoleRelationServiceImpl">
+ 	    	  <property name="roleRelationDao" ref="roleRelationDaoProxy"></property>
+ 	     </bean>   
+ 	     
+ 	            <!-- 用户Service-->
+ 	     <bean id="userService" class="com.yuxuan.service.impl.UserServiceImpl">
+ 	    	  <property name="userDao" ref="userDaoProxy"></property>
+ 	     </bean>   
+	   
+	    <bean id="complainService" class="com.yuxuan.service.impl.ComplainServiceImpl">
+ 	    	  <property name="customerComplainInfoDao" ref="customerComplainInfoProxy"></property>
+ 	     </bean>   
+	   
+	      <!-- 任务 -->
+	       <bean id="messionService" class="com.yuxuan.service.impl.MessionServiceImpl">
+ 	    	  <property name="messionInfoDao" ref="messionInfoDaofoProxy"></property>
+ 	     </bean>   
+	   
+	    <bean id="scheduleService" class="com.yuxuan.service.impl.ScheduleServiceImpl">
+ 	    	  <property name="scheduleDao" ref="scheduleDaoProxy"></property>
+ 	     </bean>  
+ 	     
+ 	     	   
+	    <bean id="projectService" class="com.yuxuan.service.impl.ProjectServiceImpl">
+ 	    	  <property name="projectManagerDao" ref="projectManagerDaoProxy"></property>
+ 	     </bean>   
+	    
+	   
+	   
+	  
+</beans>

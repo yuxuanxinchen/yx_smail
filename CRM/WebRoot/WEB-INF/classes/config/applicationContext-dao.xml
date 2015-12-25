@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<description>CRM</description>
+  	
+  	   <import resource="../applicationContext.xml"/>
+  	
+  		  <!-- 数据字典分类 -->
+	  <bean id="sjzdflDao" class="com.yuxuan.dao.impl.SjzdflDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	  <!-- 数据字典分类信息 -->
+	  <bean id="sjzdxxDao" class="com.yuxuan.dao.impl.SjzdxxDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	    
+	   <!-- 客户级别dao -->
+	  <bean id="dataLevelDao" class="com.yuxuan.dao.impl.DataLevelDaoimpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	   <!-- 客户 -->
+	  <bean id="customerInfoDao" class="com.yuxuan.dao.impl.CustomerInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	   <!-- 联系人 -->
+	  <bean id="contactsInfoDao" class="com.yuxuan.dao.impl.ContactsInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	     <!-- 菜单 -->
+	  <bean id="menuInfoDao" class="com.yuxuan.dao.impl.MenuInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	  
+	     <!-- 角色 -->
+	  <bean id="roleInfoDao" class="com.yuxuan.dao.impl.RoleInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	       <!-- 角色 菜单表-->
+	  <bean id="roleRelationDao" class="com.yuxuan.dao.impl.RoleRelationDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	       <!-- 用户-->
+	  <bean id="userDao" class="com.yuxuan.dao.impl.UserDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	  <!-- 投诉 -->
+	   <bean id="customerComplainInfoDao" class="com.yuxuan.dao.impl.CustomerComplainInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	  
+	  	  <!-- 任务 -->
+	   <bean id="messionInfoDao" class="com.yuxuan.dao.impl.MessionInfoDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	 
+	   	  <!-- 日程 -->
+	   <bean id="scheduleDao" class="com.yuxuan.dao.impl.ScheduleDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	 
+	    <bean id="projectManagerDao" class="com.yuxuan.dao.impl.ProjectManagerDaoImpl">
+	      <property name="hibernateTemplate" ref="hibernateTemplate" />
+	  </bean>
+	 
+	 
+	  
+</beans>

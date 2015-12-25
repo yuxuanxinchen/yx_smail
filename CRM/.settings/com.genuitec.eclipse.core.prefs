@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=src/config/struts-complain.xml,src/config/struts-mession.xml,WebRoot/WEB-INF/form/UpdataCustomerComplain.jsp,src/config/struts-role.xml,src/struts.xml,src/config/struts-project.xml,src/config/struts-menu.xml,src/config/struts-sjzdfl.xml,src/config/struts-user.xml,WebRoot/form/UpdataCustomerComplain.jsp,src/config/struts-contacts.xml,src/config/struts-Ajax.xml,src/config/struts-schedule.xml
+validator.Unchecked=

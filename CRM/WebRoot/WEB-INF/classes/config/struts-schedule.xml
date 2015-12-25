@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="sche" extends="struts-default" namespace="/scdl">
+
+		<action name="schedule" class="scheduleAction">
+			<result>/WEB-INF/form/ShowSchedule.jsp</result>
+		</action>
+
+		<action name="uSchedule" class="updataScheduleAction">
+			<result>/WEB-INF/form/UpdataSchedule.jsp</result>
+		</action>
+
+	</package>
+</struts>    

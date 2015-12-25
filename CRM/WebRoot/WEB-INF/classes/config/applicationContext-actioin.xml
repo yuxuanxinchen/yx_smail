@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<description>CRM</description>
+		
+	    <!-- 数据字典分类 -->	  
+	    <bean id="sjzdflAction" class="com.yuxuan.action.SjzdflAction">
+	        <property name="sjzdflService" ref="sjzdflService"></property>
+	    </bean>	    
+	    
+	    <!-- 数据字典分类 更新-->	  
+	    <bean id="updateSjzdflAction" class="com.yuxuan.action.UpdateSjzdflAction">
+	        <property name="sjzdflService" ref="sjzdflService"></property>
+	        <property name="sjzdxxService" ref="sjzdxxService"></property>
+	    </bean>	    
+	    
+	    
+	    <!-- 数据字典分类信息-->	  
+	    <bean id="sjzdxxAction" class="com.yuxuan.action.SjzdxxAction">
+	        <property name="sjzdflService" ref="sjzdflService"></property>
+	        <property name="sjzdxxService" ref="sjzdxxService"></property>
+	    </bean>	    
+	    
+	    <!-- 更新数据字典分类信息-->	  
+	    <bean id="updateSjzdxxAction" class="com.yuxuan.action.UpdateSjzdxxAction">
+	        <property name="sjzdflService" ref="sjzdflService"></property>
+	        <property name="sjzdxxService" ref="sjzdxxService"></property>
+	    </bean>	    
+	    
+	    
+	    <!-- 客户级别-->	  
+	    <bean id="customerLevelAction" class="com.yuxuan.action.CustomerLevelAction">
+	        <property name="customerLevelService" ref="customerLevelService"></property>
+	    </bean>	    
+	    
+	    
+	    <!-- 客户级别-->	  
+	    <bean id="updateCustomerLevelAction" class="com.yuxuan.action.UpdateCustomerLevelAction">
+	        <property name="customerLevelService" ref="customerLevelService"></property>
+	    </bean>	    
+	    
+	    
+	    
+	    <!-- 客户Info-->	  
+	    <bean id="customerInfoAction" class="com.yuxuan.action.CustomerInfoAction">
+	        <property name="customerInfoService" ref="customerInfoService">
+	        </property>
+	    </bean>	    
+	    
+	    
+	    <!-- 客户Info-->	  
+	    <bean id="addCustomerInfoAction" class="com.yuxuan.action.AddCustomerInfoAction">
+	     		<property name="customerInfoService" ref="customerInfoService"></property>
+	    </bean>	    
+	    
+	        <!-- 客户Info-->	  
+	    <bean id="customerInfoAllAction" class="com.yuxuan.action.CustomerInfoAllAction">
+	     		<property name="customerInfoService" ref="customerInfoService"></property>
+	    </bean>	    
+	    
+	      <!-- 客户detail-->	  
+	    <bean id="customerInfoDatilsAction" class="com.yuxuan.action.CustomerInfoDatilsAction">
+	     		<property name="customerInfoService" ref="customerInfoService"></property>
+	    </bean>	    
+	    
+	    
+	     <!-- 客户update-->	  
+	    <bean id="updateComtomerInfoBeforeAction" class="com.yuxuan.action.UpdateComtomerInfoBeforeAction">
+	     		<property name="customerInfoService" ref="customerInfoService"></property>
+	    </bean>	    
+	    
+	  
+	   <!-- 客户update-->	  
+	    <bean id="customerInfoQueryAction" class="com.yuxuan.action.CustomerInfoQueryAction">
+	     		<property name="customerInfoService" ref="customerInfoService"></property>
+	    </bean>	 
+	    
+	    	  
+	   <!-- 联系人-->	  
+	    <bean id="contactsInfoActionAllData" class=" com.yuxuan.action.ContactsInfoAction">
+	     		<property name="contactsService" ref="contactsService"></property>
+	    </bean>	 
+	    
+	      <!-- 菜单-->	  
+	    <bean id="menuInfoAction" class="com.yuxuan.action.MenuInfoAction">
+	     		<property name="menuInfoService" ref="menuInfoService"></property>
+	    </bean>	 
+	    
+	          <!-- 角色-->	  
+	    <bean id="roleInfoAction" class="com.yuxuan.action.RoleInfoAction">
+	     		<property name="roleInfoService" ref="roleInfoService"></property>
+	    </bean>	 
+	    
+	    <!-- 角色展示-->	  
+	    <bean id="roleRelationInfoAction" class="com.yuxuan.action.RoleRelationInfoAction">
+	     		<property name="roleInfoService" ref="roleInfoService"></property>
+	     		<property name="roleRelationService" ref="roleRelationService"></property>
+	    </bean>	 
+	    
+	        <bean id="updataRoleInfoAction" class="com.yuxuan.action.UpdataRoleInfoAction">
+	     		<property name="roleInfoService" ref="roleInfoService"></property>
+	     		<property name="roleRelationService" ref="roleRelationService"></property>
+	    </bean>	 
+	    
+	  
+	    <bean id="userAction" class="com.yuxuan.action.UserAction">
+	     		<property name="userService" ref="userService"></property>
+	    </bean>	 
+	    
+	    
+	    
+	    <bean id="loginAction" class="com.yuxuan.action.LoginAction">
+	       <property name="userService" ref="userService"></property>
+	    </bean>	 
+	    
+	        <bean id="complainAction" class="com.yuxuan.action.ComplainAction">
+	           <property name="sjzdflService" ref="sjzdflService"></property>
+	    	   <property name="sjzdxxService" ref="sjzdxxService"></property>
+	           <property name="complainService" ref="complainService"></property>
+	    </bean>	 
+	   
+	       <bean id="messionAction" class="com.yuxuan.action.MessionAction">
+	       		<property name="userService" ref="userService"></property>
+	       		<property name="contactsService" ref="contactsService"></property>
+	       		<property name="customerInfoService" ref="customerInfoService"></property>
+	       		<property name="messionService" ref="messionService"></property>
+	    </bean>	 
+	    	      
+	     <bean id="scheduleAction" class=" com.yuxuan.action.ScheduleAction">
+	       		<property name="scheduleService" ref="scheduleService"></property>
+	    </bean>	 
+	    
+	        <bean id="updataScheduleAction" class="com.yuxuan.action.UpdataScheduleAction">
+	       		<property name="scheduleService" ref="scheduleService"></property>
+	    </bean>	 
+	   
+	   	    
+	        <bean id="projectManagerAction" class="com.yuxuan.action.ProjectManagerAction">
+	       		<property name="projectService" ref="projectService"></property>
+	    </bean>	 
+	   
+	   
+	   
+	  
+</beans>

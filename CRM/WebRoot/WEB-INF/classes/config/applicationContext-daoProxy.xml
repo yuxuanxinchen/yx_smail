@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<description>CRM</description>
+		
+	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="sjzdflDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="sjzdflDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+			
+	    
+	    
+	  <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="sjzdxxDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="sjzdxxDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+			
+	    
+	    
+	  <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="dataLevelDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="dataLevelDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+			
+	    
+	    
+	  <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="customerInfoDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="customerInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+			
+	    
+	       
+	  <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="contactsInfoDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="contactsInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	   <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="menuInfoDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="menuInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	  
+	   <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="roleInfoDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="roleInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="roleRelationDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="roleRelationDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	  	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="userDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="userDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	   	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="customerComplainInfoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="customerComplainInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	  	   	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="messionInfoDaofoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="messionInfoDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  	  
+	  	   	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="scheduleDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="scheduleDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	
+	
+		  	  
+	  	   	    <!--没有提交 Hibernate的事务，这将无法对数据库进行改动，    配置动态代理-->
+	  <bean id="projectManagerDaoProxy"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<!-- 代理的管理器 -->
+		<property name="transactionManager" ref="transactionManager"/>
+		 <!-- 代理的目标 -->
+		<property name="target" ref="projectManagerDao"/>
+		<!-- 代理的属性 -->
+	    <property name="transactionAttributes"> 
+			<props>
+				   <!-- 这里的方法签名可以精确到方法全配置上 -->
+		          <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>	
+	    </property>
+	</bean>
+	  
+	  
+	  
+	  
+</beans>

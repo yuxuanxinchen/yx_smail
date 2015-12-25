@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="default" extends="struts-default" namespace="/sjzd">
+
+		<action name="getSjzdfl" class="sjzdflAction">
+			<result>/WEB-INF/form/ShowSjzd.jsp</result>
+		</action>
+
+		<action name="UpdateSjzdfl" class="updateSjzdflAction">
+			<result type="chain">getSjzdfl</result>
+		</action>
+
+		<action name="gSjzdxx" class="sjzdxxAction">
+			<result>/WEB-INF/form/ShowSjxx.jsp</result>
+		</action>
+
+		<action name="updateSjzdxx" class="updateSjzdxxAction">
+			<result type="chain">gSjzdxx</result>
+		</action>
+
+		<action name="customerLevel" class="customerLevelAction">
+			<result>/WEB-INF/form/ShowCustomLevel.jsp</result>
+		</action>
+
+		<action name="updateCustomerLevel" class="updateCustomerLevelAction">
+			<result type="chain">customerLevel</result>
+		</action>
+
+		<action name="customerInfo" class="customerInfoAction">
+			<result>/WEB-INF/form/addcInfo.jsp</result>
+		</action>
+
+
+		<action name="addCustomerInfo" class="addCustomerInfoAction">
+			<result type="chain">customerInfo</result>
+		</action>
+
+		<action name="customerInfoAll" class="customerInfoAllAction">
+			<result>/WEB-INF/form/ShowCustomerInfo.jsp</result>
+		</action>
+
+		<action name="customerInfoDatils" class="customerInfoDatilsAction">
+			<result>/WEB-INF/form/ShowComstomerDatils.jsp</result>
+		</action>
+
+		<action name="queryConditionCustomerInfo" class="customerInfoQueryAction">
+			<result>/WEB-INF/form/ShowCustomerInfo.jsp</result>
+		</action>
+
+	</package>
+
+</struts>    

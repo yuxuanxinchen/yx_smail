@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="status.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 数据字典 -->
+	<include file="config/struts-sjzdfl.xml"></include>
+	<include file="config/struts-Ajax.xml"></include>
+	<include file="config/struts-contacts.xml"></include>
+	<include file="config/struts-menu.xml"></include>
+	<include file="config/struts-role.xml"></include>
+	<include file="config/struts-user.xml"></include>
+	<include file="config/struts-complain.xml"></include>
+	<include file="config/struts-mession.xml"></include>
+	<include file="config/struts-schedule.xml"></include>
+	<include file="config/struts-project.xml"></include>
+</struts>   

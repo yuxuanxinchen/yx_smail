@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<description>CRM</description>
+		
+		<context:component-scan base-package="com.yuxuan.action.code"></context:component-scan>
+		<mvc:annotation-driven></mvc:annotation-driven>
+		<!-- 加载配置文件 -->
+		<context:property-placeholder location="classpath*:config/db.properties" file-encoding="utf-8"/>		
+		
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="user" value="yx"></property>
+            <property name="password" value="121000"></property>
+            <property name="checkoutTimeout" value="50000"></property>
+            <property name="minPoolSize" value="10"></property>
+            <property name="maxPoolSize" value="1000"></property>
+            <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+            <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/crm?useUnicode=true&amp;characterEncoding=utf-8"></property>
+        </bean>
+
+		
+		<!-- 把数据源dataSource 对象注入到 sessionFactory的dataSource 的属性当中-->
+	  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  		    <property name="dataSource"><ref bean="dataSource" /></property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+					<prop key="hibernate.show_sql">	true</prop>
+  				    <prop key="hibernate.format_sql">false</prop>
+				</props>
+			</property>
+  		
+	        <property name="mappingResources">
+	  			<list>
+	  				<value>com/yuxuan/po/Sjzdfl.hbm.xml</value>
+	  				<value>com/yuxuan/po/Sjzdxx.hbm.xml</value>
+	  				<value>com/yuxuan/po/DataLevel.hbm.xml</value>
+	  				<value>com/yuxuan/po/CustomerInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/MenuInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/RoleInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/RoleRelation.hbm.xml</value>
+	  				<value>com/yuxuan/po/ContactsInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/User.hbm.xml</value>
+	  				<value>com/yuxuan/po/CustomerComplainInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/MessionInfo.hbm.xml</value>
+	  				<value>com/yuxuan/po/Schedule.hbm.xml</value>
+	  				<value>com/yuxuan/po/ProjectManager.hbm.xml</value>
+	  			</list>
+  		    </property>
+    </bean>
+    
+    
+	  <!-- 通过设置HibernateTemplate的flushMode=FLUSH_NEVER来通知spring不进行session.flush（）的调用，则spring的flushIfNecessary（）将不进行任何操作 -->
+      <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		   <property name="sessionFactory" ref="sessionFactory" />
+	  </bean>
+		
+	  <!-- 事务管理器  声明一个Hibernate 3 的事务管理器代理类自动管理事务用  -->
+	    <bean id="transactionManager" 
+	          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	          <property name="sessionFactory" ref="sessionFactory"></property>
+	    </bean>
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="rolee" extends="struts-default" namespace="/role">
+
+
+		<action name="roleInfo" class="roleInfoAction">
+			<result>/WEB-INF/form/ShowRoleInfo.jsp</result>
+		</action>
+
+		<action name="roleRelationInfo" class="roleRelationInfoAction">
+			<result>/WEB-INF/form/ShowRoleInfoDatils.jsp</result>
+		</action>
+
+		<action name="updataRoleInfo" class="updataRoleInfoAction">
+			<result>/WEB-INF/form/UpdataRoleInfo.jsp</result>
+		</action>
+
+		<action name="searchRoleInfo" method="search" class="roleInfoAction">
+			<result>/WEB-INF/form/ShowRoleInfo.jsp</result>
+		</action>
+
+
+
+
+	</package>
+</struts>    

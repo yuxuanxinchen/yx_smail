@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+    <!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+	<allow>
+	<!-- 数据字典明细 -->
+	<create creator="spring" javascript="SjzdxxDAO">
+		<param name="beanName" value="sjzdflDaoProxy" />
+	</create>
+	<convert converter="bean" match="com.yuxuan.po.Sjzdfl">
+		<param name="include" value="sjzdflId,sjzdflMc,isOk" />
+	</convert>
+
+	<create creator="spring" javascript="customerInfo">
+		<param name="beanName" value="customerInfoAjax" />
+	</create>
+
+	<create creator="spring" javascript="contacts">
+		<param name="beanName" value="contactsInfoAjax" />
+	</create>
+
+	<create creator="spring" javascript="menuInfo">
+		<param name="beanName" value="MenuInfoAjax" />
+	</create>
+
+	<create creator="spring" javascript="roleInfo">
+		<param name="beanName" value="roleInfoAjax" />
+	</create>
+
+	<create creator="spring" javascript="user">
+		<param name="beanName" value="userAjax" />
+	</create>
+
+
+	<create creator="spring" javascript="complain">
+		<param name="beanName" value="complainAjax" />
+	</create>
+
+	<create creator="spring" javascript="mession">
+		<param name="beanName" value="messionAjax" />
+	</create>
+	
+	<create creator="new" javascript="customerWindow">
+		<param name="class" value="com.yuxuan.others.CustomersWindows" />
+	</create>
+
+	<create creator="spring" javascript="schedule">
+		<param name="beanName" value="scheduleAjax" />
+	</create>
+
+	<create creator="spring" javascript="project">
+		<param name="beanName" value="ProjectAjax" />
+	</create>
+
+
+
+
+		<!-- <create creator="new" javascript="sjzdxxDAO"> -->
+		<!-- <param name="class" value="com.yuxuan.dao.SjzdxxDAO"/> -->
+		<!-- </create> -->
+		<!-- <convert converter="bean" match="com.yuxuan.po.Sjzdxx"> -->
+		<!-- <param name="include" value="sjzdxxId,sjzdfl,sjzdxxMc" /> -->
+		<!-- </convert> -->
+		<!-- 数据字典分类 -->
+		<!-- <create creator="new" javascript="sjzdflDAO"> -->
+		<!-- <param name="class" value="com.yuxuan.dao.SjzdflDAO" /> -->
+		<!-- </create> -->
+		<!-- <convert converter="bean" match="com.yuxuan.po.Sjzdfl"> -->
+		<!-- <param name="include" value="sjzdflId,sjzdflMc" /> -->
+		<!-- </convert> -->
+	</allow>
+</dwr>
+    
+       

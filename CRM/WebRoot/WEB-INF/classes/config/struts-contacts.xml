@@ -1,0 +1,25 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	 <package name="cats" extends="struts-default" namespace="/cts">
+	 
+		<action name="contactsInfodata" class="contactsInfoActionAllData" >
+		   <result>/WEB-INF/form/ShowContactsInfo.jsp</result>
+		</action>
+		
+		<!-- 分页显示 -->
+		<action name="contactsInfopage" method="queryPage" class="contactsInfoActionAllData" >
+		   <result>/WEB-INF/form/ShowContactsInfo.jsp</result>
+		</action>
+		
+		<!-- 条件查询 -->
+		<action name="conditionContactsInfopage" method="conditionQuery" class="contactsInfoActionAllData" >
+		   <result>/WEB-INF/form/ShowContactsInfo.jsp</result>
+		</action>
+		
+		
+		
+		
+	</package>
+
+</struts>    

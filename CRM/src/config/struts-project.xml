@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="projt" extends="struts-default" namespace="/pc">
+
+		<action name="project" class="projectManagerAction">
+			<result>/WEB-INF/form/ShowProjectVerify.jsp</result>
+		</action>
+
+		<action name="prProcess" method="queryProjectProcess" class="projectManagerAction">
+			<result>/WEB-INF/form/ShowProjecProcess.jsp</result>
+		</action>
+
+		<action name="prsummarize" method="querySummarize" class="projectManagerAction">
+			<result>/WEB-INF/form/ShowProjecSummarize.jsp</result>
+		</action>
+
+
+		<action name="prbusiness" method="queryBusiness" class="projectManagerAction">
+			<result>/WEB-INF/form/ShowProjecBusiness.jsp</result>
+		</action>
+
+		<action name="prbegin" method="projectBegin" class="projectManagerAction">
+			<result>/WEB-INF/form/addProject.jsp</result>
+		</action>
+
+	</package>
+
+</struts>    
