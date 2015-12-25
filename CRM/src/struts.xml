@@ -3,7 +3,7 @@
 <struts>
 
 	<constant name="status.i18n.encoding" value="utf-8"></constant>
-	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.devMode" value="false"></constant>
 	<!-- 数据字典 -->
 	<include file="config/struts-sjzdfl.xml"></include>
 	<include file="config/struts-Ajax.xml"></include>

@@ -37,6 +37,11 @@ public class CustomerInfoAction extends ActionSupport {
 		return "success";
 	}
 
+	
+	public String chartP(){
+		return SUCCESS;
+	}
+	
 	public CustomerInfoService getCustomerInfoService() {
 		return this.customerInfoService;
 	}

@@ -34,7 +34,7 @@
 	<filter-mapping>
 		<filter-name>loginFilter</filter-name>
 		<url-pattern>*.action</url-pattern>
-	</filter-mapping>
+ 	</filter-mapping> 
 
 
 	<servlet>

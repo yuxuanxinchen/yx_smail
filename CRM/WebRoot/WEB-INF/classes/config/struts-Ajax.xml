@@ -20,6 +20,12 @@
 		<action name="contactsInfoAjax" class="contactsInfoAjax">
 			<result type="chain">contactsInfodata</result>
 		</action>
+		
+		<action name="customerChartp" method="chartP" class="customerInfoAction">
+			<result>/WEB-INF/form/complainCharts.jsp</result>
+		</action>
+		
+     
 
 
 	</package>

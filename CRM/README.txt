@@ -45,6 +45,27 @@ https://github.com/yuxuanxinchen/yx_smail.git
    				           
    				    此系统采用树导航，完成了基本的数据增删查改
    				         	
-   				         	
-   				               
+   				       本系统一共用到如下表
+   				        contacts   
+   				        customer_complain   
+   				        customer_info    
+   				        data_level
+   				        menu_info
+   				        mession
+   				        project_info
+   				        role
+   				        role_relation
+   				        schedule
+   				        sjzdfl
+   				        sjzdxx
+   				        user
+   				           
+   				           
+   	   默认登录名 密码   
+   	   			admin  admin  
+   	   			
+   	   本系统权采用了权限拦截，粗粒度   ，最低可拦截到导航级别
+   	    	  本系统本人会利用业务时间逐渐完善
+   	                              
+   	                                 --yuxuan
    				      			
