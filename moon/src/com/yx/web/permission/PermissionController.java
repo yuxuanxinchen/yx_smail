@@ -1,16 +1,28 @@
 package com.yx.web.permission;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import net.sf.ehcache.search.aggregator.Count;
+
+import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.yx.entity.AdminUser;
+import com.yx.entity.Permission;
 import com.yx.entity.YParams;
+import com.yx.entity.vo.CustomerPermission;
 import com.yx.service.permission.IPermissionService;
+import com.yx.utils.SysConstant;
 
 /**
  * 
@@ -34,8 +46,10 @@ public class PermissionController {
 	
 	/*列表查询*/
 	@RequestMapping("/list")
-	public String list(YParams params){
-		return "permission/list";
+	public ModelAndView list(YParams params){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("permission/list");
+		return modelAndView;
 	}
 	
 	
@@ -50,6 +64,43 @@ public class PermissionController {
 	@RequestMapping(value="/add")
 	public String add(){
 		return "permission/add";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/save",method=RequestMethod.POST)
+	public String save(Permission permission,HttpServletRequest request){
+		AdminUser adminUser = (AdminUser) request.getSession().getAttribute(SysConstant.SESSION_USER);
+		permission.setUserId(adminUser.getId());
+		permissionService.insert(permission);
+		return "SUCCESS";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("parents")
+	public List<Permission> findParents(){
+		return permissionService.findparents();
+	}
+	
+	@ResponseBody
+	@RequestMapping("/count")
+	public Integer count(){
+		return permissionService.count(new YParams());
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/template")
+	public List<CustomerPermission> findListPermission(YParams yParams){
+		yParams.setOrder(" createTime  ");
+		List<CustomerPermission> lists = permissionService.findListPermissions(yParams);
+		return lists;
+	}
+	
+	
+	@RequestMapping(value="delete",method=RequestMethod.POST)
+	public String delete(YParams yParams){
+		permissionService.delete(yParams);
+		return "SUCCESS";
 	}
 	
 	

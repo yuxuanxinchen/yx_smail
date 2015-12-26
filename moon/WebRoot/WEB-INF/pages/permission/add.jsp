@@ -27,24 +27,28 @@
       <form>
 	   <div id="box">
 	       <div>
-	           <span>用 户 名:</span>
-	           <input type="text" required="required" placeholder="请输入用户名" maxlength="20" id="username" autofocus="autofocus" name="text"/>
+	           <span>权限名:</span>
+	           <input type="text" required="required" placeholder="请输入名称" maxlength="20" id="perName" autofocus="autofocus" name="text"/>
 	       </div>
 	       <div>
-	           <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
-	           <input type="password" placeholder="请输入密码" maxlength="20" id="password" autofocus="autofocus" name="text"/>
+	           <span>相对路径:</span>
+	           <input type="perName" placeholder="请输入路径" maxlength="50" id="relPath" autofocus="autofocus" name="text"/>
 	       </div>
 	       <div>
-	           <span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
-	           <input type="email" placeholder="请输入登录邮箱" maxlength="50" id="email" autofocus="autofocus" name="text"/>
+	           <span>模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;块:</span>
+	           <input type="perName" placeholder="请输入模块名" readonly="readonly" maxlength="50" id="modeName" autofocus="autofocus" name="text"/>
 	       </div>
 	       <div>
-	           <span>手机号码:</span>
-	           <input type="text" placeholder="请输入手机号码" maxlength="14" id="phoneNumber" autofocus="autofocus" name="text"/>
+	           <span>上级ID:</span>
+	           <input type="text" placeholder="请输入上级ID" maxlength="14" id="parentId" autofocus="autofocus" name="text"/>
 	       </div>
 	       <div>
-	           <span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>
-	           <input type="text" placeholder="请输入地址" maxlength="100" id="address" autofocus="autofocus" name="text"/>
+	           <span>方法名:</span>
+	           <input type="text" placeholder="请输入方法名" readonly="readonly" maxlength="100" id="methodName" autofocus="autofocus" name="text"/>
+	       </div>
+	        <div>
+	           <span>描述:</span>
+	           <input type="text" placeholder="请输入地址" maxlength="100" id="description" autofocus="autofocus" name="text"/>
 	       </div>
 	           <div>
 	           <input id="button" onclick="yxAdmin.register(this)" type="button" value="提交" name="text"/>
@@ -54,28 +58,47 @@
 	   </form>
 		
 		<script type="text/javascript">
+		$(function(){
+		   $("#relPath").keyup(function(){
+		      var val = $(this).val();
+		      var arr = val.split("/");
+		      if(val==" "){
+		      $("#modeName").val("")		
+		      }else{
+		        if(arr.length == 3 )
+		      $("#modeName").val(arr[2])	
+		      }
+		      if(arr.length==4){
+		      $("#methodName").val(arr[3])	
+		      }
+		  });
+		});
+		
+		
 		var yxAdmin = {
-		    username:null,
-		    password:null,
-		    email:null,
-		    phoneNumber:null,
-		    address:null,
+		    perName:null,
+		    relPath:null,
+		    modeName:null,
+		    methodName:null,
+		    parentId:null,
+		    description:null,
 		    timer:null,
 		   register:function(obj){
 		     if(yxAdmin.validate()){
 		      $("#button").css({"background":"#999","color":"#141414"}).removeAttr("onclick").val("正在添加中....")
 		     var param = {
-							"username" : this.username,
-							"password" : this.password,
-							"email" : this.email,
-							"telephone" : this.phoneNumber,
-							"address" : this.address,
+							"name" : this.perName,
+							"url" : this.relPath,
+							"model" : this.modeName,
+							"method" : this.methodName,
+							"parentId":this.parentId,
+							"description" : this.description,
 
 						};
 						clearTimeout(this.timer);
 						timer = setTimeout(function() {
 							$.ajax({
-						url:"${basePath}admin/adminuser/addUser",
+						url:"${basePath}admin/permission/save",
 						type:"post",
 						data:param,
 						success:function(data){
@@ -88,15 +111,17 @@
 					}
 				},
 				validate : function() {
-					this.username = $("#username").val();
-					this.password = $("#password").val();
-					this.email = $("#email").val();
-					this.phoneNumber = $("#phoneNumber").val();
-					this.address = $("#address").val();
-					if (isNotEmpty(this.username) && isNotEmpty(this.password)
-							&& isNotEmpty(this.email)
-							&& isNotEmpty(this.phoneNumber)
-							&& isNotEmpty(this.address)) {
+					this.perName = $("#perName").val();
+					this.relPath = $("#relPath").val();
+					this.methodName = $("#methodName").val();
+					this.modeName = $("#modeName").val();
+					this.parentId = $("#parentId").val();
+					this.description = $("#description").val();
+					if (isNotEmpty(this.perName) && isNotEmpty(this.relPath)
+							&& isNotEmpty(this.modeName)
+							&& isNotEmpty(this.parentId)
+							&& isNotEmpty(this.description)
+							&& isNotEmpty(this.methodName)) {
 						return true;
 					} else {
 						loading("信息不能为空哦!", 4)

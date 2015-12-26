@@ -66,21 +66,51 @@
 		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(model)">
 		        #{model},
 		   </if>
+		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(parentId)">
+		        #{parentId},
+		   </if>
 		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(method)">
 		         #{method},
 		   </if>
-		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(userId)">
 		         #{userId},
-		   </if>
-		   <if test="@com.yx.utils.TmStringUtils@isNotEmpty(isDelete)">
-		         #{isDelete},
-		   </if>
+		         0,
 		    <if test="@com.yx.utils.TmStringUtils@isNotEmpty(description)">
 		         #{description}
 		   </if>
 		)
     </insert>
 
-
+    <select id="findparents" resultType="com.yx.entity.Permission">
+    	select id,name FROM yx_permission WHERE parent_id = 1 ORDER BY id
+    </select>
+    
+    <select id="findListPermissions" parameterType="com.yx.entity.YParams" resultType="com.yx.entity.vo.CustomerPermission">
+		 select 
+			yp.id,
+			yp.name,
+			yp.description,
+			yp.create_time as createTime,
+			yp.url,
+			yp.model,
+			yu.email as adminUserName,
+			yp.parent_id as parentId,
+			yp.method,
+			yp.user_id as userId,
+			yp.is_delete as isDelete
+			FROM yx_permission as yp left JOIN yx_admin_user as yu
+			ON yp.user_id = yu.id 
+			<where>
+				<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keyword)">
+					 and url LIKE '%${keyword}%'
+				</if>
+			</where>
+			 order by ${order}
+		     LIMIT #{pageNo} ,#{pageSize}
+    </select>
+	
+	<delete id="delete" parameterType="com.yx.entity.YParams">
+	    delete from yx_permission where id=#{id}
+	</delete>
+	
 	
 </mapper>

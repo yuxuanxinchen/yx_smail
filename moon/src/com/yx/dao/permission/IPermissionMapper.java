@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.yx.entity.Permission;
 import com.yx.entity.YParams;
+import com.yx.entity.vo.CustomerPermission;
 
 /**
  * 
@@ -128,4 +129,30 @@ public interface IPermissionMapper {
 	 * @throws  
 	 */
 	public void insert(Permission permission);
+	
+	/**
+	 * @Title: findparents 
+	 * @Description: 返回所有1级
+	 * @return  
+	 * @return List<Permission> 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月26日 上午9:57:55]  
+	 * @throws  
+	 */
+	public List<Permission> findparents();
+	
+	
+	/**
+	 * @Title: findPermissions 
+	 * @Description: 查询所有的权限信息
+	 * @return  
+	 * @return List<CustomerPermission> 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月26日 下午12:03:18]  
+	 * @throws  
+	 */
+	public List<CustomerPermission> findListPermissions(YParams yParams);
+	
+	
+	
 }

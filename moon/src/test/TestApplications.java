@@ -23,8 +23,10 @@ import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
 import com.yx.entity.Content;
 import com.yx.entity.Music;
+import com.yx.entity.Permission;
 import com.yx.entity.Role;
 import com.yx.entity.YParams;
+import com.yx.entity.vo.CustomerPermission;
 import com.yx.service.adminstat.IAdminStatService;
 import com.yx.service.adminstat.IStatService;
 import com.yx.service.adminuser.IAdminUserService;
@@ -76,6 +78,34 @@ public class TestApplications{
 	
 	@Autowired
 	private ICensusService censusService;
+	
+	@Autowired
+	private IPermissionService per;
+	
+	@Autowired
+	private IPermissionService ps;
+	
+	
+	@Test
+	public void perlsit(){
+		YParams yParams = new YParams();
+		yParams.setPageNo(0);
+		yParams.setOrder(" create_time desc ");
+		yParams.setPageSize(10);
+		List<CustomerPermission> lists = ps.findListPermissions(yParams);
+		System.out.println(lists.size());
+		
+	}
+	
+	
+	@Test
+	public void findpaere(){
+	List<Permission> lists = per.findparents();
+	System.out.println(lists);
+		
+	}
+	
+	
 	
 	@Test
 	public void cense(){

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.yx.dao.permission.IPermissionMapper;
 import com.yx.entity.Permission;
 import com.yx.entity.YParams;
+import com.yx.entity.vo.CustomerPermission;
 import com.yx.service.permission.IPermissionService;
 
 @Service
@@ -119,4 +120,19 @@ public class PermissionServiceImpl implements IPermissionService{
 		permissionMapper.insert(permission);
 		
 	}
+
+
+	@Override
+	public List<Permission> findparents() {
+		return permissionMapper.findparents();
+	}
+
+
+	@Override
+	public List<CustomerPermission> findListPermissions(YParams yParams) {
+		return permissionMapper.findListPermissions(yParams);
+	}
+
+
+
 }

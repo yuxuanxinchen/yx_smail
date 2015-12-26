@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yx.entity.Content;
 import com.yx.entity.YParams;
+import com.yx.entity.vo.CustomerPermission;
 
 /**
  * 
@@ -78,6 +79,17 @@ public interface IContentMapper {
 	 * @throws  
 	 */
 	public int countContents(YParams yParams);
+	
+	/**
+	 * @Title: findPermissions 
+	 * @Description: 查询所有的权限信息
+	 * @return  
+	 * @return List<CustomerPermission> 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月26日 下午12:03:18]  
+	 * @throws  
+	 */
+	public List<CustomerPermission> findPermissions(YParams yParams);
 	
 	
 	
