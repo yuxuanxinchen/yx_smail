@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ import com.yx.entity.YParams;
 import com.yx.service.permission.IPermissionService;
 import com.yx.service.role.IRoleService;
 import com.yx.service.user.IUserService;
+import com.yx.utils.SysConstant;
 import com.yx.utils.TmStringUtils;
 /**
  * 
@@ -58,7 +61,7 @@ public class LoginController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/logined",method = RequestMethod.POST)
-	public String logined(YParams yParams) throws Exception {
+	public String logined(YParams yParams,HttpServletRequest request) throws Exception {
 		if (yParams != null) {
 			if (TmStringUtils.isNotEmpty(yParams.getUsername())
 					&& TmStringUtils.isNotEmpty(yParams.getPassword())) {
@@ -76,6 +79,11 @@ public class LoginController extends BaseController {
 							return "nopermission";
 						}
 						List<HashMap<String, Object>> permissions = permissionService.findUserPermission(adminUser.getId());
+						
+						String userAgent = request.getHeader("User-Agent");
+						System.out.println("-----------------------"+userAgent);
+						
+						SysConstant.UPLOAD_IMAGES_PATH = request.getRealPath("upload/imgs");
 						
 						session.setAttribute(SESSION_USER, adminUser);
 						session.setAttribute(SESSION_USER_USERNAME,

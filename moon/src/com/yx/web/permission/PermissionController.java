@@ -103,5 +103,11 @@ public class PermissionController {
 		return "SUCCESS";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/ztree")
+	public List<HashMap<String, Object>> initZtree(){
+		return permissionService.findzTreeDatas();
+	}
+	
 	
 }

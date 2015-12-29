@@ -13,7 +13,7 @@
 	<!-- 引入树的js和css -->
 	<link rel="stylesheet" href="${basePath}resources/sg/tree/tm_tree.css"/>
 	<script type="text/javascript" src="${basePath}resources/sg/tree/tm_tree.js"></script>
-	<style type="text/css">#permissiontree{height:420px;overflow-y: auto;} .tree li a, .tree li span{color:#fff}</style>
+	<style type="text/css">#permissiontree{height:380px;overflow-y: auto;} .tree li a, .tree li span{color:#fff}</style>
 	
  </head>
  <body>
@@ -22,12 +22,14 @@
  	
  	var permissions = "";
 			function initPermissionTree(callback) {
+			$(".tm-tree-expand-up").trigger("click")
 				yxAjax.r({
 					url : "${basePath}admin/permission/root",
 					callback : function(data) {
 					var root  = data.root;
 					var children =data.children;
 						$("#permissiontree").tmTree({
+						"expand":false,
 							root : data.root,
 							children : data.children,
 							"type" : "checkbox",
@@ -41,6 +43,9 @@
 			}
 			;
  	$(function() {
+ 	
+ 	   
+ 	
 			$("#permissiontree").tmTree({
 					root : tree.root,
 					children : tree.children,
@@ -59,7 +64,7 @@
 					}
 				});
 			});
-
+     
 			function saveRolePermission(roleId, $dialog, opts) {
 				if (isEmpty(permissions)) {
 					loading("请选择一个权限进行操作..", 4);

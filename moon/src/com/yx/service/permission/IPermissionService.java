@@ -147,4 +147,16 @@ public interface IPermissionService {
 	 * @throws  
 	 */
 	public List<CustomerPermission> findListPermissions(YParams yParams);
+	
+	
+	/**
+	 * @Title: findPermissions 
+	 * @Description: 初始化树所需要的信息
+	 * @return  
+	 * @return List<CustomerPermission> 
+	 * @Author:[yuxuan]
+	 * @Date:[2015年12月26日 下午12:03:18]  
+	 * @throws  
+	 */
+	public List<HashMap<String,Object>> findzTreeDatas();
 }

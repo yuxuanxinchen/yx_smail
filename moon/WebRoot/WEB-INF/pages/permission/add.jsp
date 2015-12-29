@@ -11,6 +11,10 @@
 	<meta http-equiv="description" adminuser="This is my page">
 	<%@include file="/WEB-INF/common/common.jsp" %>
 	<script type="text/javascript" src="${basePath}resources/sg/tz_page.js"></script>
+	<link rel="stylesheet" href="${basePath}resources/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="${basePath}resources/zTree_v3/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="${basePath}resources/zTree_v3/js/jquery.ztree.core-3.5.js"></script>
+	
 	<style type="text/css">
 	     body{font-family:"微软雅黑"}
 	     #box{width:300px;height:400px;margin:40px;box-shadow:3px 4px 5px #141515}
@@ -21,6 +25,9 @@
 	     .yxs{border:1px solid green;transition:all .5s ease-in .1s;border-radius:5px}
 	     #box div #button{background:#141414;color:#fff;font-size:15px;font-family:"微软雅黑"}
 	     #box div #button:hover{background:green}
+	     #box div #parentId{width:160px;}
+	     #box div #menuBtn{ width: 36px; top: 7px; height: 30px; background: #141414;   margin-top: 2px; margin-right: 3px; display: inline-block;text-align: center; line-height: 30px; box-shadow: 3px 4px 5px #141414; border-radius: 5px}
+		#menuContent{background:#FFE6B0;height:180px;overflow:auto}
 	</style>
  </head>
  <body>
@@ -40,7 +47,8 @@
 	       </div>
 	       <div>
 	           <span>上级ID:</span>
-	           <input type="text" placeholder="请输入上级ID" maxlength="14" id="parentId" autofocus="autofocus" name="text"/>
+	           <input  type="text" placeholder="请输入上级ID" maxlength="14" id="parentId" autofocus="autofocus" name="text"/>
+	      		<a id="menuBtn" href="#" onclick="showMenu(); return false;">选择</a>
 	       </div>
 	       <div>
 	           <span>方法名:</span>
@@ -56,6 +64,68 @@
 	       </div>
 	   </div>
 	   </form>
+		
+		<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			view: {
+				dblClickExpand: false
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				onClick: onClick
+			}
+		};
+		
+
+		function onClick(e, treeId, treeNode) {
+		       $("#parentId").val(treeNode.id)
+			hideMenu();
+		}
+
+		function showMenu() {
+			var cityObj = $("#parentId");
+			var cityOffset = $("#parentId").offset();
+			$("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+			$("body").bind("mousedown", onBodyDown);
+		}
+		function hideMenu() {
+			$("#menuContent").fadeOut("fast");
+			$("body").unbind("mousedown", onBodyDown);
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+				hideMenu();
+			}
+		}
+
+		$(document).ready(function(){
+		
+		yxAjax.r({
+		  url:"${basePath}admin/permission/ztree",
+		  callback:function(data){
+			$.fn.zTree.init($("#treeDemo"), setting, data);
+		  }
+		});
+		
+		});
+		//-->
+	</SCRIPT>
+		
+		
+		
+
+<div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+	<ul id="treeDemo" class="ztree" style="margin-top:0; width:160px;"></ul>
+</div>
+		
+		
+		
 		
 		<script type="text/javascript">
 		$(function(){

@@ -46,7 +46,7 @@ public class PermissionInterceptor implements HandlerInterceptor{
 					response.getWriter().print("nopermission");
 				}else{
 //					response.sendRedirect(request.getContextPath()+"/userlogin");	
-					response.sendRedirect(request.getContextPath()+"/admin/content/list");
+					response.sendRedirect(request.getContextPath()+"/index.jsp");
 				}
 	    	 //跳转到没有权限的页面
 				return false;

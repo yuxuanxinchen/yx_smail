@@ -4,6 +4,7 @@
 
 
 <script type="text/javascript" src="${basePath}resources/sg/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${basePath}resources/js/zzsc.js"></script>
 <script type="text/javascript" src="${basePath}resources/sg/sgutil.js"></script>
 <script type="text/javascript" src="${basePath}resources/sg/sg.js"></script>
 <script type="text/javascript" src="${basePath}resources/sg/utils.js"></script>

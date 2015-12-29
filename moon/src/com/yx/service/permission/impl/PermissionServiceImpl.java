@@ -2,6 +2,7 @@ package com.yx.service.permission.impl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,6 +132,12 @@ public class PermissionServiceImpl implements IPermissionService{
 	@Override
 	public List<CustomerPermission> findListPermissions(YParams yParams) {
 		return permissionMapper.findListPermissions(yParams);
+	}
+
+
+	@Override
+	public List<HashMap<String, Object>> findzTreeDatas() {
+		return permissionMapper.findzTreeDatas();
 	}
 
 

@@ -18,6 +18,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
+import sun.reflect.generics.tree.Tree;
+
 import com.yx.dao.permission.IPermissionMapper;
 import com.yx.dao.user.IUserMapper;
 import com.yx.entity.AdminUser;
@@ -25,6 +27,7 @@ import com.yx.entity.Content;
 import com.yx.entity.Music;
 import com.yx.entity.Permission;
 import com.yx.entity.Role;
+import com.yx.entity.SpiderArticle;
 import com.yx.entity.YParams;
 import com.yx.entity.vo.CustomerPermission;
 import com.yx.service.adminstat.IAdminStatService;
@@ -36,6 +39,7 @@ import com.yx.service.music.IMusicService;
 import com.yx.service.permission.IPermissionService;
 import com.yx.service.permission.impl.PermissionServiceImpl;
 import com.yx.service.role.IRoleService;
+import com.yx.service.spider.ISpiderService;
 import com.yx.service.user.IUserService;
 import com.yx.service.user.impl.UserServiceImpl;
 
@@ -84,6 +88,31 @@ public class TestApplications{
 	
 	@Autowired
 	private IPermissionService ps;
+	
+	@Autowired
+	private ISpiderService spider;
+	
+	@Test
+	public void inse(){
+		SpiderArticle spiderArticle = new SpiderArticle();
+		spiderArticle.setContent("123");
+		spiderArticle.setKeywords("324");
+		spiderArticle.setTitle("Nihao ");
+		spiderArticle.setStime("fwerewr");
+		spiderArticle.setUserId(1);
+		spider.insert(spiderArticle);
+		
+	}
+	
+	@Test
+	public void Tree(){
+		List<HashMap<String, Object>> lists = ps.findzTreeDatas();
+		for (HashMap<String, Object> hashMap : lists) {
+			System.out.println(hashMap);
+		}
+		
+		
+	}
 	
 	
 	@Test

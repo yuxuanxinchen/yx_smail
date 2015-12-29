@@ -1,7 +1,8 @@
 package com.yx.utils;
-
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 
@@ -27,6 +28,9 @@ public class SysConstant {
     public static final String SERVLET_CONTEXT_REQUEST = "servletContext_request";	
     public static final String MAP_REQUEST_URI_MODE = "mode_name";
     public static final Map<String, Object> reqs = new HashMap<String, Object>();
+    public static final Set<String> SPIDERDOWNIMAGES  = new HashSet<String>();
+    public static String UPLOAD_IMAGES_PATH = "";  
+    public static final Map<String, Object> SPIDER_ARTICLE = new HashMap<String, Object>();
     
     
     

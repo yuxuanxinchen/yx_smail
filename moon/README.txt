@@ -46,4 +46,21 @@ https://github.com/yuxuanxinchen/yx_smail.git
   			yx_role
   			yx_role_permission
   			yx_role_user
+  			yx_spider_article
+  			
+  	 本项目一共涉及以下模块
+  	      网站内容的管理
+  	      日记的统计  (用的百度的echarts)
+  	      用户管理(后台用户分配)
+  	      权限管理
+  	      角色管理(和权限搭配使用)
+  	      音乐管理(前台用户可上传自己的背景音乐(暂时没有前台))
+  	      统计报表(统计各个用户每天对网站模块的访问次数，以饼图的形式展示)
+  	      爬出采集(此功能主要针对优秀文章阅网的文章进行采集)
+  	      
+  	      
+  	      
+											  	         --yuxuan
+											  	                     (项目未完，一直在完善当中)
+  			
         

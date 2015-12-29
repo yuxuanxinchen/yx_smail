@@ -57,7 +57,7 @@
 	<script type="text/javascript">
 	
 	  function openAdd(obj){
-	       $.tzIframe({width:400,height:250,title:"角色分配权限",drag:false,content:"${basePath}/admin/role/add",
+	       $.tzIframe({width:420,height:250,title:"角色分配权限",drag:false,content:"${basePath}/admin/role/add",
 	      callback:function(iframe,$dialog,opts){
 	      	tzAdmin.loadData(0,10,function(itemCount){
 				tzAdmin.initPage(itemCount);//分页加载一次吗
@@ -80,7 +80,7 @@
 	      permission:function(obj){ 
 	      		var $obj = $(obj);
 				var opid = $obj.data("opid");
-			      	 $.tzIframe({width:320,height:400,title:"角色分配权限",drag:false,content:"${basePath}admin/role/permission/"+opid,
+			      	 $.tzIframe({width:450,height:440,title:"角色分配权限",drag:false,content:"${basePath}admin/role/permission/"+opid,
 			         callback:function(iframe,$dialog,opts){
 					if(iframe){
 						iframe.saveRolePermission(opid,$dialog,opts);

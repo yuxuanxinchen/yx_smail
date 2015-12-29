@@ -112,5 +112,9 @@
 	    delete from yx_permission where id=#{id}
 	</delete>
 	
+	<select id="findzTreeDatas" resultType="java.util.Map">
+	    select id,parent_id as pId,name from yx_permission
+	</select>
+	
 	
 </mapper>

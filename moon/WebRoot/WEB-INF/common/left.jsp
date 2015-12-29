@@ -99,10 +99,21 @@
 				</yx:if>
 			</ps:permission>
 			
-			 
-			 <ps:permission model="xx" method="xx">
-				 <li class="items"><a href="${basePath}admin/gather/list"><i class="fa fa-send"></i>爬虫采集</a></li>
+			<!-- 爬虫采集 -->
+			<ps:permission model="spider" method="list">
+				<yx:if test='${yx:indexOf(pageContext.request.requestURI,"spider/list")!=-1}'>
+				    <yx:then>
+				    	 <li class="items active"> <a href="javascript:void(0)"><i class="fa fa-home"></i>爬虫采集</a></li>
+				    </yx:then>
+				 <yx:else>
+				         <li class="items"><a href="${basePath}admin/spider/list"><i class="fa fa-signal"></i>爬虫采集</a></li>
+				    </yx:else>
+				</yx:if>
 			</ps:permission>
+			 
+<!-- 			 <ps:permission model="xx" method="xx"> -->
+<!-- 				 <li class="items"><a href="${basePath}admin/gather/list"><i class="fa fa-send"></i>爬虫采集</a></li> -->
+<!-- 			</ps:permission> -->
 			
 			<!-- 暂无 -->
 <!-- 			 <ps:permission model="xx" method="xx"> -->
@@ -115,7 +126,7 @@
 <!-- 					</ul> -->
 <!-- 					<span class="numicon c5">3</span> -->
 <!-- 				 </li> -->
-			</ps:permission>
+<!-- 			</ps:permission> -->
 			
 			<!--暂无  -->
 <!-- 			 <ps:permission model="xx" method="xx"> -->
@@ -134,6 +145,6 @@
 <!-- 					 <li class="items"><a href="javascript:void(0);"><i class="fa fa-star"></i>Addons 5</a></li> -->
 <!-- 					 <li class="items"><a href="javascript:void(0);"><i class="fa fa-file-o"></i>Error</a></li> -->
 <!-- 				</ul> -->
-			</ps:permission>
+<!-- 			</ps:permission> -->
 	</div>
 </div>

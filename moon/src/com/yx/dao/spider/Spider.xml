@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yx.dao.spider.ISpiderMapper" >
+
+   <insert id="insert" parameterType="com.yx.entity.SpiderArticle">
+		 INSERT INTO yx_spider_article (
+			content,
+			user_id,
+			is_delete,
+			STATUS,
+			is_top,
+			keywords,
+			title,
+			stime
+		)
+		VALUES
+			(
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(content)">
+				  #{content}, 
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(userId)">
+				 ${userId},
+			</if>
+				  0,
+				  0,
+				  0,
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(keywords)">
+				  #{keywords},
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(title)">
+				 #{title},
+			</if>
+			<if test="@com.yx.utils.TmStringUtils@isNotEmpty(stime)">
+				 #{stime} 
+			</if>
+			)
+   </insert>
+	
+</mapper>

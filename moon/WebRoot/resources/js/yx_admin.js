@@ -20,6 +20,7 @@ var yxAjax = {
                   url:opts.url,
                   beforeSend:opts.before,
                   error:opts.error,
+//                  contentType:"application/x-www-form-urlencoded;charset=utf-8", 
                   data:params,
                   success:function(data){
                 	  loading("remove")
@@ -76,6 +77,7 @@ var yxAjax = {
      if(pattern=="H:m:s"){return Hms}
      if(pattern=="M-d"){return Md}
      if(pattern=="H-m"){return hm}
+     if(pattern=="stime"){return time}
  }
 
 	
