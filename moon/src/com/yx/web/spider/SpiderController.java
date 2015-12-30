@@ -66,6 +66,7 @@ public class SpiderController {
 		return "spider/list";
 	}
 	
+	
 	@ResponseBody
 	@RequestMapping(value="html",produces = "text/html;charset=UTF-8")
 	public String getHtml(Spider spider){
@@ -119,82 +120,5 @@ public class SpiderController {
 		spiderService.insert(spiderArticle);
 		return "SUCCESS";
 	}
-	
-	
-	
-	public static void main(String[] args) {
-		
-//		System.out.println(getHtmlSource("http://www.xiuqq.com/wenzhang/suibi/18933.html", "gbk"));
-//	parseHtml("http://www.xiuqq.com/wenzhang/suibi/18933.html","");
-	
-//	imageDown("http://p3.so.qhimg.com/t011fd64776e672353d.jpg", "G:/1.jpg");
-//	System.out.println(SpiderUtils.getHtml("http://www.xiuqq.com/wenzhang/suibi/18933.html", "utf-8"));
-	
-//	System.out.println(SpiderUtils.getHtml("http://www.qktsw.com/playbook/2968-1-34.html", "gb2312"));
-	parseHtml("http://www.xiuqq.com/wenzhang/suibi/18933.html", "");
-	}
-	
-	
-	
-	
-	
-	
-	public static String parseHtml(String netLike,String charset){
-		try {
-			Set<String> sets = new HashSet<String>();
-			Document document = Jsoup.connect(netLike).get();
-			Elements es = document.getElementsByTag("a");
-			for (Element element : es) {
-				sets.add(element.outerHtml());
-				System.out.println(element.outerHtml());
-			}
-			
-			return document.html();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	
-	
-	
-	public static String jsoupHtmlSource(String netLike,String charset){
-		try {
-			Document document = Jsoup.connect(netLike).get();
-			return document.html();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	
-	public static String getHtmlSource(String netLike,String charset){
-		try {
-			StringBuffer bf = new StringBuffer();
-			URL url = new URL(netLike);
-			URLConnection connection = url.openConnection();
-			connection.setConnectTimeout(3500);
-			connection.setReadTimeout(3000);
-			InputStream ins = connection.getInputStream();
-			InputStreamReader reader = new InputStreamReader(ins,charset);
-			BufferedReader bReader = new BufferedReader(reader);
-			String line = null;
-			while((line=bReader.readLine())!=null){
-			   bf.append(line);
-			}
-			reader.close();
-			ins.close();
-			connection.connect();
-			return bf.toString();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;	
-	}
-	
-	
 	
 }

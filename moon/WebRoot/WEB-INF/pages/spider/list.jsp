@@ -138,25 +138,8 @@
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
-	     
-	     
-	     $(function(){	     
-	        var result = [];
-	        var temp = [];
-	        var len = 0;
-	        var num;
-	        while(len < 10){
-	          num = Math.round(Math.random()*100);
-	          if(!temp[num]){
-	             temp[num]=1;
-	             result.push(num);
-	             len++;
-	          }
-	        }
-	        alert(result)	
-     });
-     
      
 	     var yxSpider = {
 	       _url:"${basePath}admin/spider/",
