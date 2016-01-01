@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.commons.io.input.XmlStreamReader;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -22,6 +22,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.xml.sax.SAXException;
+
 
 
 /**
@@ -45,18 +46,32 @@ public class XMLParseTest {
 		createXML();
 //		readXML();
 		//
-		System.out.println(System.getProperty("user.dir"));
 		
+//		Pattern pattern = Pattern.compile("^?[\\w{1}]:[/]{1}(\\w+)[/]*\\w+[/]*(\\w+)");
+//		Matcher matcher = pattern.matcher("/F:/yx_git_repertory/moon/moon/WebRoot/WEB-INF/classes/");
+//		if(matcher.find()){
+//			System.out.println(matcher.group()+"--------"+matcher.group(1));
+//		}
+		
+		//0511-4405222 或 021-87888822 
+		Pattern pattern = Pattern.compile("^0([1-9]{2,3})-(\\d{7,8})|(\\d{7,9})");
+		Matcher matcher = pattern.matcher("021-1234599810");
+		System.out.println(matcher.find());
+		System.out.println(matcher.group());
+		
+		
+//		System.out.println(System.getProperty("user.dir"));
+//		System.out.println(XMLParseTest.class.getResource("/").getPath());
 		
 		SAXReader saxReader = new SAXReader();
 		Document document = saxReader.read(new File("books.xml"));
 		Element root  = document.getRootElement();
-		System.out.println("根目录是：----"+root.getName());
+//		System.out.println("根目录是：----"+root.getName());
 		
 		List<Element> elements = root.elements();
 		for (Element element : elements) {
-			System.out.println(element.getName());
-			System.out.println(element.attributeValue("id"));
+//			System.out.println(element.getName());
+//			System.out.println(element.attributeValue("id"));
 			if(element.elements().size()>0){
 			List<Element> esl = element.elements();
 			for(int i = 0;i < esl.size();i++){
@@ -74,7 +89,7 @@ public class XMLParseTest {
 		*/
 		
 		
-		System.out.println(root.element("book").element("name").getText()+"-----------zhiding");
+//		System.out.println(root.element("book").element("name").getText()+"-----------zhiding");
 		
 	}
 
@@ -199,7 +214,8 @@ public class XMLParseTest {
 
 		//设置缩进为4个空格，并且另起一行为true
 		OutputFormat format = new OutputFormat("    ",true);
-		XMLWriter xmlWriter2 = new XMLWriter(new FileOutputStream("F:/yx_git_repertory/moon/moon/test/jdom/student.xml"),format);
+//		File file = new File("F:/yx_git_repertory/moon/moon/src/test/jdom/student.xml");if(!file.exists());file.mkdir();
+		XMLWriter xmlWriter2 = new XMLWriter(new FileOutputStream("student.xml"),format);
 		xmlWriter2.write(document);
 		
 		

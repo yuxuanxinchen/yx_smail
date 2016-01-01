@@ -1,6 +1,6 @@
 https://github.com/yuxuanxinchen/yx_smail.git
     
-    后台登录页面网址  http://localhost:8080/moon/userlogin
+    后台登录页面网址  http://localhost:8080/moon/userlogin   登录名 admin 密码admin
 
   1、项目开发环境 
       MyEclipse 2015 
@@ -10,7 +10,7 @@ https://github.com/yuxuanxinchen/yx_smail.git
   3、数据库版本
       MySql5.0
       
-  4、此为一个不借助任何第三方权限框架的一个粗粒度的权限控制后台系统
+  4、此为一个不借助任何第三方权限框架的一个粗粒度的权限控制后台系统 （前台功能正在设计中...）
           
          角色------>权限
          用户------>角色
@@ -48,7 +48,7 @@ https://github.com/yuxuanxinchen/yx_smail.git
   			yx_role_user
   			yx_spider_article
   			
-  	 本项目一共涉及以下模块
+  	 本项目目前涉及以下模块
   	      网站内容的管理
   	      日记的统计  (用的百度的echarts)
   	      用户管理(后台用户分配)
@@ -56,7 +56,7 @@ https://github.com/yuxuanxinchen/yx_smail.git
   	      角色管理(和权限搭配使用)
   	      音乐管理(前台用户可上传自己的背景音乐(暂时没有前台))
   	      统计报表(统计各个用户每天对网站模块的访问次数，以饼图的形式展示)
-  	      爬出采集(此功能主要针对优秀文章阅网的文章进行采集)
+  	      爬出采集(此功能主要针对优秀文章阅网的文章进行采集,后续还会逐步完善)
   	      
   	      
   	      
