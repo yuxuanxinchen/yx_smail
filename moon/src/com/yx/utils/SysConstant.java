@@ -19,19 +19,31 @@ import java.util.Set;
  */
 public class SysConstant {
 
+	/**登录用户session*/
 	public static final String SESSION_USER = "session_user";
+	/**登录用户名*/
 	public static final String SESSION_USER_USERNAME = "session_user_username";
+	/**记录访问service层*/
 	public static final String USER_LOG = "user_log";
 	public static final String REQUEST_LOG = "request_log";
+	/**用户是否拥有角色*/
 	public static final String SESSION_USER_ROLE = "session_user_role";
+	/**用户是否拥有权限*/
 	public static final String SESSION_USER_PERMISSION = "session_user_permission";
+	/**在service里拿到requet里边的信息*/
     public static final String SERVLET_CONTEXT_REQUEST = "servletContext_request";	
+    /**模块名*/
     public static final String MAP_REQUEST_URI_MODE = "mode_name";
+    /**request里边的信息*/
     public static final Map<String, Object> reqs = new HashMap<String, Object>();
+    /**记录spider抓取的图片路径*/
     public static final Set<String> SPIDERDOWNIMAGES  = new HashSet<String>();
+    /**spider图片下载的路径*/
     public static String UPLOAD_IMAGES_PATH = "";  
+    /**存储spider抓取的头信息*/
     public static final Map<String, Object> SPIDER_ARTICLE = new HashMap<String, Object>();
-    
+    /**数据库配置文件相对路径*/
+    public static final String DB_PROPERTIES_FILE = "/db/db.properties";
     
     
 }

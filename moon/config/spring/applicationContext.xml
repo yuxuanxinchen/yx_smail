@@ -23,6 +23,12 @@
 	
     <task:annotation-driven/>
     
+       <!-- 此配置可选 数据库备份的路径 -->
+<!--     <bean class="com.yx.service.task.DBackUpSql"> -->
+<!--         <property name="rootDir" value="D:/MYSPL/mysql-5.6.11-winx64/bin/"></property> -->
+<!--         <property name="sqlTargetDir" value="G:/SQLBACKDB/"></property> -->
+<!--     </bean> -->
+    
 	<!-- 引入数据的db资源文件 -->
 	<bean class="com.yx.core.des.EncryptPropertyPlaceholderConfigurer"
 		p:location="classpath:db/db.properties" p:fileEncoding="utf-8" />
