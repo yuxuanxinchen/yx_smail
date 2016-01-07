@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import sun.awt.image.OffScreenImage;
+
 import com.yx.core.BaseController;
 
 import static com.yx.utils.SysConstant.*;
@@ -63,12 +65,18 @@ public class LoginController extends BaseController {
 	@RequestMapping(value="/logined",method = RequestMethod.POST)
 	public String logined(YParams yParams,HttpServletRequest request) throws Exception {
 		if (yParams != null) {
+			String code = (String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY); 
+			if(TmStringUtils.isEmpty(yParams.getLoginVerifyCode())){
+				 return "empLoginVerifyCode";
+			}else if(!code.equals(yParams.getLoginVerifyCode())){
+				   return "unLoginVerifyCode";
+			}else{
 			if (TmStringUtils.isNotEmpty(yParams.getUsername())
 					&& TmStringUtils.isNotEmpty(yParams.getPassword())) {
 				yParams.setAccount(yParams.getUsername());
 				yParams.setPassword(TmStringUtils.md5Base64(yParams
 						.getPassword()));
-			 AdminUser adminUser = userService.getLogin(yParams);
+				AdminUser adminUser = userService.getLogin(yParams);
 				if (adminUser != null) {
 					if(adminUser.getForbiden()==0){
 						return "forbiden";
@@ -101,9 +109,11 @@ public class LoginController extends BaseController {
 			} else {
 				return "null";
 			}
+		}
 		} else {
 			return "error";
 		}
+		
 	}
 	
 	/**

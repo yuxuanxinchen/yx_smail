@@ -116,8 +116,18 @@
 					</div>
 				</div>
 			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="main_input_box" style="position:relative">
+						<span class="add-on bg_ly"><i class="fa fa-lock"></i></span><input type="test" id="loginVerifyCode" autocomplete="off" placeholder="验证码...." style="color:#666">
+						<img src="${basePath}admin/kaptcha/code" width="130" height="38" style="position: absolute; top: 1px;right: 21px;" onclick="this.src='${basePath}admin/kaptcha/code'" />
+					</div>  
+    
+				</div>
+			</div>
 			<div class="form-actions">
 				<span><a  href="javascript:void(0);" onclick="user_login(this)" class="btn btn-success">登陆</a></span>
+			   
 			</div>
 		</form>
 	</div>
@@ -143,8 +153,14 @@
 	       
 	        var username = $("#account").val();
 	        var password = $("#password").val();
+	        var loginVerifyCode = $("#loginVerifyCode").val();
+	        
+	        
 	        if(isEmpty(username)){
 	          $("#account").focus();
+	        }
+	        if(isEmpty(loginVerifyCode)){
+	          $("#loginVerifyCode").focus();
 	        }
 	        if(isEmpty(password)){
 	          $("#password").focus();
@@ -154,7 +170,8 @@
 	        
 	        var params = {
 	           "username":username,
-	           "password":password
+	           "password":password,
+	           "loginVerifyCode":loginVerifyCode
 	        }
 	        
 	        $(obj).removeAttr("onclick").text("登陆中...")
@@ -163,27 +180,35 @@
 	           url:"${basePath}logined",
 	           callback:function(data){
 		             if(data=="error" || data == "null"){
-		             loading("请填写帐号和密码",4)
+		             loading("请填写帐号和密码",4);
 		              $("#account").select();
 		              $("#password").val("");
-		              $(obj).attr("onclick","user_login(this)").text("登陆")
+		              $(obj).attr("onclick","user_login(this)").text("登陆");
 		               }else if(data=="fail"){
 		               $("#password").val();
 		               $("#account").select();
-		               $(obj).attr("onclick","user_login(this)").text("登陆")
+		               $(obj).attr("onclick","user_login(this)").text("登陆");
 		               loading("邮箱或者密码错误",4)
 		               }else if(data=="forbiden") {
-						loading("该用户禁止登录",4)
+						loading("该用户禁止登录",4);
 						 $("#password").val("");
-						 $(obj).attr("onclick","user_login(this)").text("登陆")
+						 $(obj).attr("onclick","user_login(this)").text("登陆");
 		                }else if(data=="nopermission"){
-		                  loading("用户没有【权限】",4)
-						 $(obj).attr("onclick","user_login(this)").text("登陆")
-						  $("#password").val("");
+		                  loading("用户没有【权限】",4);
+						 $(obj).attr("onclick","user_login(this)").text("登陆");
+						  
+		                }else if(data=="empLoginVerifyCode"){
+		                	 loading("验证码为空",4);
+		                	 $(obj).attr("onclick","user_login(this)").text("登陆");
+		                	 $("#password").val("");
+		                }else if(data=="unLoginVerifyCode"){
+		                	 loading("验证码错误",4);
+		                	 $(obj).attr("onclick","user_login(this)").text("登陆");
+		                	 $("#password").val("");
 		                }else{
 		                //原路访问
 		                var refer = document.referrer;
-		                window.location.href=isNotEmpty(refer)?refer:"${basePath}admin/content/list"
+		                window.location.href=isNotEmpty(refer)?refer:"${basePath}admin/content/list";
 		            }
 		         }
 	        },params);

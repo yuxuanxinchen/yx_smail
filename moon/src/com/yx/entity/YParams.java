@@ -33,8 +33,17 @@ public class YParams {
 	private Integer forbiden;
 	private Integer roleId;
 	private Integer rid;
+	private String loginVerifyCode;
 
 	
+	public String getLoginVerifyCode() {
+		return loginVerifyCode;
+	}
+
+	public void setLoginVerifyCode(String loginVerifyCode) {
+		this.loginVerifyCode = loginVerifyCode;
+	}
+
 	public Integer getRid() {
 		return rid;
 	}
