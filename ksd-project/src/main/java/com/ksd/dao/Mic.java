@@ -60,7 +60,7 @@ public class Mic {
 //		}
 			
 			
-		
+		//https://github.com/yuxuanxinchen/yx_smail.git
 		/*Á¬½ÓÃû*/
 //		 for (String name : db.getCollectionNames()) {
 //	            System.out.println("collectionName: " + name);
