@@ -223,20 +223,57 @@
    </#compress>
    
    
-   
+   <#import "button.ftl" as btn>
+   <@btn.button text="NIH" ></@btn.button>
    
    
    
    
    <#include "foot.ftl"/>
    
-   <script type="text/javascript">
-       window.onload = function(){
-          al();
-         function al(){
-           alert(1)
+  <script type="text/javascript">
+      
+        function al(){
+           
+            var data = {"str":"ISJIORERWE"}
+           
+           j_ajax({
+              url:"http://localhost:8812/ksd-project/t_ajax",
+              data:data,
+              type:"post",
+              success:function(data){
+             	 alert(data)
+              }
+            });
          }
-      }
+      
+      
+      function j_ajax(opts){
+    	 var xmlhttp;
+         if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+         }else{
+            xmlhttp = new ActiviXObject("Microsoft.XMLHTTP"); 
+         }
+         xmlhttp.open(opts.type,opts.url,true);
+         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         xmlhttp.onreadystatechange=function(){
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				opts.success(xmlhttp.responseText);
+		    }
+		  }
+         xmlhttp.send(subpData(opts.data));
+    };
+      
+      
+      function subpData(jsonobj){
+      var  str = "";
+      for(var prop in jsonobj){
+		str += prop + "=" +jsonobj[prop]+"&";
+		}
+		return str.substring(0,str.length-1);
+    };
+      
    
    </script>
    </body>

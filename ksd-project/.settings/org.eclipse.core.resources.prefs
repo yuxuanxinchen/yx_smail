@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/ksd/action/IndexController.java=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/button.ftl=UTF-8
 encoding//src/main/webapp/WEB-INF/pages/constant.ftl=UTF-8
 encoding//src/main/webapp/WEB-INF/pages/foot.ftl=UTF-8
 encoding//src/main/webapp/WEB-INF/pages/index.ftl=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/showdata.ftl=UTF-8
